@@ -101,6 +101,14 @@
       "duration": "4:01",
       "file": "New York/Drop the Beat.mp3",
       "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "ABC Simple Song(Faster)",
+      "artist": "",
+      "duration": "0:54",
+      "file": "New York/ABC simple song(faster).mp3",
+      "cover": ""
     }
   ]
 }
