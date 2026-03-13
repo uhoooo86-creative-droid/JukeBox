@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIGCAT ADMIN</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f0e8;
+  --surface: #fff;
+  --border: #d4c9b0;
+  --accent: #c0392b;
+  --gold: #e8c84a;
+  --text: #1a1a1a;
+  --muted: #888;
+  --muted2: #ccc;
+  --green: #27ae60;
+}
+
+body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; }
+
+header {
+  background: var(--text); padding: 18px 40px;
+  display: flex; align-items: baseline; gap: 14px;
+}
+
+.logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 6px; color: var(--gold); }
+.badge { font-size: 10px; letter-spacing: 3px; color: var(--accent); border: 1px solid var(--accent); padding: 3px 8px; }
+.back-link { margin-left: auto; font-size: 10px; letter-spacing: 2px; color: var(--muted); text-decoration: none; border: 1px solid #333; padding: 4px 10px; transition: all 0.15s; }
+.back-link:hover { border-color: var(--gold); color: var(--gold); }
+
+.main { max-width: 860px; margin: 0 auto; padding: 36px 24px; display: flex; flex-direction: column; gap: 24px; }
+
+.section { background: var(--surface); border: 2px solid var(--border); padding: 24px; }
+
+.sec-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px;
+  color: var(--accent); margin-bottom: 18px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+
+.badge-count { background: var(--accent); color: #fff; font-size: 11px; font-family: 'DM Mono', monospace; padding: 2px 8px; letter-spacing: 1px; }
+
+/* CITY SELECTOR */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.city-btn {
+  padding: 14px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-align: left;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.city-btn:hover { border-color: var(--accent); color: var(--text); }
+.city-btn.active { border-color: var(--accent); background: #fff5f5; color: var(--accent); }
+
+.city-btn-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--muted2);
+  transition: color 0.15s;
+}
+
+.city-btn.active .city-btn-num { color: var(--accent); }
+.city-btn:hover .city-btn-num { color: var(--accent); }
+
+.city-btn-name { font-size: 10px; letter-spacing: 1px; line-height: 1.3; }
+
+/* ALBUM INFO */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group.full { grid-column: 1/-1; }
+label { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+input[type="text"], input[type="month"] {
+  border: 1px solid var(--border); background: var(--bg);
+  padding: 9px 12px; font-family: 'DM Mono', monospace; font-size: 12px;
+  color: var(--text); outline: none; transition: border-color 0.15s; width: 100%;
+}
+input:focus { border-color: var(--accent); }
+
+/* DROPZONE */
+.dropzone {
+  border: 2px dashed var(--border); background: var(--bg);
+  padding: 40px 20px; text-align: center; cursor: pointer; transition: all 0.2s;
+}
+.dropzone:hover, .dropzone.drag-over { border-color: var(--accent); background: #fff8f8; }
+.dropzone.drag-over { transform: scale(1.005); }
+.drop-icon { font-size: 40px; display: block; margin-bottom: 10px; }
+.drop-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; margin-bottom: 6px; }
+.drop-sub { font-size: 10px; letter-spacing: 2px; color: var(--muted); }
+.drop-sub em { color: var(--accent); font-style: normal; text-decoration: underline; }
+#fileInput { display: none; }
+
+.folder-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.folder-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); white-space: nowrap; }
+.folder-input { border: 1px solid var(--border); background: var(--bg); padding: 7px 11px; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); outline: none; flex: 1; max-width: 260px; transition: border-color 0.15s; }
+.folder-input:focus { border-color: var(--accent); }
+
+/* TRACK TABLE */
+.track-table-head {
+  display: grid; grid-template-columns: 36px 1fr 130px 130px 72px 32px;
+  gap: 8px; padding: 0 8px 8px; font-size: 9px; letter-spacing: 2px; color: var(--muted);
+  border-bottom: 1px solid var(--border); margin-bottom: 4px;
+}
+
+.track-row {
+  display: grid; grid-template-columns: 36px 1fr 130px 130px 72px 32px;
+  gap: 8px; align-items: center; padding: 5px 8px;
+  border: 1px solid transparent; transition: background 0.1s;
+}
+.track-row:hover { background: var(--bg); border-color: var(--border); }
+.track-row.new-row { animation: si 0.2s ease; }
+@keyframes si { from { opacity:0; transform:translateY(-5px); } to { opacity:1; transform:translateY(0); } }
+
+.t-num { font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--muted2); text-align: center; }
+.t-input { border: 1px solid var(--border); background: var(--surface); padding: 6px 8px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); outline: none; width: 100%; transition: border-color 0.15s; }
+.t-input:focus { border-color: var(--accent); }
+.t-input.fname { background: #f0ede8; color: var(--muted); font-style: italic; cursor: default; }
+.del-btn { background: none; border: none; color: var(--muted2); cursor: pointer; font-size: 14px; transition: color 0.15s; text-align: center; padding: 4px; }
+.del-btn:hover { color: var(--accent); }
+
+.empty-state { text-align: center; padding: 28px; color: var(--muted); font-size: 11px; letter-spacing: 2px; }
+
+/* BUTTONS */
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.btn { padding: 10px 18px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border: 2px solid var(--text); background: none; color: var(--text); transition: all 0.15s; }
+.btn:hover { background: var(--text); color: var(--bg); }
+.btn-red { border-color: var(--accent); color: var(--accent); }
+.btn-red:hover { background: var(--accent); color: #fff; }
+.btn-green { border-color: var(--green); color: var(--green); }
+.btn-green:hover { background: var(--green); color: #fff; }
+.btn-muted { border-color: var(--muted2); color: var(--muted); }
+.btn-muted:hover { background: var(--muted2); color: #fff; }
+
+/* GITHUB */
+.gh-rows { display: flex; flex-direction: column; gap: 10px; }
+.gh-row { display: flex; align-items: center; gap: 10px; }
+.gh-lbl { font-size: 10px; letter-spacing: 2px; color: var(--muted); white-space: nowrap; width: 70px; flex-shrink: 0; }
+.gh-input { flex: 1; border: 1px solid var(--border); background: var(--bg); padding: 8px 11px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); outline: none; transition: border-color 0.15s; }
+.gh-input:focus { border-color: var(--accent); }
+.gh-token-wrap { position: relative; flex: 1; display: flex; }
+.gh-token-wrap input { flex: 1; border: 1px solid var(--border); background: var(--bg); padding: 8px 32px 8px 11px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); outline: none; width: 100%; transition: border-color 0.15s; }
+.gh-token-wrap input:focus { border-color: var(--accent); }
+.gh-eye { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; padding: 2px; }
+.gh-status { font-size: 11px; letter-spacing: 1px; padding: 9px 12px; border: 1px solid var(--border); background: var(--bg); display: none; }
+.gh-status.ok { border-color: var(--green); color: var(--green); display: block; }
+.gh-status.err { border-color: var(--accent); color: var(--accent); display: block; }
+.gh-status.loading { border-color: var(--gold); color: #b8960a; display: block; }
+
+/* OUTPUT */
+.output-box { background: #1a1a1a; color: #e8c84a; padding: 20px; font-size: 11px; line-height: 1.8; white-space: pre; overflow-x: auto; border: 2px solid #333; max-height: 300px; overflow-y: auto; display: none; margin-top: 16px; }
+.output-box.visible { display: block; }
+
+/* TOAST */
+.toast { position: fixed; bottom: 28px; right: 28px; background: var(--text); color: var(--gold); padding: 12px 20px; font-size: 11px; letter-spacing: 2px; transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 999; pointer-events: none; }
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 700px) {
+  .city-grid { grid-template-columns: repeat(3, 1fr); }
+  .track-table-head { display: none; }
+  .track-row { grid-template-columns: 1fr; gap: 6px; padding: 10px; border: 1px solid var(--border); margin-bottom: 6px; }
+  .form-grid { grid-template-columns: 1fr; }
+  header { padding: 14px 20px; }
+  .main { padding: 20px 14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">BIGCAT</div>
+  <div class="badge">ADMIN</div>
+  <a class="back-link" href="index.html">← PLAYER</a>
+</header>
+
+<div class="main">
+
+  <!-- 도시 선택 -->
+  <div class="section">
+    <div class="sec-title">도시 선택</div>
+    <div class="city-grid" id="cityGrid"></div>
+  </div>
+
+  <!-- 앨범 정보 -->
+  <div class="section">
+    <div class="sec-title">앨범 정보</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>앨범 제목</label>
+        <input type="text" id="albumTitle" placeholder="New York">
+      </div>
+      <div class="form-group">
+        <label>서브타이틀</label>
+        <input type="text" id="albumSubtitle" placeholder="월간 음악">
+      </div>
+      <div class="form-group">
+        <label>월 (YYYY-MM)</label>
+        <input type="month" id="albumMonth">
+      </div>
+      <div class="form-group">
+        <label>커버 이미지 경로 (선택)</label>
+        <input type="text" id="albumCover" placeholder="images/cover.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- 음원 파일 추가 -->
+  <div class="section">
+    <div class="sec-title">음원 파일 추가</div>
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+      <span class="drop-icon">🎵</span>
+      <div class="drop-title">MP3 파일을 드래그하세요</div>
+      <div class="drop-sub">또는 <em>클릭해서 파일 선택</em> · 여러 파일 한번에 가능</div>
+    </div>
+    <input type="file" id="fileInput" accept=".mp3,audio/*" multiple>
+    <div class="folder-row">
+      <div class="folder-label">폴더 경로</div>
+      <input type="text" class="folder-input" id="folderPath" placeholder="New York">
+      <div style="font-size:10px;color:var(--muted2);letter-spacing:1px">선택한 도시와 일치해야 합니다</div>
+    </div>
+  </div>
+
+  <!-- 트랙 목록 -->
+  <div class="section">
+    <div class="sec-title">
+      트랙 목록
+      <span class="badge-count" id="trackCountBadge">0</span>
+    </div>
+    <div class="track-table-head">
+      <div>#</div><div>곡 제목</div><div>아티스트</div><div>파일명</div><div>길이</div><div></div>
+    </div>
+    <div id="trackRows">
+      <div class="empty-state" id="emptyState">도시를 선택하고 파일을 드래그하세요 ↑</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="addEmpty()">+ 직접 추가</button>
+      <button class="btn btn-muted" onclick="clearAll()">전체 삭제</button>
+    </div>
+  </div>
+
+  <!-- GitHub 저장 -->
+  <div class="section">
+    <div class="sec-title">GitHub 직접 저장</div>
+    <div class="gh-rows">
+      <div class="gh-row">
+        <div class="gh-lbl">레포</div>
+        <input class="gh-input" id="ghRepo" value="uhoooo86-creative-droid/JukeBox">
+      </div>
+      <div class="gh-row">
+        <div class="gh-lbl">브랜치</div>
+        <input class="gh-input" id="ghBranch" value="main">
+      </div>
+      <div class="gh-row">
+        <div class="gh-lbl">파일 경로</div>
+        <input class="gh-input" id="ghPath" placeholder="New York/tracks.json">
+      </div>
+      <div class="gh-row">
+        <div class="gh-lbl">토큰</div>
+        <div class="gh-token-wrap">
+          <input type="password" id="ghToken" placeholder="ghp_xxxx...">
+          <button class="gh-eye" onclick="toggleToken()">👁</button>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:4px">
+        <button class="btn btn-green" onclick="pushToGitHub()">🚀 GitHub에 저장</button>
+        <button class="btn btn-red" onclick="generateJSON()">JSON 생성만</button>
+        <button class="btn btn-muted" onclick="copyJSON()" id="copyBtn" style="display:none">복사</button>
+      </div>
+      <div class="gh-status" id="ghStatus"></div>
+    </div>
+    <pre class="output-box" id="outputBox"></pre>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const CITIES = [
+  { id:'new-york',      name:'New York',               folder:'NEW YORK',                num:'01' },
+  { id:'texas',         name:'Texas',                  folder:'TEXAS',                   num:'02' },
+  { id:'harvard',       name:'Harvard',                folder:'HARVARD',                 num:'03' },
+  { id:'washington-dc', name:'Washington D.C.',        folder:'WASHINGTON D.C',          num:'04' },
+  { id:'san-francisco', name:'San Francisco',          folder:'SAN FRANCISCO',           num:'05' },
+  { id:'iowa',          name:'Iowa',                   folder:'IOWA',                    num:'06' },
+  { id:'new-orleans',   name:'New Orleans Jazz',       folder:'NEW ORLEANS JAZZ',        num:'07' },
+  { id:'florida',       name:'Florida! – Disney World',folder:'FLORIDA! – DISNEY WORLD', num:'08' },
+  { id:'vermont',       name:'Vermont',                folder:'VERMONT',                 num:'09' },
+  { id:'alaska',        name:'Alaska',                 folder:'ALASKA',                  num:'10' },
+  { id:'minnesota',     name:'Minnesota',              folder:'MINNESOTA',               num:'11' },
+  { id:'hollywood',     name:'Hollywood',              folder:'HOLLYWOOD',               num:'12' }
+];
+
+let rowCount = 0;
+let selectedCity = null;
+
+// ── CITY BUTTONS ─────────────────────────────────────────
+function renderCityBtns() {
+  document.getElementById('cityGrid').innerHTML = CITIES.map(c => `
+    <button class="city-btn" id="cbtn-${c.id}" onclick="selectCity('${c.id}')">
+      <div class="city-btn-num">${c.num}</div>
+      <div class="city-btn-name">${c.name}</div>
+    </button>
+  `).join('');
+}
+
+function selectCity(id) {
+  const city = CITIES.find(c => c.id === id);
+  if (!city) return;
+  selectedCity = city;
+
+  document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`cbtn-${id}`).classList.add('active');
+
+  document.getElementById('folderPath').value = city.folder;
+  document.getElementById('albumTitle').value = city.name;
+  document.getElementById('ghPath').value = `${city.folder}/tracks.json`;
+
+  // Load existing tracks
+  loadExistingTracks(city);
+  showToast(`${city.name} 선택됨`);
+}
+
+async function loadExistingTracks(city) {
+  try {
+    const r = await fetch(`${city.folder}/tracks.json?t=${Date.now()}`);
+    if (!r.ok) { clearRows(); return; }
+    const d = await r.json();
+
+    if (d.album) {
+      document.getElementById('albumTitle').value = d.album.title || city.name;
+      document.getElementById('albumSubtitle').value = d.album.subtitle || '';
+      document.getElementById('albumMonth').value = d.album.month || '';
+      document.getElementById('albumCover').value = d.album.cover || '';
+    }
+
+    clearRows();
+    (d.tracks || []).forEach(t => {
+      addRow({ title: t.title, artist: t.artist || '', file: t.file.split('/').pop(), duration: t.duration || '' });
+    });
+    showToast(`기존 트랙 ${d.tracks?.length || 0}개 불러옴`);
+  } catch { clearRows(); }
+}
+
+// ── DRAG & DROP ──────────────────────────────────────────
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+dropzone.addEventListener('drop', e => { e.preventDefault(); dropzone.classList.remove('drag-over'); handleFiles(Array.from(e.dataTransfer.files)); });
+fileInput.addEventListener('change', e => { handleFiles(Array.from(e.target.files)); fileInput.value = ''; });
+
+function handleFiles(files) {
+  const mp3s = files.filter(f => f.type.startsWith('audio/') || f.name.toLowerCase().endsWith('.mp3'));
+  if (!mp3s.length) { showToast('MP3 파일이 없어요'); return; }
+  mp3s.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+  mp3s.forEach(file => {
+    const id = addRow({ title: cleanTitle(file.name), file: file.name, artist: '', duration: '' });
+    const url = URL.createObjectURL(file);
+    const a = new Audio(url);
+    a.addEventListener('loadedmetadata', () => {
+      const s = Math.floor(a.duration);
+      const dur = `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+      const el = document.getElementById(`row-dur-${id}`);
+      if (el) el.value = dur;
+      URL.revokeObjectURL(url);
+    });
+  });
+  showToast(`🎵 ${mp3s.length}개 추가됨`);
+  updateCount();
+}
+
+function cleanTitle(fname) {
+  return fname
+    .replace(/\.mp3$/i, '')
+    .replace(/^\d+[\.\-\s]+/, '')
+    .replace(/^(NY|TX|DC|SF|LA|AK|MN)\s+/i, '')
+    .replace(/,(?=[^\s])/g, ', ')
+    .trim()
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// ── TRACK ROWS ───────────────────────────────────────────
+function addRow(data) {
+  rowCount++;
+  const n = rowCount;
+  const emptyState = document.getElementById('emptyState');
+  if (emptyState) emptyState.remove();
+  const rows = document.getElementById('trackRows');
+  const idx = rows.querySelectorAll('.track-row').length + 1;
+  const div = document.createElement('div');
+  div.className = 'track-row new-row';
+  div.id = `row-${n}`;
+  div.innerHTML = `
+    <div class="t-num">${String(idx).padStart(2,'0')}</div>
+    <input class="t-input" id="row-title-${n}" placeholder="곡 제목" value="${esc(data.title||'')}">
+    <input class="t-input" id="row-artist-${n}" placeholder="아티스트" value="${esc(data.artist||'')}">
+    <input class="t-input fname" id="row-fname-${n}" value="${esc(data.file||'')}" title="${esc(data.file||'')}" readonly>
+    <input class="t-input" id="row-dur-${n}" placeholder="0:00" value="${esc(data.duration||'')}" style="text-align:center">
+    <button class="del-btn" onclick="removeRow(${n})">✕</button>
+  `;
+  rows.appendChild(div);
+  renumber();
+  return n;
+}
+
+function addEmpty() { addRow({ title:'', file:'', artist:'', duration:'' }); updateCount(); }
+
+function removeRow(n) { document.getElementById(`row-${n}`)?.remove(); renumber(); updateCount(); }
+
+function renumber() {
+  document.querySelectorAll('#trackRows .track-row').forEach((r, i) => {
+    const el = r.querySelector('.t-num');
+    if (el) el.textContent = String(i+1).padStart(2,'0');
+  });
+}
+
+function clearRows() {
+  document.getElementById('trackRows').innerHTML = '<div class="empty-state" id="emptyState">도시를 선택하고 파일을 드래그하세요 ↑</div>';
+  updateCount();
+}
+
+function clearAll() { if (confirm('트랙 목록을 전부 지울까요?')) clearRows(); }
+
+function updateCount() {
+  document.getElementById('trackCountBadge').textContent = document.querySelectorAll('#trackRows .track-row').length;
+}
+
+function esc(s) { return (s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+// ── GENERATE JSON ────────────────────────────────────────
+function buildJSON() {
+  const folder = document.getElementById('folderPath').value.trim();
+  const album = {
+    title:    document.getElementById('albumTitle').value.trim() || 'Untitled',
+    subtitle: document.getElementById('albumSubtitle').value.trim() || '',
+    cover:    document.getElementById('albumCover').value.trim() || '',
+    month:    document.getElementById('albumMonth').value || ''
+  };
+  const tracks = [];
+  let id = 1;
+  document.querySelectorAll('#trackRows .track-row').forEach(row => {
+    const n = row.id.replace('row-','');
+    const title    = document.getElementById(`row-title-${n}`)?.value.trim();
+    const filename = document.getElementById(`row-fname-${n}`)?.value.trim();
+    if (!title && !filename) return;
+    const filePath = folder ? `${folder}/${filename}` : filename;
+    tracks.push({
+      id: id++,
+      title:    title || filename,
+      artist:   document.getElementById(`row-artist-${n}`)?.value.trim() || '',
+      duration: document.getElementById(`row-dur-${n}`)?.value.trim() || '',
+      file:     filePath,
+      cover:    ''
+    });
+  });
+  return JSON.stringify({ album, tracks }, null, 2);
+}
+
+function generateJSON() {
+  const json = buildJSON();
+  const box = document.getElementById('outputBox');
+  box.textContent = json;
+  box.classList.add('visible');
+  document.getElementById('copyBtn').style.display = 'inline-block';
+  showToast('JSON 생성 완료!');
+}
+
+function copyJSON() {
+  navigator.clipboard.writeText(document.getElementById('outputBox').textContent)
+    .then(() => showToast('복사됨 ✓'));
+}
+
+// ── GITHUB PUSH ──────────────────────────────────────────
+function toggleToken() {
+  const i = document.getElementById('ghToken');
+  i.type = i.type === 'password' ? 'text' : 'password';
+}
+
+window.addEventListener('load', () => {
+  const saved = sessionStorage.getItem('gh_token');
+  if (saved) document.getElementById('ghToken').value = saved;
+});
+
+async function pushToGitHub() {
+  const repo   = document.getElementById('ghRepo').value.trim();
+  const branch = document.getElementById('ghBranch').value.trim() || 'main';
+  const path   = document.getElementById('ghPath').value.trim();
+  const token  = document.getElementById('ghToken').value.trim();
+
+  if (!token) { setStatus('err', '❌ 토큰을 입력해주세요'); return; }
+  if (!path)  { setStatus('err', '❌ 파일 경로를 입력해주세요'); return; }
+  if (!selectedCity) { setStatus('err', '❌ 도시를 먼저 선택해주세요'); return; }
+
+  sessionStorage.setItem('gh_token', token);
+
+  const jsonContent = buildJSON();
+  setStatus('loading', '⏳ GitHub에 저장 중...');
+
+  try {
+    const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${encodeURIComponent(path)}?ref=${branch}`, {
+      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+
+    let sha = null;
+    if (getRes.ok) sha = (await getRes.json()).sha;
+
+    const body = {
+      message: `Update ${path} - ${new Date().toLocaleDateString('ko-KR')}`,
+      content: btoa(unescape(encodeURIComponent(jsonContent))),
+      branch
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${encodeURIComponent(path)}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (putRes.ok) {
+      setStatus('ok', `✅ ${path} 저장 완료! Pages 반영까지 1~2분 소요`);
+      showToast('🎉 저장 완료!');
+    } else {
+      const err = await putRes.json();
+      setStatus('err', `❌ ${err.message}`);
+    }
+  } catch (e) {
+    setStatus('err', `❌ 오류: ${e.message}`);
+  }
+}
+
+function setStatus(type, msg) {
+  const el = document.getElementById('ghStatus');
+  el.className = 'gh-status ' + type;
+  el.textContent = msg;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── INIT ─────────────────────────────────────────────────
+const today = new Date();
+document.getElementById('albumMonth').value = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+document.getElementById('albumSubtitle').value = '월간 음악';
+renderCityBtns();
+</script>
+</body>
+</html>
