@@ -1,0 +1,34 @@
+{
+  "album": {
+    "title": "Harvard",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "HARVARD Head Shoulder Organ(Long Ver)",
+      "artist": "",
+      "duration": "1:07",
+      "file": "Harvard/HARVARD Head shoulder Organ(long ver).mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "HARVARD Head Shoulder Organ(Short Ver)",
+      "artist": "",
+      "duration": "0:59",
+      "file": "Harvard/HARVARD Head shoulder Organ(short ver).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "HARVARD Organ Chant",
+      "artist": "",
+      "duration": "0:36",
+      "file": "Harvard/HARVARD Organ chant.mp3",
+      "cover": ""
+    }
+  ]
+}
