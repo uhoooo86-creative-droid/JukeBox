@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUKEBOX ADMIN</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f0e8;
+    --surface: #fff;
+    --border: #d4c9b0;
+    --accent: #c0392b;
+    --accent2: #e8c84a;
+    --text: #1a1a1a;
+    --muted: #888;
+    --muted2: #bbb;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--text);
+    padding: 20px 40px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 6px;
+    color: var(--accent2);
+  }
+
+  .admin-badge {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 8px;
+  }
+
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    padding: 28px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* FORM */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  input[type="text"],
+  input[type="month"],
+  input[type="number"],
+  input[type="file"] {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 10px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+
+  input:focus { border-color: var(--accent); }
+
+  input[type="file"] {
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  /* TRACK ROW */
+  .track-row {
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 12px;
+    position: relative;
+    background: var(--bg);
+  }
+
+  .track-row-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .track-num-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+
+  .remove-btn {
+    background: none;
+    border: 1px solid var(--muted2);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    font-family: 'DM Mono', monospace;
+    transition: all 0.15s;
+  }
+
+  .remove-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .file-info {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* BUTTONS */
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid var(--text);
+    background: none;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+
+  .btn:hover {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  .btn-primary {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-success {
+    border-color: #27ae60;
+    color: #27ae60;
+  }
+
+  .btn-success:hover {
+    background: #27ae60;
+    color: #fff;
+  }
+
+  /* OUTPUT */
+  .output-box {
+    background: #1a1a1a;
+    color: #e8c84a;
+    padding: 24px;
+    font-size: 12px;
+    line-height: 1.8;
+    white-space: pre;
+    overflow-x: auto;
+    border: 2px solid #333;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+  }
+
+  .output-box.visible { display: block; }
+
+  /* GUIDE */
+  .guide {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  .guide strong {
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--accent);
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--text);
+    color: var(--accent2);
+    padding: 14px 24px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 999;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+    header { padding: 16px 20px; }
+    .main { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">JUKEBOX</div>
+  <div class="admin-badge">ADMIN</div>
+</header>
+
+<div class="main">
+
+  <!-- 사용 가이드 -->
+  <div class="section">
+    <div class="section-title">사용 방법</div>
+    <div class="guide">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>아래에서 <strong>앨범 정보</strong>와 <strong>트랙 목록</strong>을 입력합니다.<br>음원 파일명은 실제 업로드할 파일명과 정확히 일치해야 합니다.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div><strong>JSON 생성</strong> 버튼으로 tracks.json 내용을 생성합니다.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>생성된 JSON을 복사해서 <strong>tracks.json 파일에 덮어쓰고</strong>, 음원 파일들은 <strong>audio/ 폴더</strong>에 넣은 뒤 GitHub에 push합니다.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>GitHub Pages가 자동으로 반영합니다. 🎉</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 앨범 정보 -->
+  <div class="section">
+    <div class="section-title">앨범 정보</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>앨범 제목</label>
+        <input type="text" id="albumTitle" placeholder="March 2026">
+      </div>
+      <div class="form-group">
+        <label>서브타이틀</label>
+        <input type="text" id="albumSubtitle" placeholder="월간 음악">
+      </div>
+      <div class="form-group">
+        <label>월 (YYYY-MM)</label>
+        <input type="month" id="albumMonth">
+      </div>
+      <div class="form-group">
+        <label>커버 이미지 경로 (선택)</label>
+        <input type="text" id="albumCover" placeholder="images/cover-2026-03.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- 트랙 목록 -->
+  <div class="section">
+    <div class="section-title">트랙 목록</div>
+    <div id="trackRows"></div>
+    <div class="btn-row">
+      <button class="btn" onclick="addTrack()">+ 트랙 추가</button>
+    </div>
+  </div>
+
+  <!-- JSON 생성 -->
+  <div class="section">
+    <div class="section-title">JSON 생성</div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="generateJSON()">JSON 생성</button>
+      <button class="btn btn-success" onclick="copyJSON()" id="copyBtn" style="display:none">클립보드 복사</button>
+      <button class="btn" onclick="downloadJSON()" id="dlBtn" style="display:none">tracks.json 다운로드</button>
+    </div>
+    <div style="margin-top: 20px;">
+      <pre class="output-box" id="outputBox"></pre>
+    </div>
+  </div>
+
+  <!-- 파일 구조 가이드 -->
+  <div class="section">
+    <div class="section-title">GitHub 폴더 구조</div>
+    <pre style="font-size:12px; line-height:2; color: var(--muted); background: var(--bg); padding: 20px; border: 1px solid var(--border);">
+your-repo/
+├── index.html          ← 메인 플레이어
+├── admin.html          ← 관리자 페이지
+├── tracks.json         ← 음원 목록 (매월 업데이트)
+└── audio/
+    ├── track1.mp3
+    ├── track2.mp3
+    └── ...
+    </pre>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let trackCount = 0;
+
+function addTrack(data = {}) {
+  trackCount++;
+  const n = trackCount;
+  const div = document.createElement('div');
+  div.className = 'track-row';
+  div.id = `track-row-${n}`;
+  div.innerHTML = `
+    <div class="track-row-header">
+      <div class="track-num-label">TRACK ${String(n).padStart(2, '0')}</div>
+      <button class="remove-btn" onclick="removeTrack(${n})">× 삭제</button>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>곡 제목 *</label>
+        <input type="text" id="t${n}-title" placeholder="곡 제목" value="${data.title || ''}">
+      </div>
+      <div class="form-group">
+        <label>아티스트 *</label>
+        <input type="text" id="t${n}-artist" placeholder="아티스트명" value="${data.artist || ''}">
+      </div>
+      <div class="form-group">
+        <label>음원 파일명 * (audio/ 폴더 기준)</label>
+        <input type="text" id="t${n}-file" placeholder="track${n}.mp3" value="${data.file || ''}">
+      </div>
+      <div class="form-group">
+        <label>길이 (선택)</label>
+        <input type="text" id="t${n}-duration" placeholder="3:24" value="${data.duration || ''}">
+      </div>
+      <div class="form-group full">
+        <label>커버 이미지 경로 (선택, 없으면 앨범 커버 사용)</label>
+        <input type="text" id="t${n}-cover" placeholder="images/track${n}.jpg" value="${data.cover || ''}">
+      </div>
+    </div>
+  `;
+  document.getElementById('trackRows').appendChild(div);
+}
+
+function removeTrack(n) {
+  const el = document.getElementById(`track-row-${n}`);
+  if (el) el.remove();
+}
+
+function generateJSON() {
+  const album = {
+    title: document.getElementById('albumTitle').value || 'Untitled',
+    subtitle: document.getElementById('albumSubtitle').value || '',
+    cover: document.getElementById('albumCover').value || '',
+    month: document.getElementById('albumMonth').value || ''
+  };
+
+  const rows = document.querySelectorAll('.track-row');
+  const tracks = [];
+  let id = 1;
+
+  rows.forEach(row => {
+    const n = row.id.replace('track-row-', '');
+    const title = document.getElementById(`t${n}-title`)?.value.trim();
+    const artist = document.getElementById(`t${n}-artist`)?.value.trim();
+    const file = document.getElementById(`t${n}-file`)?.value.trim();
+
+    if (!title || !file) return;
+
+    tracks.push({
+      id: id++,
+      title,
+      artist: artist || '',
+      duration: document.getElementById(`t${n}-duration`)?.value.trim() || '',
+      file: `audio/${file.replace(/^audio\//, '')}`,
+      cover: document.getElementById(`t${n}-cover`)?.value.trim() || ''
+    });
+  });
+
+  const result = JSON.stringify({ album, tracks }, null, 2);
+  const box = document.getElementById('outputBox');
+  box.textContent = result;
+  box.classList.add('visible');
+
+  document.getElementById('copyBtn').style.display = 'inline-block';
+  document.getElementById('dlBtn').style.display = 'inline-block';
+
+  showToast('JSON 생성 완료!');
+  box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyJSON() {
+  const text = document.getElementById('outputBox').textContent;
+  navigator.clipboard.writeText(text).then(() => showToast('클립보드에 복사됐어요'));
+}
+
+function downloadJSON() {
+  const text = document.getElementById('outputBox').textContent;
+  const blob = new Blob([text], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'tracks.json';
+  a.click();
+  showToast('다운로드 시작!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// 기본 트랙 3개로 시작
+const today = new Date();
+document.getElementById('albumMonth').value = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+document.getElementById('albumTitle').value = today.toLocaleString('en', { month: 'long' }) + ' ' + today.getFullYear();
+document.getElementById('albumSubtitle').value = '월간 음악';
+
+addTrack({ title: '', file: 'track1.mp3' });
+addTrack({ title: '', file: 'track2.mp3' });
+addTrack({ title: '', file: 'track3.mp3' });
+</script>
+</body>
+</html>

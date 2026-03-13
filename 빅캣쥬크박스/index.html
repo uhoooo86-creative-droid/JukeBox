@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUKEBOX</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111;
+    --border: #222;
+    --accent: #e8c84a;
+    --accent2: #c0392b;
+    --text: #e8e4dc;
+    --muted: #555;
+    --active-bg: #1a1a0e;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* SCANLINE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding: 24px 40px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    line-height: 1;
+    text-shadow: 3px 3px 0 var(--accent2);
+  }
+
+  .month-badge {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+  }
+
+  /* MAIN LAYOUT */
+  .layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    min-height: calc(100vh - 82px);
+  }
+
+  /* LEFT PANEL - ALBUM ART + NOW PLAYING */
+  .left-panel {
+    border-right: 2px solid var(--border);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: sticky;
+    top: 82px;
+    height: calc(100vh - 82px);
+    overflow: hidden;
+  }
+
+  .album-cover {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .album-cover img.loaded { display: block; }
+
+  .album-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .vinyl {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #1a1a1a 0deg,
+      #2a2a2a 20deg,
+      #1a1a1a 40deg,
+      #2a2a2a 60deg,
+      #1a1a1a 80deg,
+      #2a2a2a 100deg,
+      #1a1a1a 120deg,
+      #2a2a2a 140deg,
+      #1a1a1a 160deg,
+      #2a2a2a 180deg,
+      #1a1a1a 200deg,
+      #2a2a2a 220deg,
+      #1a1a1a 240deg,
+      #2a2a2a 260deg,
+      #1a1a1a 280deg,
+      #2a2a2a 300deg,
+      #1a1a1a 320deg,
+      #2a2a2a 340deg,
+      #1a1a1a 360deg
+    );
+    position: relative;
+    animation: spin 4s linear infinite paused;
+  }
+
+  .vinyl.playing { animation-play-state: running; }
+
+  .vinyl::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .now-playing-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .now-playing-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    line-height: 1.1;
+    word-break: break-word;
+  }
+
+  .now-playing-artist {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+
+  /* PROGRESS */
+  .progress-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: var(--border);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+
+  .time-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* CONTROLS */
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .ctrl-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.15s;
+    padding: 8px;
+    font-family: inherit;
+    line-height: 1;
+  }
+
+  .ctrl-btn:hover { color: var(--text); }
+
+  .play-btn {
+    width: 56px;
+    height: 56px;
+    border: 2px solid var(--accent);
+    background: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+
+  .play-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  /* VOLUME */
+  .volume-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .volume-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    cursor: pointer;
+  }
+
+  /* RIGHT PANEL - TRACK LIST */
+  .right-panel {
+    padding: 40px;
+  }
+
+  .album-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .album-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 4px;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .album-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .track-count {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+
+  /* TRACK LIST */
+  .track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .track-item {
+    display: grid;
+    grid-template-columns: 40px 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .track-item:hover {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .track-item.active {
+    background: var(--active-bg);
+    border-color: var(--accent);
+  }
+
+  .track-item.active .track-num { color: var(--accent); }
+  .track-item.active .track-title { color: var(--accent); }
+
+  .track-num {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    font-style: italic;
+  }
+
+  .track-info { min-width: 0; }
+
+  .track-title {
+    font-size: 15px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+  }
+
+  .track-artist {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+
+  .track-duration {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .playing-indicator {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 16px;
+    opacity: 0;
+  }
+
+  .track-item.active .playing-indicator { opacity: 1; }
+
+  .bar {
+    width: 3px;
+    background: var(--accent);
+    border-radius: 1px;
+    animation: bounce 0.8s ease-in-out infinite alternate;
+  }
+
+  .bar:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+  .bar:nth-child(1) { animation-delay: 0s; height: 8px; }
+  .bar:nth-child(3) { animation-delay: 0.4s; height: 10px; }
+
+  .bar.paused { animation-play-state: paused; }
+
+  @keyframes bounce {
+    from { transform: scaleY(0.4); }
+    to { transform: scaleY(1); }
+  }
+
+  /* LOADING STATE */
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .layout { grid-template-columns: 1fr; }
+    .left-panel {
+      position: static;
+      height: auto;
+      padding: 24px;
+      border-right: none;
+      border-bottom: 2px solid var(--border);
+    }
+    .album-cover { max-width: 280px; align-self: center; }
+    .right-panel { padding: 24px; }
+    header { padding: 16px 24px; }
+    .logo { font-size: 36px; }
+    .album-title { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">JUKEBOX</div>
+  <div class="month-badge" id="monthBadge">—</div>
+</header>
+
+<div class="layout">
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <div class="album-cover" id="albumCover">
+      <img id="coverImg" alt="cover">
+      <div class="album-placeholder" id="albumPlaceholder">
+        <div class="vinyl" id="vinyl"></div>
+        <div class="now-playing-label">vinyl</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="now-playing-label">NOW PLAYING</div>
+      <div class="now-playing-title" id="nowTitle">—</div>
+      <div class="now-playing-artist" id="nowArtist">—</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="time-row">
+        <span id="timeElapsed">0:00</span>
+        <span id="timeTotal">0:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="ctrl-btn" id="prevBtn" title="이전">⏮</button>
+      <button class="play-btn" id="playBtn">▶</button>
+      <button class="ctrl-btn" id="nextBtn" title="다음">⏭</button>
+    </div>
+
+    <div class="volume-row">
+      <span>🔈</span>
+      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.8">
+      <span>🔊</span>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="album-header">
+      <div>
+        <div class="album-title" id="albumTitle">—</div>
+        <div class="album-subtitle" id="albumSubtitle">월간 음악</div>
+      </div>
+      <div class="track-count" id="trackCount"></div>
+    </div>
+    <div class="track-list" id="trackList">
+      <div class="loading">LOADING . . .</div>
+    </div>
+  </div>
+</div>
+
+<audio id="audio"></audio>
+
+<script>
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('playBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const progressFill = document.getElementById('progressFill');
+const progressBar = document.getElementById('progressBar');
+const timeElapsed = document.getElementById('timeElapsed');
+const timeTotal = document.getElementById('timeTotal');
+const volumeSlider = document.getElementById('volumeSlider');
+const vinyl = document.getElementById('vinyl');
+
+let tracks = [];
+let currentIndex = 0;
+let isPlaying = false;
+
+// FORMAT TIME
+function fmt(s) {
+  if (isNaN(s)) return '0:00';
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return `${m}:${sec.toString().padStart(2, '0')}`;
+}
+
+// LOAD tracks.json
+async function loadTracks() {
+  try {
+    const res = await fetch('tracks.json?t=' + Date.now());
+    const data = await res.json();
+
+    // Album info
+    document.getElementById('albumTitle').textContent = data.album.title || '—';
+    document.getElementById('albumSubtitle').textContent = data.album.subtitle || '';
+    document.getElementById('monthBadge').textContent = data.album.month || '';
+    document.getElementById('trackCount').textContent = `${data.tracks.length} TRACKS`;
+
+    if (data.album.cover) {
+      const img = document.getElementById('coverImg');
+      img.src = data.album.cover;
+      img.onload = () => {
+        img.classList.add('loaded');
+        document.getElementById('albumPlaceholder').style.display = 'none';
+      };
+    }
+
+    tracks = data.tracks;
+    renderTrackList();
+    selectTrack(0, false);
+  } catch (e) {
+    document.getElementById('trackList').innerHTML = '<div class="loading">tracks.json 을 찾을 수 없습니다</div>';
+  }
+}
+
+// RENDER TRACK LIST
+function renderTrackList() {
+  const list = document.getElementById('trackList');
+  list.innerHTML = tracks.map((t, i) => `
+    <div class="track-item" id="track-${i}" onclick="selectTrack(${i}, true)">
+      <div class="track-num">${String(i + 1).padStart(2, '0')}</div>
+      <div class="track-info">
+        <div class="track-title">${t.title}</div>
+        <div class="track-artist">${t.artist}</div>
+      </div>
+      <div class="playing-indicator">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="track-duration">${t.duration || ''}</div>
+    </div>
+  `).join('');
+}
+
+// SELECT TRACK
+function selectTrack(index, play) {
+  document.querySelectorAll('.track-item').forEach(el => el.classList.remove('active'));
+  currentIndex = index;
+  const t = tracks[index];
+  if (!t) return;
+
+  document.getElementById(`track-${index}`).classList.add('active');
+  document.getElementById('nowTitle').textContent = t.title;
+  document.getElementById('nowArtist').textContent = t.artist;
+
+  // update bars
+  document.querySelectorAll('.bar').forEach(b => b.classList.toggle('paused', !play));
+
+  audio.src = t.file;
+  audio.volume = parseFloat(volumeSlider.value);
+
+  if (play) {
+    audio.play().then(() => {
+      isPlaying = true;
+      playBtn.textContent = '⏸';
+      vinyl.classList.add('playing');
+      document.querySelectorAll(`#track-${index} .bar`).forEach(b => b.classList.remove('paused'));
+    }).catch(() => {});
+  } else {
+    isPlaying = false;
+    playBtn.textContent = '▶';
+    vinyl.classList.remove('playing');
+  }
+}
+
+// PLAY/PAUSE
+playBtn.addEventListener('click', () => {
+  if (!tracks.length) return;
+  if (isPlaying) {
+    audio.pause();
+    isPlaying = false;
+    playBtn.textContent = '▶';
+    vinyl.classList.remove('playing');
+    document.querySelectorAll(`#track-${currentIndex} .bar`).forEach(b => b.classList.add('paused'));
+  } else {
+    if (!audio.src) selectTrack(currentIndex, true);
+    else audio.play().then(() => {
+      isPlaying = true;
+      playBtn.textContent = '⏸';
+      vinyl.classList.add('playing');
+      document.querySelectorAll(`#track-${currentIndex} .bar`).forEach(b => b.classList.remove('paused'));
+    });
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (!tracks.length) return;
+  selectTrack((currentIndex - 1 + tracks.length) % tracks.length, isPlaying);
+});
+
+nextBtn.addEventListener('click', () => {
+  if (!tracks.length) return;
+  selectTrack((currentIndex + 1) % tracks.length, isPlaying);
+});
+
+// AUTO NEXT
+audio.addEventListener('ended', () => {
+  selectTrack((currentIndex + 1) % tracks.length, true);
+});
+
+// PROGRESS
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  const pct = (audio.currentTime / audio.duration) * 100;
+  progressFill.style.width = pct + '%';
+  timeElapsed.textContent = fmt(audio.currentTime);
+  timeTotal.textContent = fmt(audio.duration);
+});
+
+progressBar.addEventListener('click', e => {
+  if (!audio.duration) return;
+  const rect = progressBar.getBoundingClientRect();
+  audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+});
+
+volumeSlider.addEventListener('input', () => {
+  audio.volume = parseFloat(volumeSlider.value);
+});
+
+loadTracks();
+</script>
+</body>
+</html>
