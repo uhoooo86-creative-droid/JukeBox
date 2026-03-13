@@ -1,0 +1,106 @@
+{
+  "album": {
+    "title": "New York",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "6Q",
+      "artist": "NY",
+      "duration": "0:28",
+      "file": "New York/00. NY 6Q.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (pause)",
+      "artist": "NY",
+      "duration": "1:17",
+      "file": "New York/01. NY Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "We Are Going to America",
+      "artist": "NY",
+      "duration": "1:00",
+      "file": "New York/03. NY we are going to America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From",
+      "artist": "NY",
+      "duration": "0:21",
+      "file": "New York/02. NY Where are you from.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Empire State Building",
+      "artist": "NY",
+      "duration": "0:30",
+      "file": "New York/04. NY Empire-state Building .mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "Statue of Liberty",
+      "artist": "NY",
+      "duration": "0:33",
+      "file": "New York/04. NY Statue of Liberty.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Count 1-10",
+      "artist": "NY",
+      "duration": "0:15",
+      "file": "New York/05. NY Count 1-10.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Countdown 100-0",
+      "artist": "NY",
+      "duration": "0:39",
+      "file": "New York/06. NY Countdown 100-0.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "ABC Song",
+      "artist": "NY",
+      "duration": "2:32",
+      "file": "New York/00. NY ABCsong.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Hello",
+      "artist": "NY",
+      "duration": "0:18",
+      "file": "New York/01. NY Hello.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "Go & Stop (Shopping)",
+      "artist": "NY",
+      "duration": "2:05",
+      "file": "New York/07. NY Go & Stop(shopping).mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "I Love You",
+      "artist": "NY",
+      "duration": "1:01",
+      "file": "New York/08. NY I love you.mp3",
+      "cover": ""
+    }
+  ]
+}
