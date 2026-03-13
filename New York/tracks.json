@@ -93,6 +93,14 @@
       "duration": "1:01",
       "file": "New York/08. NY I love you.mp3",
       "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "Drop The Beat",
+      "artist": "",
+      "duration": "4:01",
+      "file": "New York/Drop the Beat.mp3",
+      "cover": ""
     }
   ]
 }
