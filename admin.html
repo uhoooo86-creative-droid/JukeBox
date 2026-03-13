@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUKEBOX ADMIN</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f0e8;
+    --surface: #fff;
+    --border: #d4c9b0;
+    --accent: #c0392b;
+    --accent2: #e8c84a;
+    --text: #1a1a1a;
+    --muted: #888;
+    --muted2: #ccc;
+    --green: #27ae60;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--text);
+    padding: 20px 40px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 6px;
+    color: var(--accent2);
+  }
+
+  .admin-badge {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 8px;
+  }
+
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .section {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    padding: 28px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  input[type="text"],
+  input[type="month"] {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 10px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+
+  input:focus { border-color: var(--accent); }
+
+  /* DROPZONE */
+  .dropzone {
+    border: 2px dashed var(--border);
+    background: var(--bg);
+    padding: 52px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .dropzone:hover { border-color: var(--accent); background: #fff8f8; }
+
+  .dropzone.drag-over {
+    border-color: var(--accent);
+    background: #fff0f0;
+    transform: scale(1.01);
+  }
+
+  .drop-icon {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 14px;
+    transition: transform 0.2s;
+  }
+
+  .dropzone.drag-over .drop-icon { transform: scale(1.15) rotate(-5deg); }
+
+  .drop-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .drop-sub {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+
+  .drop-sub em { color: var(--accent); font-style: normal; text-decoration: underline; }
+
+  #fileInput { display: none; }
+
+  /* FOLDER ROW */
+  .folder-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .folder-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .folder-input {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 8px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    flex: 1;
+    max-width: 280px;
+    transition: border-color 0.15s;
+  }
+
+  .folder-input:focus { border-color: var(--accent); }
+
+  .folder-hint {
+    font-size: 10px;
+    color: var(--muted2);
+    letter-spacing: 1px;
+  }
+
+  /* TRACK TABLE */
+  .track-table-head {
+    display: grid;
+    grid-template-columns: 40px 1fr 140px 140px 76px 36px;
+    gap: 10px;
+    padding: 0 10px 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+
+  .track-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 140px 140px 76px 36px;
+    gap: 10px;
+    align-items: center;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    transition: background 0.1s;
+  }
+
+  .track-row:hover { background: var(--bg); border-color: var(--border); }
+
+  .track-row.new-row { animation: slideIn 0.25s ease; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .track-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--muted2);
+    text-align: center;
+  }
+
+  .track-input {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 6px 9px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    width: 100%;
+    transition: border-color 0.15s;
+  }
+
+  .track-input:focus { border-color: var(--accent); }
+
+  .track-input.filename {
+    background: #f0ede8;
+    color: var(--muted);
+    font-size: 11px;
+    font-style: italic;
+    cursor: default;
+  }
+
+  .del-btn {
+    background: none;
+    border: none;
+    color: var(--muted2);
+    cursor: pointer;
+    font-size: 15px;
+    transition: color 0.15s;
+    text-align: center;
+    padding: 4px;
+  }
+
+  .del-btn:hover { color: var(--accent); }
+
+  .empty-state {
+    text-align: center;
+    padding: 36px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  /* COUNT BADGE */
+  .count-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    padding: 2px 9px;
+    letter-spacing: 1px;
+  }
+
+  /* BUTTONS */
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid var(--text);
+    background: none;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+
+  .btn:hover { background: var(--text); color: var(--bg); }
+  .btn-primary { border-color: var(--accent); color: var(--accent); }
+  .btn-primary:hover { background: var(--accent); color: #fff; }
+  .btn-success { border-color: var(--green); color: var(--green); }
+  .btn-success:hover { background: var(--green); color: #fff; }
+  .btn-muted { border-color: var(--muted2); color: var(--muted); }
+  .btn-muted:hover { background: var(--muted2); color: #fff; }
+
+  /* OUTPUT */
+  .output-box {
+    background: #1a1a1a;
+    color: #e8c84a;
+    padding: 24px;
+    font-size: 12px;
+    line-height: 1.8;
+    white-space: pre;
+    overflow-x: auto;
+    border: 2px solid #333;
+    max-height: 360px;
+    overflow-y: auto;
+    display: none;
+    margin-top: 20px;
+  }
+
+  .output-box.visible { display: block; }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--text);
+    color: var(--accent2);
+    padding: 14px 24px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 999;
+    pointer-events: none;
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  @media (max-width: 700px) {
+    .track-table-head { display: none; }
+    .track-row { grid-template-columns: 1fr; gap: 8px; padding: 12px; border: 1px solid var(--border); margin-bottom: 8px; }
+    header { padding: 16px 20px; }
+    .main { padding: 24px 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .folder-row { flex-wrap: wrap; }
+    .folder-hint { display: none; }
+  }
+
+  /* GITHUB PUSH */
+  .gh-config {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gh-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .gh-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .gh-input {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 9px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .gh-input:focus { border-color: var(--accent); }
+
+  .gh-token-wrap {
+    position: relative;
+    flex: 1;
+    display: flex;
+  }
+
+  .gh-token-wrap input {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 9px 36px 9px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+
+  .gh-token-wrap input:focus { border-color: var(--accent); }
+
+  .gh-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .gh-status {
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    display: none;
+  }
+
+  .gh-status.success { border-color: var(--green); color: var(--green); display: block; }
+  .gh-status.error { border-color: var(--accent); color: var(--accent); display: block; }
+  .gh-status.loading { border-color: var(--accent2); color: var(--accent2); display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">JUKEBOX</div>
+  <div class="admin-badge">ADMIN</div>
+</header>
+
+<div class="main">
+
+  <!-- 앨범 정보 -->
+  <div class="section">
+    <div class="section-title">앨범 정보</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>앨범 제목</label>
+        <input type="text" id="albumTitle" placeholder="New York">
+      </div>
+      <div class="form-group">
+        <label>서브타이틀</label>
+        <input type="text" id="albumSubtitle" placeholder="월간 음악">
+      </div>
+      <div class="form-group">
+        <label>월 (YYYY-MM)</label>
+        <input type="month" id="albumMonth">
+      </div>
+      <div class="form-group">
+        <label>커버 이미지 경로 (선택)</label>
+        <input type="text" id="albumCover" placeholder="images/cover.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- 드래그앤드롭 -->
+  <div class="section">
+    <div class="section-title">음원 파일 추가</div>
+
+    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+      <span class="drop-icon">🎵</span>
+      <div class="drop-title">MP3 파일을 여기에 드래그하세요</div>
+      <div class="drop-sub">또는 <em>클릭해서 파일 선택</em> &nbsp;·&nbsp; 여러 파일 한번에 가능</div>
+    </div>
+    <input type="file" id="fileInput" accept=".mp3,audio/*" multiple>
+
+    <div class="folder-row">
+      <div class="folder-label">폴더 경로</div>
+      <input type="text" class="folder-input" id="folderPath" placeholder="New York" value="New York">
+      <div class="folder-hint">음원 파일이 저장된 폴더명 → tracks.json의 file 경로에 반영됩니다</div>
+    </div>
+  </div>
+
+  <!-- 트랙 목록 -->
+  <div class="section">
+    <div class="section-title">
+      트랙 목록
+      <span class="count-badge" id="trackCountBadge">0</span>
+    </div>
+
+    <div class="track-table-head">
+      <div>#</div>
+      <div>곡 제목</div>
+      <div>아티스트</div>
+      <div>파일명</div>
+      <div>길이</div>
+      <div></div>
+    </div>
+
+    <div id="trackRows">
+      <div class="empty-state" id="emptyState">위에서 파일을 드래그하면 자동으로 추가돼요 ↑</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="addEmptyTrack()">+ 직접 추가</button>
+      <button class="btn btn-muted" onclick="clearAll()">전체 삭제</button>
+    </div>
+  </div>
+
+
+  <!-- GitHub 직접 저장 -->
+  <div class="section">
+    <div class="section-title">GitHub 직접 저장</div>
+    <div class="gh-config">
+      <div class="gh-row">
+        <div class="gh-label">레포</div>
+        <input class="gh-input" id="ghRepo" value="uhoooo86-creative-droid/JukeBox" placeholder="username/repo">
+      </div>
+      <div class="gh-row">
+        <div class="gh-label">브랜치</div>
+        <input class="gh-input" id="ghBranch" value="main" placeholder="main">
+      </div>
+      <div class="gh-row">
+        <div class="gh-label">파일 경로</div>
+        <input class="gh-input" id="ghPath" value="tracks.json" placeholder="tracks.json 또는 폴더/tracks.json">
+      </div>
+      <div class="gh-row">
+        <div class="gh-label">토큰</div>
+        <div class="gh-token-wrap">
+          <input type="password" id="ghToken" placeholder="ghp_xxxx... (이 페이지에만 저장됨)">
+          <button class="gh-eye" onclick="toggleToken()" title="보기/숨기기">👁</button>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:4px">
+        <button class="btn btn-success" onclick="pushToGitHub()">🚀 GitHub에 저장</button>
+      </div>
+      <div class="gh-status" id="ghStatus"></div>
+    </div>
+  </div>
+
+  <!-- JSON 생성 -->
+  <div class="section">
+    <div class="section-title">JSON 생성 및 다운로드</div>
+    <div class="btn-row" style="margin-top:0">
+      <button class="btn btn-primary" onclick="generateJSON()">JSON 생성</button>
+      <button class="btn btn-success" onclick="copyJSON()" id="copyBtn" style="display:none">클립보드 복사</button>
+      <button class="btn" onclick="downloadJSON()" id="dlBtn" style="display:none">tracks.json 다운로드</button>
+    </div>
+    <pre class="output-box" id="outputBox"></pre>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let rowCount = 0;
+
+// ── DRAG & DROP ──────────────────────────────────
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+dropzone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropzone.classList.remove('drag-over');
+  handleFiles(Array.from(e.dataTransfer.files));
+});
+fileInput.addEventListener('change', e => {
+  handleFiles(Array.from(e.target.files));
+  fileInput.value = '';
+});
+
+function handleFiles(files) {
+  const mp3s = files.filter(f => f.type.startsWith('audio/') || f.name.toLowerCase().endsWith('.mp3'));
+  if (!mp3s.length) { showToast('MP3 파일이 없어요'); return; }
+
+  // 파일명 기준 정렬 (숫자 인식)
+  mp3s.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+
+  mp3s.forEach(file => {
+    const id = addTrackFromFile(file);
+    // 실제 재생 시간 자동 추출
+    const url = URL.createObjectURL(file);
+    const audio = new Audio(url);
+    audio.addEventListener('loadedmetadata', () => {
+      const total = Math.floor(audio.duration);
+      const m = Math.floor(total / 60);
+      const s = total % 60;
+      const durInput = document.getElementById(`row-dur-${id}`);
+      if (durInput) durInput.value = `${m}:${s.toString().padStart(2,'0')}`;
+      URL.revokeObjectURL(url);
+    });
+  });
+
+  showToast(`🎵 ${mp3s.length}개 파일 추가됨`);
+  updateCount();
+}
+
+// ── TITLE CLEANUP ─────────────────────────────────
+function cleanTitle(filename) {
+  return filename
+    .replace(/\.mp3$/i, '')          // 확장자
+    .replace(/^\d+[\.\-\s]+/, '')    // 앞 번호 (00. / 01- 등)
+    .replace(/^NY\s+/i, '')          // "NY " 접두어
+    .replace(/,(?=[^\s])/g, ', ')    // 쉼표 뒤 공백
+    .trim()
+    .replace(/\b\w/g, c => c.toUpperCase()); // 타이틀케이스
+}
+
+// ── ADD ROW FROM FILE ─────────────────────────────
+function addTrackFromFile(file) {
+  return addTrackRow({
+    title: cleanTitle(file.name),
+    file: file.name,
+    artist: '',
+    duration: ''
+  });
+}
+
+function addEmptyTrack() {
+  addTrackRow({ title: '', file: '', artist: '', duration: '' });
+  updateCount();
+}
+
+function addTrackRow(data) {
+  rowCount++;
+  const n = rowCount;
+
+  const emptyState = document.getElementById('emptyState');
+  if (emptyState) emptyState.remove();
+
+  const rows = document.getElementById('trackRows');
+  const idx = rows.querySelectorAll('.track-row').length + 1;
+
+  const div = document.createElement('div');
+  div.className = 'track-row new-row';
+  div.id = `row-${n}`;
+  div.innerHTML = `
+    <div class="track-num">${String(idx).padStart(2,'0')}</div>
+    <input class="track-input" id="row-title-${n}" placeholder="곡 제목" value="${esc(data.title)}">
+    <input class="track-input" id="row-artist-${n}" placeholder="아티스트" value="${esc(data.artist)}">
+    <input class="track-input filename" id="row-filename-${n}" value="${esc(data.file)}" title="${esc(data.file)}" readonly>
+    <input class="track-input" id="row-dur-${n}" placeholder="0:00" value="${esc(data.duration)}" style="text-align:center">
+    <button class="del-btn" onclick="removeRow(${n})">✕</button>
+  `;
+  rows.appendChild(div);
+  renumber();
+  return n;
+}
+
+function esc(str) {
+  return (str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function removeRow(n) {
+  document.getElementById(`row-${n}`)?.remove();
+  renumber();
+  updateCount();
+}
+
+function renumber() {
+  document.querySelectorAll('#trackRows .track-row').forEach((row, i) => {
+    const el = row.querySelector('.track-num');
+    if (el) el.textContent = String(i + 1).padStart(2, '0');
+  });
+}
+
+function updateCount() {
+  const c = document.querySelectorAll('#trackRows .track-row').length;
+  document.getElementById('trackCountBadge').textContent = c;
+}
+
+function clearAll() {
+  if (!confirm('트랙 목록을 전부 지울까요?')) return;
+  document.getElementById('trackRows').innerHTML =
+    '<div class="empty-state" id="emptyState">위에서 파일을 드래그하면 자동으로 추가돼요 ↑</div>';
+  updateCount();
+}
+
+// ── GENERATE JSON ─────────────────────────────────
+function generateJSON() {
+  const folder = document.getElementById('folderPath').value.trim();
+
+  const album = {
+    title:    document.getElementById('albumTitle').value.trim() || 'Untitled',
+    subtitle: document.getElementById('albumSubtitle').value.trim() || '',
+    cover:    document.getElementById('albumCover').value.trim() || '',
+    month:    document.getElementById('albumMonth').value || ''
+  };
+
+  const tracks = [];
+  let id = 1;
+
+  document.querySelectorAll('#trackRows .track-row').forEach(row => {
+    const n = row.id.replace('row-', '');
+    const title    = document.getElementById(`row-title-${n}`)?.value.trim();
+    const filename = document.getElementById(`row-filename-${n}`)?.value.trim();
+    if (!title && !filename) return;
+
+    const filePath = folder ? `${folder}/${filename}` : filename;
+    tracks.push({
+      id: id++,
+      title:    title || filename,
+      artist:   document.getElementById(`row-artist-${n}`)?.value.trim() || '',
+      duration: document.getElementById(`row-dur-${n}`)?.value.trim() || '',
+      file:     filePath,
+      cover:    ''
+    });
+  });
+
+  const json = JSON.stringify({ album, tracks }, null, 2);
+  const box = document.getElementById('outputBox');
+  box.textContent = json;
+  box.classList.add('visible');
+  document.getElementById('copyBtn').style.display = 'inline-block';
+  document.getElementById('dlBtn').style.display = 'inline-block';
+  showToast('JSON 생성 완료!');
+  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function copyJSON() {
+  navigator.clipboard.writeText(document.getElementById('outputBox').textContent)
+    .then(() => showToast('클립보드에 복사됐어요 ✓'));
+}
+
+function downloadJSON() {
+  const blob = new Blob([document.getElementById('outputBox').textContent], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'tracks.json';
+  a.click();
+  showToast('다운로드 시작!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+
+// ── GITHUB PUSH ───────────────────────────────────
+function toggleToken() {
+  const input = document.getElementById('ghToken');
+  input.type = input.type === 'password' ? 'text' : 'password';
+}
+
+// Load saved token from sessionStorage
+window.addEventListener('load', () => {
+  const saved = sessionStorage.getItem('gh_token');
+  if (saved) document.getElementById('ghToken').value = saved;
+});
+
+async function pushToGitHub() {
+  const repo   = document.getElementById('ghRepo').value.trim();
+  const branch = document.getElementById('ghBranch').value.trim() || 'main';
+  const path   = document.getElementById('ghPath').value.trim() || 'tracks.json';
+  const token  = document.getElementById('ghToken').value.trim();
+  const status = document.getElementById('ghStatus');
+
+  if (!token) { setStatus('error', '❌ 토큰을 입력해주세요'); return; }
+  if (!repo)  { setStatus('error', '❌ 레포를 입력해주세요'); return; }
+
+  // Save token to sessionStorage (not localStorage - cleared when browser closes)
+  sessionStorage.setItem('gh_token', token);
+
+  // Generate JSON first
+  generateJSON();
+  const jsonContent = document.getElementById('outputBox').textContent;
+  if (!jsonContent) { setStatus('error', '❌ 먼저 트랙을 추가해주세요'); return; }
+
+  setStatus('loading', '⏳ GitHub에 저장 중...');
+
+  try {
+    // Get current file SHA (needed for update)
+    const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    let sha = null;
+    if (getRes.ok) {
+      const data = await getRes.json();
+      sha = data.sha;
+    }
+
+    // Encode content to base64
+    const encoded = btoa(unescape(encodeURIComponent(jsonContent)));
+
+    // Push file
+    const body = {
+      message: `Update tracks.json - ${new Date().toLocaleDateString('ko-KR')}`,
+      content: encoded,
+      branch: branch
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (putRes.ok) {
+      setStatus('success', '✅ GitHub 저장 완료! Pages 반영까지 1~2분 소요됩니다');
+    } else {
+      const err = await putRes.json();
+      setStatus('error', `❌ 오류: ${err.message}`);
+    }
+  } catch (e) {
+    setStatus('error', `❌ 네트워크 오류: ${e.message}`);
+  }
+}
+
+function setStatus(type, msg) {
+  const el = document.getElementById('ghStatus');
+  el.className = 'gh-status ' + type;
+  el.textContent = msg;
+}
+
+// 초기값
+const today = new Date();
+document.getElementById('albumMonth').value =
+  `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+document.getElementById('albumSubtitle').value = '월간 음악';
+</script>
+</body>
+</html>
