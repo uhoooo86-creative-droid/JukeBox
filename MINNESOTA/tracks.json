@@ -72,14 +72,6 @@
     },
     {
       "id": 9,
-      "title": "Minnesota_Hurry Up",
-      "artist": "",
-      "duration": "",
-      "file": "MINNESOTA/Minnesota_Hurry up.mp3",
-      "cover": ""
-    },
-    {
-      "id": 10,
       "title": "Minnesota_loon Sound",
       "artist": "",
       "duration": "0:24",
@@ -87,7 +79,7 @@
       "cover": ""
     },
     {
-      "id": 11,
+      "id": 10,
       "title": "Minnesota_Lumber Jack",
       "artist": "",
       "duration": "1:23",
