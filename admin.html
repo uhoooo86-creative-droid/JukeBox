@@ -358,6 +358,89 @@
     .folder-row { flex-wrap: wrap; }
     .folder-hint { display: none; }
   }
+
+  /* GITHUB PUSH */
+  .gh-config {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gh-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .gh-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .gh-input {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 9px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .gh-input:focus { border-color: var(--accent); }
+
+  .gh-token-wrap {
+    position: relative;
+    flex: 1;
+    display: flex;
+  }
+
+  .gh-token-wrap input {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 9px 36px 9px 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+
+  .gh-token-wrap input:focus { border-color: var(--accent); }
+
+  .gh-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .gh-status {
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    display: none;
+  }
+
+  .gh-status.success { border-color: var(--green); color: var(--green); display: block; }
+  .gh-status.error { border-color: var(--accent); color: var(--accent); display: block; }
+  .gh-status.loading { border-color: var(--accent2); color: var(--accent2); display: block; }
 </style>
 </head>
 <body>
@@ -433,6 +516,37 @@
     <div class="btn-row">
       <button class="btn" onclick="addEmptyTrack()">+ 직접 추가</button>
       <button class="btn btn-muted" onclick="clearAll()">전체 삭제</button>
+    </div>
+  </div>
+
+
+  <!-- GitHub 직접 저장 -->
+  <div class="section">
+    <div class="section-title">GitHub 직접 저장</div>
+    <div class="gh-config">
+      <div class="gh-row">
+        <div class="gh-label">레포</div>
+        <input class="gh-input" id="ghRepo" value="uhoooo86-creative-droid/JukeBox" placeholder="username/repo">
+      </div>
+      <div class="gh-row">
+        <div class="gh-label">브랜치</div>
+        <input class="gh-input" id="ghBranch" value="main" placeholder="main">
+      </div>
+      <div class="gh-row">
+        <div class="gh-label">파일 경로</div>
+        <input class="gh-input" id="ghPath" value="tracks.json" placeholder="tracks.json 또는 폴더/tracks.json">
+      </div>
+      <div class="gh-row">
+        <div class="gh-label">토큰</div>
+        <div class="gh-token-wrap">
+          <input type="password" id="ghToken" placeholder="ghp_xxxx... (이 페이지에만 저장됨)">
+          <button class="gh-eye" onclick="toggleToken()" title="보기/숨기기">👁</button>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:4px">
+        <button class="btn btn-success" onclick="pushToGitHub()">🚀 GitHub에 저장</button>
+      </div>
+      <div class="gh-status" id="ghStatus"></div>
     </div>
   </div>
 
@@ -637,6 +751,92 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+
+// ── GITHUB PUSH ───────────────────────────────────
+function toggleToken() {
+  const input = document.getElementById('ghToken');
+  input.type = input.type === 'password' ? 'text' : 'password';
+}
+
+// Load saved token from sessionStorage
+window.addEventListener('load', () => {
+  const saved = sessionStorage.getItem('gh_token');
+  if (saved) document.getElementById('ghToken').value = saved;
+});
+
+async function pushToGitHub() {
+  const repo   = document.getElementById('ghRepo').value.trim();
+  const branch = document.getElementById('ghBranch').value.trim() || 'main';
+  const path   = document.getElementById('ghPath').value.trim() || 'tracks.json';
+  const token  = document.getElementById('ghToken').value.trim();
+  const status = document.getElementById('ghStatus');
+
+  if (!token) { setStatus('error', '❌ 토큰을 입력해주세요'); return; }
+  if (!repo)  { setStatus('error', '❌ 레포를 입력해주세요'); return; }
+
+  // Save token to sessionStorage (not localStorage - cleared when browser closes)
+  sessionStorage.setItem('gh_token', token);
+
+  // Generate JSON first
+  generateJSON();
+  const jsonContent = document.getElementById('outputBox').textContent;
+  if (!jsonContent) { setStatus('error', '❌ 먼저 트랙을 추가해주세요'); return; }
+
+  setStatus('loading', '⏳ GitHub에 저장 중...');
+
+  try {
+    // Get current file SHA (needed for update)
+    const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    let sha = null;
+    if (getRes.ok) {
+      const data = await getRes.json();
+      sha = data.sha;
+    }
+
+    // Encode content to base64
+    const encoded = btoa(unescape(encodeURIComponent(jsonContent)));
+
+    // Push file
+    const body = {
+      message: `Update tracks.json - ${new Date().toLocaleDateString('ko-KR')}`,
+      content: encoded,
+      branch: branch
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (putRes.ok) {
+      setStatus('success', '✅ GitHub 저장 완료! Pages 반영까지 1~2분 소요됩니다');
+    } else {
+      const err = await putRes.json();
+      setStatus('error', `❌ 오류: ${err.message}`);
+    }
+  } catch (e) {
+    setStatus('error', `❌ 네트워크 오류: ${e.message}`);
+  }
+}
+
+function setStatus(type, msg) {
+  const el = document.getElementById('ghStatus');
+  el.className = 'gh-status ' + type;
+  el.textContent = msg;
 }
 
 // 초기값
