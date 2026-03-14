@@ -1,120 +1,120 @@
 {
   "album": {
     "title": "Vermont",
-    "subtitle": "빅캣 쥬크박스",
+    "subtitle": "월간 음악",
     "cover": "",
     "month": "2026-03"
   },
   "tracks": [
     {
       "id": 1,
-      "title": "Theme ABC of America",
-      "artist": "VERMONT",
-      "duration": "",
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
       "file": "VERMONT/00. Theme ABC of America.mp3",
       "cover": ""
     },
     {
       "id": 2,
-      "title": "Hello, Hi (pause)",
-      "artist": "VERMONT",
-      "duration": "",
+      "title": "Hello, Hi(Pause)",
+      "artist": "",
+      "duration": "1:15",
       "file": "VERMONT/01. Hello,Hi(pause).mp3",
       "cover": ""
     },
     {
       "id": 3,
-      "title": "6 Question (rap)",
-      "artist": "VERMONT",
-      "duration": "",
+      "title": "6Question(Rap)",
+      "artist": "",
+      "duration": "0:28",
       "file": "VERMONT/02. 6Question(rap).mp3",
       "cover": ""
     },
     {
       "id": 4,
-      "title": "Where Are You From (Korea)",
-      "artist": "VERMONT",
-      "duration": "",
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
       "file": "VERMONT/03. Where are you from(Korea).mp3",
       "cover": ""
     },
     {
       "id": 5,
-      "title": "Let's Go to America (airplane)",
-      "artist": "VERMONT",
-      "duration": "",
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
       "file": "VERMONT/04. Let's Go to America(airplane).mp3",
       "cover": ""
     },
     {
       "id": 6,
       "title": "Autumn Leaves",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "1:51",
       "file": "VERMONT/Autumn leaves.mp3",
       "cover": ""
     },
     {
       "id": 7,
       "title": "BGM Detective",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "2:36",
       "file": "VERMONT/BGM Detective .mp3",
       "cover": ""
     },
     {
       "id": 8,
       "title": "Colors Freeze Dance",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "2:32",
       "file": "VERMONT/Colors Freeze Dance.mp3",
       "cover": ""
     },
     {
       "id": 9,
       "title": "Finger Chant One Little Rabbit",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "1:11",
       "file": "VERMONT/Finger chant One little rabbit.mp3",
       "cover": ""
     },
     {
       "id": 10,
       "title": "If You Wearing Red",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "1:46",
       "file": "VERMONT/If you wearing Red.mp3",
       "cover": ""
     },
     {
       "id": 11,
       "title": "The Lost Woods",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "1:15",
       "file": "VERMONT/The lost woods.mp3",
       "cover": ""
     },
     {
       "id": 12,
       "title": "Walking Walking",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "1:17",
       "file": "VERMONT/Walking walking.mp3",
       "cover": ""
     },
     {
       "id": 13,
-      "title": "What Color Is This (witch)",
-      "artist": "VERMONT",
-      "duration": "",
+      "title": "What Color Is This(Witch)",
+      "artist": "",
+      "duration": "1:01",
       "file": "VERMONT/What color is this(witch).mp3",
       "cover": ""
     },
     {
       "id": 14,
       "title": "Wooshwoosh",
-      "artist": "VERMONT",
-      "duration": "",
+      "artist": "",
+      "duration": "0:55",
       "file": "VERMONT/Wooshwoosh.mp3",
       "cover": ""
     }
