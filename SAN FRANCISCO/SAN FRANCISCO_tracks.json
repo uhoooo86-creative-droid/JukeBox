@@ -1,112 +1,112 @@
 {
   "album": {
     "title": "San Francisco",
-    "subtitle": "빅캣 쥬크박스",
+    "subtitle": "NY 영어 음원 모음",
     "cover": "",
     "month": "2026-03"
   },
   "tracks": [
     {
       "id": 1,
-      "title": "Theme ABC of America",
-      "artist": "SF",
-      "duration": "",
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
       "file": "SAN FRANCISCO/00. Theme ABC of America.mp3",
       "cover": ""
     },
     {
       "id": 2,
-      "title": "Hello, Hi (pause)",
-      "artist": "SF",
-      "duration": "",
+      "title": "Hello, Hi(Pause)",
+      "artist": "",
+      "duration": "1:15",
       "file": "SAN FRANCISCO/01. Hello,Hi(pause).mp3",
       "cover": ""
     },
     {
       "id": 3,
-      "title": "6 Question (rap)",
-      "artist": "SF",
-      "duration": "",
+      "title": "6Question(Rap)",
+      "artist": "",
+      "duration": "0:28",
       "file": "SAN FRANCISCO/02. 6Question(rap).mp3",
       "cover": ""
     },
     {
       "id": 4,
-      "title": "Where Are You From (Korea)",
-      "artist": "SF",
-      "duration": "",
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
       "file": "SAN FRANCISCO/03. Where are you from(Korea).mp3",
       "cover": ""
     },
     {
       "id": 5,
-      "title": "Let's Go to America (airplane)",
-      "artist": "SF",
-      "duration": "",
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
       "file": "SAN FRANCISCO/04. Let's Go to America(airplane).mp3",
       "cover": ""
     },
     {
       "id": 6,
       "title": "BGM Boat Sound",
-      "artist": "SF",
-      "duration": "",
+      "artist": "",
+      "duration": "0:12",
       "file": "SAN FRANCISCO/BGM Boat sound.mp3",
       "cover": ""
     },
     {
       "id": 7,
       "title": "BGM Pier39 Deck",
-      "artist": "SF",
-      "duration": "",
+      "artist": "",
+      "duration": "3:47",
       "file": "SAN FRANCISCO/BGM pier39 deck.mp3",
       "cover": ""
     },
     {
       "id": 8,
       "title": "BGM Sea Lion Sound",
-      "artist": "SF",
-      "duration": "",
+      "artist": "",
+      "duration": "0:08",
       "file": "SAN FRANCISCO/BGM Sea lion sound.mp3",
       "cover": ""
     },
     {
       "id": 9,
-      "title": "How to Make Bridge Think About It",
-      "artist": "SF",
-      "duration": "",
+      "title": "How To Make Bridge Think About It",
+      "artist": "",
+      "duration": "2:08",
       "file": "SAN FRANCISCO/How to make bridge think about it.mp3",
       "cover": ""
     },
     {
       "id": 10,
-      "title": "Sailor Went to Sea",
-      "artist": "SF",
-      "duration": "",
-      "file": "SAN FRANCISCO/Sailor Went to Sea.mp3",
-      "cover": ""
-    },
-    {
-      "id": 11,
-      "title": "Sailor Went to Sea (chant)",
-      "artist": "SF",
-      "duration": "",
+      "title": "Sailor Went To Sea_chant",
+      "artist": "",
+      "duration": "0:33",
       "file": "SAN FRANCISCO/Sailor Went to sea_chant.mp3",
       "cover": ""
     },
     {
+      "id": 11,
+      "title": "Sailor Went To Sea",
+      "artist": "",
+      "duration": "0:47",
+      "file": "SAN FRANCISCO/Sailor Went to Sea.mp3",
+      "cover": ""
+    },
+    {
       "id": 12,
-      "title": "Under the Sea Faster",
-      "artist": "SF",
-      "duration": "",
+      "title": "Under The Sea Faster",
+      "artist": "",
+      "duration": "1:32",
       "file": "SAN FRANCISCO/Under the sea faster.mp3",
       "cover": ""
     },
     {
       "id": 13,
       "title": "What Day Is Today School",
-      "artist": "SF",
-      "duration": "",
+      "artist": "",
+      "duration": "2:16",
       "file": "SAN FRANCISCO/What day is today school.mp3",
       "cover": ""
     }
