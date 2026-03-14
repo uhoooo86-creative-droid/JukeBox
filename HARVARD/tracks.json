@@ -1,0 +1,34 @@
+{
+  "album": {
+    "title": "Harvard",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Harvard Head And Shoulder_big Cat",
+      "artist": "",
+      "duration": "1:28",
+      "file": "HARVARD/Harvard Head and shoulder_big cat.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Head And Shoulder_big Cat",
+      "artist": "",
+      "duration": "2:38",
+      "file": "HARVARD/Head and shoulder_big cat.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Techno What_ Head Shoulder And Inside-Body_big Cat",
+      "artist": "",
+      "duration": "2:01",
+      "file": "HARVARD/techno what_ Head shoulder and inside-body_big cat.mp3",
+      "cover": ""
+    }
+  ]
+}
