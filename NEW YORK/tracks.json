@@ -1,0 +1,106 @@
+{
+  "album": {
+    "title": "New York",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC of America",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (pause)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6 Question (rap)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From (Korea)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let's Go to America (airplane)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "BGM Welcome to NY",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/05. BGM Welcome to NY.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "BGM Statue of Liberty",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/06. BGM Statue of Liberty.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Count 1-10 (Empire up)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/07. Count 1-10(Empire up).mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Count 100-0 (Empire down)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/08. Count 100-0(Empire down).mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Mommy Calling (for shopping)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/09. Mommy calling(for shopping).mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "TimeSquare Go & Stop (shopping)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/10. TimeSquare Go&Stop(shopping).mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "I Love You So Much (with parents)",
+      "artist": "NY",
+      "duration": "",
+      "file": "NEW YORK/11. I love you so much(with parents).mp3",
+      "cover": ""
+    }
+  ]
+}
