@@ -1,0 +1,82 @@
+{
+  "album": {
+    "title": "Alaska",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "ABC Bell.Mp3",
+      "artist": "",
+      "duration": "0:25",
+      "file": "ALASKA/ABC Bell.mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "BGM 10초 Bomp",
+      "artist": "",
+      "duration": "0:11",
+      "file": "ALASKA/BGM 10초 Bomp.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Jingle Bell.Mp3",
+      "artist": "",
+      "duration": "2:31",
+      "file": "ALASKA/Jingle bell.mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Roll The Snowball.Mp3",
+      "artist": "",
+      "duration": "1:08",
+      "file": "ALASKA/Roll the snowball.mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "S-A-N-T-A   Super Simple Songs.Mp3",
+      "artist": "",
+      "duration": "2:49",
+      "file": "ALASKA/S-A-N-T-A   Super Simple Songs.mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "Santa Claus Is Coming.Mp3",
+      "artist": "",
+      "duration": "2:36",
+      "file": "ALASKA/Santa claus is coming.mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Santa Claus Is Comming To Town (Hip).Mp3",
+      "artist": "",
+      "duration": "2:24",
+      "file": "ALASKA/Santa claus is comming to town (hip).mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Snow Flake.Mp3",
+      "artist": "",
+      "duration": "2:09",
+      "file": "ALASKA/Snow Flake.mp3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Yes And No",
+      "artist": "",
+      "duration": "1:20",
+      "file": "ALASKA/Yes and No.mp3",
+      "cover": ""
+    }
+  ]
+}
