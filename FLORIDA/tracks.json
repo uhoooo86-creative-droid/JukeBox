@@ -1,0 +1,114 @@
+{
+  "album": {
+    "title": "Florida",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
+      "file": "FLORIDA/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi(Pause)",
+      "artist": "",
+      "duration": "1:15",
+      "file": "FLORIDA/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6Question(Rap)",
+      "artist": "",
+      "duration": "0:28",
+      "file": "FLORIDA/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
+      "file": "FLORIDA/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
+      "file": "FLORIDA/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "6Q",
+      "artist": "",
+      "duration": "0:28",
+      "file": "FLORIDA/6Q.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "BGM PinkPander",
+      "artist": "",
+      "duration": "2:27",
+      "file": "FLORIDA/BGM PinkPander.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "BGM Ready Action 10초 Oh No",
+      "artist": "",
+      "duration": "0:35",
+      "file": "FLORIDA/BGM ready action 10초 oh no.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Disney Six Questions_how Silly",
+      "artist": "",
+      "duration": "1:03",
+      "file": "FLORIDA/Disney six questions_how silly.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Finger Family Skeleton Song",
+      "artist": "",
+      "duration": "1:04",
+      "file": "FLORIDA/Finger Family Skeleton Song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "Florida Peekaboo Hide And Seek",
+      "artist": "",
+      "duration": "1:07",
+      "file": "FLORIDA/Florida peekaboo Hide and seek.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "Preposition_on In Under",
+      "artist": "",
+      "duration": "1:10",
+      "file": "FLORIDA/preposition_on in under.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "Pronoun",
+      "artist": "",
+      "duration": "1:05",
+      "file": "FLORIDA/Pronoun.mp3",
+      "cover": ""
+    }
+  ]
+}
