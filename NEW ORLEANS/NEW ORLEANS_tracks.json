@@ -1,112 +1,112 @@
 {
   "album": {
-    "title": "New Orleans Jazz",
-    "subtitle": "빅캣 쥬크박스",
+    "title": "New Orleans",
+    "subtitle": "NY 영어 음원 모음",
     "cover": "",
     "month": "2026-03"
   },
   "tracks": [
     {
       "id": 1,
-      "title": "Theme ABC of America",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
       "file": "NEW ORLEANS/00. Theme ABC of America.mp3",
       "cover": ""
     },
     {
       "id": 2,
-      "title": "Hello, Hi (pause)",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "Hello, Hi(Pause)",
+      "artist": "",
+      "duration": "1:15",
       "file": "NEW ORLEANS/01. Hello,Hi(pause).mp3",
       "cover": ""
     },
     {
       "id": 3,
-      "title": "6 Question (rap)",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "6Question(Rap)",
+      "artist": "",
+      "duration": "0:28",
       "file": "NEW ORLEANS/02. 6Question(rap).mp3",
       "cover": ""
     },
     {
       "id": 4,
-      "title": "Where Are You From (Korea)",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
       "file": "NEW ORLEANS/03. Where are you from(Korea).mp3",
       "cover": ""
     },
     {
       "id": 5,
-      "title": "Let's Go to America (airplane)",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
       "file": "NEW ORLEANS/04. Let's Go to America(airplane).mp3",
       "cover": ""
     },
     {
       "id": 6,
       "title": "BGM New Orleans Jazz",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "artist": "",
+      "duration": "2:38",
       "file": "NEW ORLEANS/BGM New Orleans Jazz.mp3",
       "cover": ""
     },
     {
       "id": 7,
-      "title": "BGM Play the Castanets",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "BGM Play The Castanets",
+      "artist": "",
+      "duration": "1:26",
       "file": "NEW ORLEANS/BGM Play the castanets.mp3",
       "cover": ""
     },
     {
       "id": 8,
       "title": "How Do You Feel",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "artist": "",
+      "duration": "1:24",
       "file": "NEW ORLEANS/How do you Feel.mp3",
       "cover": ""
     },
     {
       "id": 9,
-      "title": "Instrument for Jazz",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "Instrument For Jazz",
+      "artist": "",
+      "duration": "1:52",
       "file": "NEW ORLEANS/Instrument for Jazz.mp3",
       "cover": ""
     },
     {
       "id": 10,
-      "title": "Jazz Cat's Story",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "title": "Jazz Cat'S Story",
+      "artist": "",
+      "duration": "1:45",
       "file": "NEW ORLEANS/Jazz Cat's Story.mp3",
       "cover": ""
     },
     {
       "id": 11,
       "title": "Mardi Gras Festiver",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "artist": "",
+      "duration": "2:14",
       "file": "NEW ORLEANS/Mardi Gras Festiver.mp3",
       "cover": ""
     },
     {
       "id": 12,
       "title": "Mardi Gras",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "artist": "",
+      "duration": "0:53",
       "file": "NEW ORLEANS/Mardi Gras.mp3",
       "cover": ""
     },
     {
       "id": 13,
       "title": "New Orleans Jazz",
-      "artist": "NEW ORLEANS",
-      "duration": "",
+      "artist": "",
+      "duration": "1:04",
       "file": "NEW ORLEANS/New Orleans Jazz.mp3",
       "cover": ""
     }
