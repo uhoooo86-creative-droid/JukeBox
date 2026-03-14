@@ -1,0 +1,82 @@
+{
+  "album": {
+    "title": "Vermont",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Autumn Leaves",
+      "artist": "",
+      "duration": "1:51",
+      "file": "VERMONT/Autumn leaves.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "BGM Detective",
+      "artist": "",
+      "duration": "2:36",
+      "file": "VERMONT/BGM Detective .mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Colors Freeze Dance",
+      "artist": "",
+      "duration": "2:32",
+      "file": "VERMONT/Colors Freeze Dance.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Finger Chant One Little Rabbit",
+      "artist": "",
+      "duration": "1:11",
+      "file": "VERMONT/Finger chant One little rabbit.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "If You Wearing Red",
+      "artist": "",
+      "duration": "1:46",
+      "file": "VERMONT/If you wearing Red.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "The Lost Woods",
+      "artist": "",
+      "duration": "1:15",
+      "file": "VERMONT/The lost woods.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Walking Walking",
+      "artist": "",
+      "duration": "1:17",
+      "file": "VERMONT/Walking walking.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "What Color Is This(Witch)",
+      "artist": "",
+      "duration": "1:01",
+      "file": "VERMONT/What color is this(witch).mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Woosh woosh",
+      "artist": "",
+      "duration": "0:55",
+      "file": "VERMONT/Wooshwoosh.mp3",
+      "cover": ""
+    }
+  ]
+}
