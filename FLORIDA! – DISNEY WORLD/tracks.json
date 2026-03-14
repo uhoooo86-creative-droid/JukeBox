@@ -1,0 +1,34 @@
+{
+  "album": {
+    "title": "Florida! – Disney World",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "[Florida]A Duck Lost His Hat_big Cat 2",
+      "artist": "",
+      "duration": "0:34",
+      "file": "FLORIDA! – DISNEY WORLD/[Florida]A Duck Lost his Hat_big cat 2.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "[Florida]Disney Six Questions OMG_big Cat",
+      "artist": "",
+      "duration": "0:39",
+      "file": "FLORIDA! – DISNEY WORLD/[Florida]Disney six questions OMG_big cat.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Florida Peekaboo Hide And Seek!!!_big Cat 2",
+      "artist": "",
+      "duration": "1:21",
+      "file": "FLORIDA! – DISNEY WORLD/Florida peekaboo Hide and seek!!!_big cat 2.mp3",
+      "cover": ""
+    }
+  ]
+}
