@@ -1,0 +1,130 @@
+{
+  "album": {
+    "title": "Iowa",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC of America",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (pause)",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6 Question (rap)",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From (Korea)",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let's Go to America (airplane)",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "ABC Simple Song (faster)",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/ABC simple song(faster).mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "BGM 10초 Bomp",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/BGM 10초 Bomp.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "BGM Pikachu",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/BGM Pikachu.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Blue Bunny Love",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/Blue bunny Love.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Corn Harvest",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/Corn Harvest.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "Harvest and Delivery",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/Harvest and Delivery.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "How Do You Feel",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/How do you Feel.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "IOWA",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/IOWA.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "PPAP MR",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/PPAP MR.mp3",
+      "cover": ""
+    },
+    {
+      "id": 15,
+      "title": "Yes and No",
+      "artist": "IOWA",
+      "duration": "",
+      "file": "IOWA/Yes and No.mp3",
+      "cover": ""
+    }
+  ]
+}
