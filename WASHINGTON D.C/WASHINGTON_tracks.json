@@ -1,0 +1,122 @@
+{
+  "album": {
+    "title": "Washington D.C.",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC of America",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (pause)",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6 Question (rap)",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From (Korea)",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let's Go to America (airplane)",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "6Q Phonics",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/6Q Phonics.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "America President Damdadi",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/America president damdadi.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "America President",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/America president.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Class Rule (Army ver)",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/Class rule (Army ver).mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Class Rule (simple)",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/Class rule (simple).mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "PPAP MR",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/PPAP MR.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "President Word Chant",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/President word chant.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "Rushmore",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/Rushmore.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "Washington Rushmore",
+      "artist": "WASHINGTON D.C",
+      "duration": "",
+      "file": "WASHINGTON D.C/Washington_Rushmore.mp3",
+      "cover": ""
+    }
+  ]
+}
