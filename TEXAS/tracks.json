@@ -1,7 +1,7 @@
 {
   "album": {
-    "title": "Texas",
-    "subtitle": "NY 영어 음원 모음",
+    "title": "New York",
+    "subtitle": "빅캣 쥬크박스",
     "cover": "",
     "month": "2026-03"
   },
@@ -11,7 +11,7 @@
       "title": "Theme ABC Of America",
       "artist": "",
       "duration": "2:31",
-      "file": "TEXAS/00. Theme ABC of America.mp3",
+      "file": "NEW YORK/00. Theme ABC of America.mp3",
       "cover": ""
     },
     {
@@ -19,7 +19,7 @@
       "title": "Hello, Hi(Pause)",
       "artist": "",
       "duration": "1:15",
-      "file": "TEXAS/01. Hello,Hi(pause).mp3",
+      "file": "NEW YORK/01. Hello,Hi(pause).mp3",
       "cover": ""
     },
     {
@@ -27,7 +27,7 @@
       "title": "6Question(Rap)",
       "artist": "",
       "duration": "0:28",
-      "file": "TEXAS/02. 6Question(rap).mp3",
+      "file": "NEW YORK/02. 6Question(rap).mp3",
       "cover": ""
     },
     {
@@ -35,7 +35,7 @@
       "title": "Where Are You From(Korea)",
       "artist": "",
       "duration": "0:21",
-      "file": "TEXAS/03. Where are you from(Korea).mp3",
+      "file": "NEW YORK/03. Where are you from(Korea).mp3",
       "cover": ""
     },
     {
@@ -43,95 +43,63 @@
       "title": "Let'S Go To America(Airplane)",
       "artist": "",
       "duration": "1:00",
-      "file": "TEXAS/04. Let's Go to America(airplane).mp3",
+      "file": "NEW YORK/04. Let's Go to America(airplane).mp3",
       "cover": ""
     },
     {
       "id": 6,
-      "title": "BGM 얼쑤",
+      "title": "BGM Welcome To NY",
       "artist": "",
-      "duration": "1:26",
-      "file": "TEXAS/BGM 얼쑤.mp3",
+      "duration": "0:29",
+      "file": "NEW YORK/05. BGM Welcome to NY.mp3",
       "cover": ""
     },
     {
       "id": 7,
-      "title": "BGM Horse Sound",
+      "title": "BGM Statue Of Liberty",
       "artist": "",
-      "duration": "0:21",
-      "file": "TEXAS/BGM Horse sound .mp3",
+      "duration": "0:32",
+      "file": "NEW YORK/06. BGM Statue of Liberty.mp3",
       "cover": ""
     },
     {
       "id": 8,
-      "title": "BGM Paka Paka",
+      "title": "Count 1-10(Empire Up)",
       "artist": "",
-      "duration": "0:46",
-      "file": "TEXAS/BGM Paka Paka.mp3",
+      "duration": "0:15",
+      "file": "NEW YORK/07. Count 1-10(Empire up).mp3",
       "cover": ""
     },
     {
       "id": 9,
-      "title": "BGM Play Game",
+      "title": "Count 100-0(Empire Down)",
       "artist": "",
-      "duration": "3:28",
-      "file": "TEXAS/BGM Play Game.mp3",
+      "duration": "0:38",
+      "file": "NEW YORK/08. Count 100-0(Empire down).mp3",
       "cover": ""
     },
     {
       "id": 10,
-      "title": "BGM Ready Action 10sec 'Oh No'",
+      "title": "Mommy Calling(For Shopping)",
       "artist": "",
-      "duration": "0:35",
-      "file": "TEXAS/BGM ready action 10sec 'oh no'.mp3",
+      "duration": "0:13",
+      "file": "NEW YORK/09. Mommy calling(for shopping).mp3",
       "cover": ""
     },
     {
       "id": 11,
-      "title": "How Do You Feel 1(Horse)",
+      "title": "TimeSquare Go&Stop(Shopping)",
       "artist": "",
-      "duration": "1:11",
-      "file": "TEXAS/How do you feel 1(horse).mp3",
+      "duration": "2:05",
+      "file": "NEW YORK/10. TimeSquare Go&Stop(shopping).mp3",
       "cover": ""
     },
     {
       "id": 12,
-      "title": "How Do You Feel 2(Horse)",
+      "title": "I Love You So Much(With Parents)",
       "artist": "",
-      "duration": "0:51",
-      "file": "TEXAS/How do you feel 2(horse).mp3",
-      "cover": ""
-    },
-    {
-      "id": 13,
-      "title": "Texas Cow Sound",
-      "artist": "",
-      "duration": "0:23",
-      "file": "TEXAS/Texas Cow sound.mp3",
-      "cover": ""
-    },
-    {
-      "id": 14,
-      "title": "Texas Cowboy",
-      "artist": "",
-      "duration": "2:30",
-      "file": "TEXAS/Texas Cowboy.mp3",
-      "cover": ""
-    },
-    {
-      "id": 15,
-      "title": "Texas Game BGM.M4a",
-      "artist": "",
-      "duration": "0:42",
-      "file": "TEXAS/Texas Game BGM.m4a",
-      "cover": ""
-    },
-    {
-      "id": 16,
-      "title": "Texas Old Macdonald",
-      "artist": "",
-      "duration": "3:13",
-      "file": "TEXAS/Texas Old macdonald.mp3",
+      "duration": "1:01",
+      "file": "NEW YORK/11. I love you so much(with parents).mp3",
       "cover": ""
     }
   ]
