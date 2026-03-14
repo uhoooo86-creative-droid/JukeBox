@@ -1,0 +1,146 @@
+{
+  "album": {
+    "title": "Texas",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Yes And No",
+      "artist": "",
+      "duration": "1:20",
+      "file": "TEXAS/😀Yes and No.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Texas Chant",
+      "artist": "",
+      "duration": "2:47",
+      "file": "TEXAS/Texas chant.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Texas Chant.Ver",
+      "artist": "",
+      "duration": "1:27",
+      "file": "TEXAS/Texas chant.ver.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Cow Sound",
+      "artist": "",
+      "duration": "0:23",
+      "file": "TEXAS/cow sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Texas Cow Sound",
+      "artist": "",
+      "duration": "0:23",
+      "file": "TEXAS/Texas Cow sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "Texas Cowboy",
+      "artist": "",
+      "duration": "2:30",
+      "file": "TEXAS/Texas Cowboy.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "DJ Old Max Donald",
+      "artist": "",
+      "duration": "3:13",
+      "file": "TEXAS/DJ old Max donald .mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Old Macdonald Make A Triangle",
+      "artist": "",
+      "duration": "1:22",
+      "file": "TEXAS/Old Macdonald make a triangle.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Texas Cow Sound",
+      "artist": "",
+      "duration": "0:23",
+      "file": "TEXAS/Texas Cow sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Texas Cowboy",
+      "artist": "",
+      "duration": "2:30",
+      "file": "TEXAS/Texas Cowboy.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "💜How Do You Feel_ Horse (2) 2",
+      "artist": "",
+      "duration": "0:51",
+      "file": "TEXAS/💜how do you feel_ horse (2) 2.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "Horse Sound",
+      "artist": "",
+      "duration": "0:21",
+      "file": "TEXAS/horse sound .mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "[BGM]얼쑤",
+      "artist": "",
+      "duration": "1:26",
+      "file": "TEXAS/[BGM]얼쑤.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "[BGM]Lalala Lava_빅캣",
+      "artist": "",
+      "duration": "0:18",
+      "file": "TEXAS/[BGM]lalala Lava_빅캣.mp3",
+      "cover": ""
+    },
+    {
+      "id": 15,
+      "title": "[BGM]Love House_빅캣",
+      "artist": "",
+      "duration": "0:40",
+      "file": "TEXAS/[BGM]Love House_빅캣.mp3",
+      "cover": ""
+    },
+    {
+      "id": 16,
+      "title": "♥️BGM Play Game",
+      "artist": "",
+      "duration": "3:28",
+      "file": "TEXAS/♥️BGM play game.mp3",
+      "cover": ""
+    },
+    {
+      "id": 17,
+      "title": "BGM Pakachicken빅캣",
+      "artist": "",
+      "duration": "0:46",
+      "file": "TEXAS/BGM pakachicken빅캣.mp3",
+      "cover": ""
+    }
+  ]
+}
