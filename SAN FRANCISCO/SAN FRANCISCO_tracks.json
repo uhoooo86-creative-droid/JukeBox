@@ -1,0 +1,114 @@
+{
+  "album": {
+    "title": "San Francisco",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC of America",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (pause)",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6 Question (rap)",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From (Korea)",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let's Go to America (airplane)",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "BGM Boat Sound",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/BGM Boat sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "BGM Pier39 Deck",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/BGM pier39 deck.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "BGM Sea Lion Sound",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/BGM Sea lion sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "How to Make Bridge Think About It",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/How to make bridge think about it.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Sailor Went to Sea",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/Sailor Went to Sea.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "Sailor Went to Sea (chant)",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/Sailor Went to sea_chant.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "Under the Sea Faster",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/Under the sea faster.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "What Day Is Today School",
+      "artist": "SF",
+      "duration": "",
+      "file": "SAN FRANCISCO/What day is today school.mp3",
+      "cover": ""
+    }
+  ]
+}
