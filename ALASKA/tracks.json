@@ -1,0 +1,114 @@
+{
+  "album": {
+    "title": "Alaska",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
+      "file": "ALASKA/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi(Pause)",
+      "artist": "",
+      "duration": "1:15",
+      "file": "ALASKA/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6Question(Rap)",
+      "artist": "",
+      "duration": "0:28",
+      "file": "ALASKA/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
+      "file": "ALASKA/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
+      "file": "ALASKA/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "12Days Of Christmas",
+      "artist": "",
+      "duration": "4:19",
+      "file": "ALASKA/12Days Of Christmas.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "ABC Bell",
+      "artist": "",
+      "duration": "0:25",
+      "file": "ALASKA/ABC Bell.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Jingle Bell",
+      "artist": "",
+      "duration": "2:31",
+      "file": "ALASKA/Jingle bell.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Roll The Snowball",
+      "artist": "",
+      "duration": "1:08",
+      "file": "ALASKA/Roll the snowball.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "S-A-N-T-A   Super Simple Songs",
+      "artist": "",
+      "duration": "2:49",
+      "file": "ALASKA/S-A-N-T-A   Super Simple Songs.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "Santa Claus Is Coming",
+      "artist": "",
+      "duration": "2:36",
+      "file": "ALASKA/Santa claus is coming.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "Santa Claus Is Comming To Town (Hip)",
+      "artist": "",
+      "duration": "2:24",
+      "file": "ALASKA/Santa claus is comming to town (hip).mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "Snow Flake",
+      "artist": "",
+      "duration": "2:08",
+      "file": "ALASKA/Snow Flake.mp3",
+      "cover": ""
+    }
+  ]
+}
