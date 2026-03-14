@@ -1,0 +1,98 @@
+{
+  "album": {
+    "title": "Minnesota",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC of America",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (pause)",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6 Question (rap)",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/02. 6Question(rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From (Korea)",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let's Go to America (airplane)",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "Minnesota Airplane",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/Minnesota_airplane.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Minnesota BGM",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/Minnesota_bgm.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Minnesota Fishing",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/Minnesota_Fishing.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Minnesota Hurry Up",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/Minnesota_Hurry up.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Minnesota Loon Sound",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/Minnesota_loon sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "Minnesota Lumber Jack",
+      "artist": "MINNESOTA",
+      "duration": "",
+      "file": "MINNESOTA/Minnesota_Lumber Jack.mp3",
+      "cover": ""
+    }
+  ]
+}
