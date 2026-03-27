@@ -1,7 +1,7 @@
 {
   "album": {
     "title": "Texas",
-    "subtitle": "빅캣 쥬크박스",
+    "subtitle": "월간 음악",
     "cover": "",
     "month": "2026-03"
   },
@@ -132,6 +132,54 @@
       "artist": "",
       "duration": "3:13",
       "file": "TEXAS/Texas Old macdonald.mp3",
+      "cover": ""
+    },
+    {
+      "id": 17,
+      "title": "Drop The Beat",
+      "artist": "",
+      "duration": "4:01",
+      "file": "TEXAS/Drop the Beat.mp3",
+      "cover": ""
+    },
+    {
+      "id": 18,
+      "title": "Texas Cactus Desert",
+      "artist": "",
+      "duration": "0:24",
+      "file": "TEXAS/Texas Cactus Desert.mp3",
+      "cover": ""
+    },
+    {
+      "id": 19,
+      "title": "Texas Find All Stars(Witch)",
+      "artist": "",
+      "duration": "0:55",
+      "file": "TEXAS/Texas Find All stars(Witch).mp3",
+      "cover": ""
+    },
+    {
+      "id": 20,
+      "title": "Texas Hot Potato",
+      "artist": "",
+      "duration": "1:21",
+      "file": "TEXAS/Texas Hot Potato.mp3",
+      "cover": ""
+    },
+    {
+      "id": 21,
+      "title": "Texas Twinkle Lonstar",
+      "artist": "",
+      "duration": "0:36",
+      "file": "TEXAS/Texas Twinkle Lonstar.mp3",
+      "cover": ""
+    },
+    {
+      "id": 22,
+      "title": "Texas Witch BGM",
+      "artist": "",
+      "duration": "1:23",
+      "file": "TEXAS/Texas Witch BGM.mp3",
       "cover": ""
     }
   ]
