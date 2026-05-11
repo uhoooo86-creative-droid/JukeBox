@@ -1,0 +1,154 @@
+{
+  "album": {
+    "title": "Harvard",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-05"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
+      "file": "HARVARD/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "What Day Is It_school_faster",
+      "artist": "",
+      "duration": "1:45",
+      "file": "HARVARD/01. What day is it_school_faster .mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6Question_rap",
+      "artist": "",
+      "duration": "0:28",
+      "file": "HARVARD/02. 6Question_rap.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From_Korea",
+      "artist": "",
+      "duration": "0:21",
+      "file": "HARVARD/03. Where are you from_Korea.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let'S Go To America_Airplane",
+      "artist": "",
+      "duration": "1:00",
+      "file": "HARVARD/04. Let's Go to America_Airplane.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "1. Phonics Song 1.0",
+      "artist": "",
+      "duration": "1:56",
+      "file": "HARVARD/05-1. Phonics song 1.0.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "2. Phonics Song 1.2",
+      "artist": "",
+      "duration": "1:01",
+      "file": "HARVARD/05-2. Phonics song 1.2 .mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "ABC Chachacha Faster!",
+      "artist": "",
+      "duration": "1:13",
+      "file": "HARVARD/05. ABC chachacha faster! .mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "BGM Pikachu Comming",
+      "artist": "",
+      "duration": "0:13",
+      "file": "HARVARD/06. BGM Pikachu comming.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "1. BGM Massage",
+      "artist": "",
+      "duration": "0:17",
+      "file": "HARVARD/07-1. BGM Massage.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "BGM AMONGUS",
+      "artist": "",
+      "duration": "0:11",
+      "file": "HARVARD/07. BGM AMONGUS.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "Head And Shoulder Knees And Toes",
+      "artist": "",
+      "duration": "1:28",
+      "file": "HARVARD/08. Head and shoulder knees and toes.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "Brain, Lung, Liver, Heart_Organ Chant",
+      "artist": "",
+      "duration": "0:36",
+      "file": "HARVARD/09. Brain, Lung, Liver, Heart_Organ chant.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "Head Shoulder And Lung!",
+      "artist": "",
+      "duration": "1:07",
+      "file": "HARVARD/10. Head shoulder and Lung!.mp3",
+      "cover": ""
+    },
+    {
+      "id": 15,
+      "title": "BGM Ambulance",
+      "artist": "",
+      "duration": "0:19",
+      "file": "HARVARD/11. BGM Ambulance.mp3",
+      "cover": ""
+    },
+    {
+      "id": 16,
+      "title": "BGM Operation Game",
+      "artist": "",
+      "duration": "1:20",
+      "file": "HARVARD/12. BGM Operation Game.mp3",
+      "cover": ""
+    },
+    {
+      "id": 17,
+      "title": "BGM Congratulations_certification",
+      "artist": "",
+      "duration": "1:00",
+      "file": "HARVARD/13. BGM Congratulations_certification.mp3",
+      "cover": ""
+    },
+    {
+      "id": 18,
+      "title": "Finger Family Skeleton Song",
+      "artist": "",
+      "duration": "1:04",
+      "file": "HARVARD/99. Finger Family Skeleton Song.mp3",
+      "cover": ""
+    }
+  ]
+}
