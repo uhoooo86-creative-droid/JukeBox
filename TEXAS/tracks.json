@@ -1,0 +1,82 @@
+{
+  "album": {
+    "title": "Texas",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Texas How Do You Feel",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/00.Texas_how do you feel.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Texas We Are Going to America",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/01.Texas_We are going to America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Texas Words to Know",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/03.Texas_words to know.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Texas Left and Right",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/04.Texas_Left and Right.m4a",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Texas Cactus! Yikes! Desert! So Hot!",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/05.Texas_Cactus! Yikes! Desert! So Hot!.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "Texas Twinkle Twinkle Lone Star",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/06.Texas_Twinkle Twinkle Lone Star.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Texas Witch Song",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/07.Texas_witch song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Texas MISSION Timer 60 sec",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/08.Texas_MISSION timer 60 sec.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Texas Bus",
+      "artist": "TEXAS",
+      "duration": "",
+      "file": "TEXAS/09.Texas_Bus.mp3",
+      "cover": ""
+    }
+  ]
+}
