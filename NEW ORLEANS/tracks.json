@@ -1,0 +1,130 @@
+{
+  "album": {
+    "title": "New Orleans",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "America ABC",
+      "artist": "",
+      "duration": "2:31",
+      "file": "NEW ORLEANS/00. America ABC.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Hello, Hi (Pause)",
+      "artist": "",
+      "duration": "1:15",
+      "file": "NEW ORLEANS/01. Hello,Hi (pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "6 Question (Rap)",
+      "artist": "",
+      "duration": "0:28",
+      "file": "NEW ORLEANS/02. 6 Question (rap).mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
+      "file": "NEW ORLEANS/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
+      "file": "NEW ORLEANS/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "New Orleans Yes And No Song",
+      "artist": "",
+      "duration": "1:20",
+      "file": "NEW ORLEANS/05. New Orleans Yes and No song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "New Orleans BGM Music(Word)",
+      "artist": "",
+      "duration": "1:03",
+      "file": "NEW ORLEANS/06. New Orleans BGM music(word).mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "New Orleans BGM Trumpet(빠라바라밤)",
+      "artist": "",
+      "duration": "0:47",
+      "file": "NEW ORLEANS/07. New Orleans BGM trumpet(빠라바라밤).mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "New Orleans Play Instrument Song",
+      "artist": "",
+      "duration": "1:04",
+      "file": "NEW ORLEANS/08. New Orleans Play Instrument song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "New Orleans BGM Castanets",
+      "artist": "",
+      "duration": "1:26",
+      "file": "NEW ORLEANS/09. New Orleans BGM Castanets .mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "New Orleans BGM Color Ppap",
+      "artist": "",
+      "duration": "0:43",
+      "file": "NEW ORLEANS/10. New Orleans BGM Color ppap.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "New Orleans Mardi Gras Song",
+      "artist": "",
+      "duration": "2:14",
+      "file": "NEW ORLEANS/11. New Orleans Mardi Gras song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "1. New Orleans Alligator Song",
+      "artist": "",
+      "duration": "0:50",
+      "file": "NEW ORLEANS/99-1. New Orleans Alligator song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "2. New Orleans BGM Sick Alligator",
+      "artist": "",
+      "duration": "0:12",
+      "file": "NEW ORLEANS/99-2. New Orleans BGM Sick Alligator.mp3",
+      "cover": ""
+    },
+    {
+      "id": 15,
+      "title": "3. New Orleans Do You Like Orange",
+      "artist": "",
+      "duration": "0:55",
+      "file": "NEW ORLEANS/99-3. New Orleans Do you like Orange.mp3",
+      "cover": ""
+    }
+  ]
+}
