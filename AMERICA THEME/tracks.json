@@ -1,0 +1,50 @@
+{
+  "album": {
+    "title": "America Theme",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-05"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Flying to America with Parents 1",
+      "artist": "AMERICA THEME",
+      "duration": "",
+      "file": "AMERICA THEME/[open class]Flying to America with Parents1.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Flying to America with Parents 2",
+      "artist": "AMERICA THEME",
+      "duration": "",
+      "file": "AMERICA THEME/[open class]Flying to America with Parents2.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Flying to America with Parents 3",
+      "artist": "AMERICA THEME",
+      "duration": "",
+      "file": "AMERICA THEME/[open class]Flying to America with Parents3.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "Flying to America with Parents 4",
+      "artist": "AMERICA THEME",
+      "duration": "",
+      "file": "AMERICA THEME/[open class]Flying to America with Parents4.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Flying to America with Parents 5",
+      "artist": "AMERICA THEME",
+      "duration": "",
+      "file": "AMERICA THEME/[open class]Flying to America with Parents5.mp3",
+      "cover": ""
+    }
+  ]
+}
