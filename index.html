@@ -110,7 +110,23 @@ body::after {
   padding: 18px;
   transition: border-color 0.2s;
 }
+/* 흰 → 빨 → 파 패턴 */
+.city-card:nth-child(3n+1) { background: #ffffff; }
+.city-card:nth-child(3n+1) .c-num,
+.city-card:nth-child(3n+1) .c-name { color: #111111; }
 
+.city-card:nth-child(3n+2) { background: #E8192C; }
+.city-card:nth-child(3n+2) .c-num,
+.city-card:nth-child(3n+2) .c-name { color: #ffffff; }
+
+.city-card:nth-child(3n+3) { background: #2E3899; }
+.city-card:nth-child(3n+3) .c-num,
+.city-card:nth-child(3n+3) .c-name { color: #ffffff; }
+
+/* 호버 시 테두리 효과 유지 */
+.city-card:nth-child(3n+1):hover { border-color: #E8192C; }
+.city-card:nth-child(3n+2):hover { border-color: #ffffff; }
+.city-card:nth-child(3n+3):hover { border-color: #ffffff; }
 .city-card::before {
   content: '';
   position: absolute;
