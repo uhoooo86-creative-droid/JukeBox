@@ -1,0 +1,138 @@
+{
+  "album": {
+    "title": "Florida",
+    "subtitle": "NY 영어 음원 모음",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "[Florida] 01.My Birth Month Is June_Happy Birthday Song",
+      "artist": "",
+      "duration": "0:22",
+      "file": "FLORIDA/[Florida] 01.My birth month is June_Happy birthday song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "[Florida] 02. Months Song.M4a",
+      "artist": "",
+      "duration": "1:16",
+      "file": "FLORIDA/[Florida] 02. Months song.m4a",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "[Florida] 03. BGM Donald Duck Angry Sound",
+      "artist": "",
+      "duration": "0:08",
+      "file": "FLORIDA/[Florida] 03. BGM Donald duck angry sound.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "[Florida] 04. BGM All Characters Run Away",
+      "artist": "",
+      "duration": "0:32",
+      "file": "FLORIDA/[Florida] 04. BGM All characters run away.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "[Florida] 05. TPR Slinky Rollercoaster Song",
+      "artist": "",
+      "duration": "3:09",
+      "file": "FLORIDA/[Florida] 05. TPR slinky rollercoaster song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "[Florida] 06. On In Under.M4a",
+      "artist": "",
+      "duration": "1:20",
+      "file": "FLORIDA/[Florida] 06. on in under.m4a",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "[Florida] 07. BGM Star Wars Edge",
+      "artist": "",
+      "duration": "0:47",
+      "file": "FLORIDA/[Florida] 07. BGM Star wars edge.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "[Florida] 07. Lost Things Hiding Time",
+      "artist": "",
+      "duration": "1:14",
+      "file": "FLORIDA/[Florida] 07. Lost things hiding time.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "[Florida] 08. BGM Game Timer 40sec.M4a",
+      "artist": "",
+      "duration": "0:42",
+      "file": "FLORIDA/[Florida] 08. BGM Game timer 40sec.m4a",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "[Florida] 09. TPR Animals Kingdom",
+      "artist": "",
+      "duration": "2:09",
+      "file": "FLORIDA/[Florida] 09. TPR Animals Kingdom.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "[Florida] 99. Disney Six Questions OMG_big Cat",
+      "artist": "",
+      "duration": "0:38",
+      "file": "FLORIDA/[Florida] 99. Disney six questions OMG_big cat.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "[Florida] 99. Peekaboo Hide And Seek!!!_big Cat",
+      "artist": "",
+      "duration": "1:21",
+      "file": "FLORIDA/[Florida] 99. peekaboo Hide and seek!!!_big cat.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "Theme ABC Of America",
+      "artist": "",
+      "duration": "2:31",
+      "file": "FLORIDA/00. Theme ABC of America.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "Hello, Hi(Pause)",
+      "artist": "",
+      "duration": "1:15",
+      "file": "FLORIDA/01. Hello,Hi(pause).mp3",
+      "cover": ""
+    },
+    {
+      "id": 15,
+      "title": "Where Are You From(Korea)",
+      "artist": "",
+      "duration": "0:21",
+      "file": "FLORIDA/03. Where are you from(Korea).mp3",
+      "cover": ""
+    },
+    {
+      "id": 16,
+      "title": "Let'S Go To America(Airplane)",
+      "artist": "",
+      "duration": "1:00",
+      "file": "FLORIDA/04. Let's Go to America(airplane).mp3",
+      "cover": ""
+    }
+  ]
+}
