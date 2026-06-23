@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's Go to America!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f0f2f8;
+  --white: #ffffff;
+  --red: #e8192c;
+  --blue: #1e3a8a;
+  --gold: #f5a623;
+  --text: #1a1a2e;
+  --muted: #888;
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: var(--white);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.header-title {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.header-title .line1 { color: var(--red); }
+.header-title .line2 { color: var(--blue); }
+
+.header-btns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.jukebox-btn {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+  box-shadow: 0 4px 12px rgba(245,166,35,0.4);
+}
+
+.jukebox-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(245,166,35,0.5); }
+
+.teacher-btn {
+  background: #eef0f8;
+  color: var(--blue);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.teacher-btn:hover { background: #dde0f0; }
+
+/* MAIN */
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* CITY SECTION */
+.city-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.city-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.city-card {
+  background: #f8f9fc;
+  border: 1.5px solid #e8eaf0;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.15s;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.city-card:hover {
+  background: #eef0f8;
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.city-card.active {
+  background: #e8f0fe;
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(30,58,138,0.15);
+}
+
+.city-card.has-tracks .city-card-name { color: var(--blue); }
+
+.city-emoji { font-size: 24px; flex-shrink: 0; }
+.city-card-name { font-size: 14px; font-weight: 800; }
+
+.city-hint {
+  background: #fff8ee;
+  border: 1.5px solid #fde8b8;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #b8700a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* PLAYER */
+.player-wrap {
+  display: none;
+  margin-top: 16px;
+}
+
+.player-wrap.visible { display: block; animation: slideDown 0.25s ease; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.player-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 2px solid var(--blue);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(30,58,138,0.12);
+}
+
+.player-top {
+  background: linear-gradient(135deg, var(--blue), #2d52c4);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-emoji { font-size: 28px; }
+
+.player-info { flex: 1; }
+.player-city { font-size: 18px; font-weight: 900; color: #fff; }
+.player-sub { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 1px; font-family: 'DM Mono', monospace; }
+
+.close-player {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+
+.close-player:hover { background: rgba(255,255,255,0.25); }
+
+/* NOW PLAYING BAR */
+.now-bar {
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f2f8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.now-info { display: flex; align-items: center; gap: 10px; }
+
+.vinyl {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: conic-gradient(#222 0deg,#333 20deg,#222 40deg,#333 60deg,#222 80deg,#333 100deg,#222 120deg,#333 140deg,#222 160deg,#333 180deg,#222 200deg,#333 220deg,#222 240deg,#333 260deg,#222 280deg,#333 300deg,#222 320deg,#333 340deg);
+  animation: spin 3s linear infinite paused;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.vinyl.playing { animation-play-state: running; }
+.vinyl::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.now-text { flex: 1; min-width: 0; }
+.now-title { font-size: 14px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.now-artist { font-size: 11px; color: var(--muted); }
+
+.prog-bar { height: 4px; background: #eee; border-radius: 2px; cursor: pointer; }
+.prog-fill { height: 100%; background: var(--blue); border-radius: 2px; width: 0%; transition: width 0.1s linear; pointer-events: none; }
+
+.time-row { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; }
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f0f2f8;
+}
+
+.ctrl { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; padding: 4px; transition: color 0.15s; line-height: 1; }
+.ctrl:hover { color: var(--text); }
+
+.play-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+
+.play-btn:hover { background: #1a3270; transform: scale(1.05); }
+
+.vol-row { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); padding: 0 20px 12px; }
+.vol-slider { flex: 1; -webkit-appearance: none; height: 3px; background: #eee; outline: none; cursor: pointer; border-radius: 2px; }
+.vol-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: var(--blue); cursor: pointer; border-radius: 50%; }
+
+/* TRACK LIST */
+.track-list { max-height: 320px; overflow-y: auto; }
+
+.track-item {
+  display: grid;
+  grid-template-columns: 32px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #f5f6fa;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.track-item:hover { background: #f8f9fc; }
+.track-item.active { background: #e8f0fe; }
+.track-item.active .ti-num { color: var(--blue); }
+.track-item.active .ti-title { color: var(--blue); font-weight: 900; }
+.track-item:last-child { border-bottom: none; }
+
+.ti-num { font-size: 11px; color: var(--muted); text-align: center; font-family: 'DM Mono', monospace; }
+.ti-info { min-width: 0; }
+.ti-title { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 1px; }
+.ti-artist { font-size: 10px; color: var(--muted); }
+.ti-dur { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; white-space: nowrap; }
+
+.bars { display: flex; gap: 2px; align-items: flex-end; height: 13px; opacity: 0; }
+.track-item.active .bars { opacity: 1; }
+.bar { width: 2px; background: var(--blue); border-radius: 1px; animation: bb 0.7s ease-in-out infinite alternate; }
+.bar:nth-child(1) { animation-delay: 0s; height: 5px; }
+.bar:nth-child(2) { animation-delay: 0.2s; height: 10px; }
+.bar:nth-child(3) { animation-delay: 0.4s; height: 7px; }
+.bar.paused { animation-play-state: paused; }
+@keyframes bb { from { transform: scaleY(0.3); } to { transform: scaleY(1); } }
+
+.no-tracks { padding: 32px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* ADMIN MODAL */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.show { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  width: 280px;
+  display: flex; flex-direction: column; gap: 14px;
+  transform: translateY(12px); transition: transform 0.2s;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.2);
+}
+
+.modal-overlay.show .modal { transform: translateY(0); }
+.modal-title { font-size: 18px; font-weight: 900; color: var(--blue); }
+
+.modal-input {
+  background: #f0f2f8;
+  border: 2px solid #e0e4f0;
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  padding: 12px 16px;
+  outline: none;
+  letter-spacing: 8px;
+  text-align: center;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s;
+}
+
+.modal-input:focus { border-color: var(--blue); }
+.modal-input.error { border-color: var(--red); animation: shake 0.3s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
+.modal-btns { display: flex; gap: 8px; }
+.modal-btn { flex: 1; padding: 11px; font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; cursor: pointer; border-radius: var(--radius-sm); border: 2px solid #e0e4f0; background: none; color: var(--muted); transition: all 0.15s; }
+.modal-btn.ok { background: var(--blue); border-color: var(--blue); color: #fff; }
+.modal-btn.ok:hover { background: #1a3270; }
+.modal-btn.cancel:hover { background: #f0f2f8; color: var(--text); }
+
+@media (max-width: 480px) {
+  .header-title { font-size: 20px; }
+  .jukebox-btn { padding: 10px 14px; font-size: 13px; }
+  .teacher-btn { padding: 10px 12px; font-size: 12px; }
+  .city-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .city-card { padding: 12px; }
+  .city-card-name { font-size: 13px; }
+}
+
+  .header-logo { display: flex; align-items: center; gap: 10px; }
+  .header-text .line1 { color: var(--red); font-size: 18px; font-weight: 900; line-height: 1.1; }
+  .header-text .line2 { color: var(--blue); font-size: 22px; font-weight: 900; line-height: 1.1; }
+
+  .usa-flag {
+    width: 52px; height: 34px;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    flex-shrink: 0;
+  }
+
+  .flag-stripes { width: 100%; height: 100%; display: flex; flex-direction: column; }
+  .s { flex: 1; }
+  .r { background: #b22234; }
+  .w { background: #fff; }
+
+  .flag-canton {
+    position: absolute; top: 0; left: 0;
+    width: 54%; height: 53%;
+    background: #3c3b6e;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .stars { font-size: 5.5px; color: #fff; line-height: 1.7; letter-spacing: 1.5px; text-align: center; }
+
+  .jukebox-btn { text-decoration: none; display: inline-flex; }
+
+
+  .flag-btn {
+    padding: 8px 16px 8px 8px !important;
+    gap: 10px !important;
+    align-items: center;
+    display: inline-flex !important;
+  }
+
+  .btn-flag {
+    width: 44px; height: 30px;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+  }
+
+  .btn-flag-stripes { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+  .btn-flag-canton {
+    position: absolute; top: 0; left: 0;
+    width: 54%; height: 53%;
+    background: #3c3b6e;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .btn-stars { font-size: 5px; color: #fff; line-height: 1.7; letter-spacing: 1.5px; text-align: center; }
+
+  .btn-label { font-size: 15px; font-weight: 800; color: #fff; }
+
+
+  .game-btn {
+    background: #eef0f8;
+    border-radius: var(--radius-sm);
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .game-btn:hover { background: #dde0f0; transform: translateY(-2px); }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logo">
+    <div class="usa-flag">
+      <div class="flag-stripes">
+        <div class="s r"></div><div class="s w"></div>
+        <div class="s r"></div><div class="s w"></div>
+        <div class="s r"></div><div class="s w"></div>
+        <div class="s r"></div>
+      </div>
+      <div class="flag-canton"><span class="stars">★★★<br>★★★<br>★★★</span></div>
+    </div>
+    <div class="header-text">
+      <div class="line1">Let's Go to</div>
+      <div class="line2">America!</div>
+    </div>
+  </div>
+  <div class="header-btns">
+    <a class="game-btn" href="https://jazzy-blini-502dc7.netlify.app/" target="_blank">✈️</a>
+    <a class="game-btn" href="https://voluble-genie-328a7b.netlify.app/" target="_blank">🎮</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="city-section">
+    <div class="city-section-title">🗺️ 우리가 여행할 12개 도시</div>
+    <div class="city-grid" id="cityGrid"></div>
+    <div class="city-hint">▶ 도시 카드를 누르면 음원을 들을 수 있어요! 🎵</div>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="player-wrap" id="playerWrap">
+    <div class="player-box">
+      <div class="player-top">
+        <span class="player-emoji" id="pEmoji"></span>
+        <div class="player-info">
+          <div class="player-city" id="pCityName"></div>
+          <div class="player-sub">JUKEBOX · CITY EXPLORER</div>
+        </div>
+        <button class="close-player" onclick="closePlayer()">✕</button>
+      </div>
+
+      <div class="now-bar">
+        <div class="now-info">
+          <div class="vinyl" id="vinyl"></div>
+          <div class="now-text">
+            <div class="now-title" id="nowTitle">—</div>
+            <div class="now-artist" id="nowArtist">—</div>
+          </div>
+        </div>
+        <div class="prog-bar" id="progBar"><div class="prog-fill" id="progFill"></div></div>
+        <div class="time-row"><span id="tElapsed">0:00</span><span id="tTotal">0:00</span></div>
+      </div>
+
+      <div class="controls">
+        <button class="ctrl" id="prevBtn">⏮</button>
+        <button class="play-btn" id="playBtn">▶</button>
+        <button class="ctrl" id="nextBtn">⏭</button>
+      </div>
+
+      <div class="vol-row">
+        <span>🔈</span>
+        <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.01" value="0.8">
+        <span>🔊</span>
+      </div>
+
+      <div class="track-list" id="trackList"></div>
+    </div>
+  </div>
+</div>
+
+<audio id="audio"></audio>
+
+<!-- ADMIN MODAL -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal">
+    <div class="modal-title">🔐 For Teacher</div>
+    <input class="modal-input" type="password" id="adminPw" placeholder="••••" maxlength="20">
+    <div class="modal-btns">
+      <button class="modal-btn cancel" onclick="closeModal()">취소</button>
+      <button class="modal-btn ok" onclick="checkPw()">확인</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const CITIES = [
+  { id:'new-york',      name:'New York',        folder:'NEW YORK',       emoji:'🗽' },
+  { id:'texas',         name:'Texas',           folder:'TEXAS',          emoji:'🤠' },
+  { id:'harvard',       name:'Harvard',         folder:'HARVARD',        emoji:'🧠' },
+  { id:'washington-dc', name:'Washington D.C.', folder:'WASHINGTON D.C', emoji:'🏛️' },
+  { id:'san-francisco', name:'San Francisco',   folder:'SAN FRANCISCO',  emoji:'🌉' },
+  { id:'iowa',          name:'Iowa',            folder:'IOWA',           emoji:'🌽' },
+  { id:'new-orleans',   name:'New Orleans',     folder:'NEW ORLEANS',    emoji:'🎺' },
+  { id:'florida',       name:'Florida',         folder:'FLORIDA',        emoji:'🎢' },
+  { id:'vermont',       name:'Vermont',         folder:'VERMONT',        emoji:'🍁' },
+  { id:'alaska',        name:'Alaska',          folder:'ALASKA',         emoji:'❄️' },
+  { id:'minnesota',     name:'Minnesota',       folder:'MINNESOTA',      emoji:'🌲' },
+  { id:'hollywood',     name:'Hollywood',       folder:'HOLLYWOOD',      emoji:'🎬' }
+];
+
+const audio = document.getElementById('audio');
+let tracks = [], currentIndex = 0, isPlaying = false;
+
+// RENDER GRID
+function renderGrid() {
+  document.getElementById('cityGrid').innerHTML = CITIES.map(c => `
+    <div class="city-card" id="card-${c.id}" onclick="openCity('${c.id}')">
+      <span class="city-emoji">${c.emoji}</span>
+      <span class="city-card-name">${c.name}</span>
+    </div>
+  `).join('');
+  CITIES.forEach(loadCount);
+}
+
+async function loadCount(city) {
+  try {
+    const r = await fetch(`${city.folder}/tracks.json?t=${Date.now()}`);
+    if (!r.ok) return;
+    const d = await r.json();
+    if ((d.tracks?.length||0) > 0)
+      document.getElementById(`card-${city.id}`)?.classList.add('has-tracks');
+  } catch {}
+}
+
+// OPEN CITY
+async function openCity(id) {
+  const city = CITIES.find(c => c.id === id);
+  if (!city) return;
+
+  document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
+  document.getElementById(`card-${id}`)?.classList.add('active');
+
+  document.getElementById('pEmoji').textContent = city.emoji;
+  document.getElementById('pCityName').textContent = city.name;
+  document.getElementById('trackList').innerHTML = '<div class="no-tracks">로딩 중...</div>';
+
+  const pw = document.getElementById('playerWrap');
+  pw.classList.add('visible');
+  setTimeout(() => pw.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+
+  audio.pause(); isPlaying = false;
+  document.getElementById('playBtn').textContent = '▶';
+  document.getElementById('vinyl').classList.remove('playing');
+
+  try {
+    const r = await fetch(`${city.folder}/tracks.json?t=${Date.now()}`);
+    if (!r.ok) throw 0;
+    const d = await r.json();
+    tracks = d.tracks || [];
+    renderTracks();
+    if (tracks.length) selectTrack(0, false);
+  } catch {
+    document.getElementById('trackList').innerHTML = '<div class="no-tracks">음원이 없습니다</div>';
+  }
+}
+
+function closePlayer() {
+  audio.pause(); isPlaying = false;
+  document.getElementById('playBtn').textContent = '▶';
+  document.getElementById('vinyl').classList.remove('playing');
+  document.getElementById('playerWrap').classList.remove('visible');
+  document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
+}
+
+// TRACKS
+function renderTracks() {
+  if (!tracks.length) {
+    document.getElementById('trackList').innerHTML = '<div class="no-tracks">트랙이 없습니다</div>';
+    return;
+  }
+  document.getElementById('trackList').innerHTML = tracks.map((t,i) => `
+    <div class="track-item" id="ti-${i}" onclick="selectTrack(${i},true)">
+      <div class="ti-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="ti-info">
+        <div class="ti-title">${t.title}</div>
+        <div class="ti-artist">${t.artist||''}</div>
+      </div>
+      <div class="bars"><div class="bar paused"></div><div class="bar paused"></div><div class="bar paused"></div></div>
+      <div class="ti-dur">${t.duration||''}</div>
+    </div>
+  `).join('');
+}
+
+function selectTrack(i, play) {
+  document.querySelectorAll('.track-item').forEach(e => e.classList.remove('active'));
+  currentIndex = i;
+  const t = tracks[i]; if (!t) return;
+  document.getElementById(`ti-${i}`)?.classList.add('active');
+  document.getElementById('nowTitle').textContent = t.title;
+  document.getElementById('nowArtist').textContent = t.artist||'';
+  audio.src = t.file;
+  audio.volume = parseFloat(document.getElementById('volSlider').value);
+  document.querySelectorAll('.bar').forEach(b => b.classList.add('paused'));
+  if (play) {
+    audio.play().then(() => {
+      isPlaying = true;
+      document.getElementById('playBtn').textContent = '⏸';
+      document.getElementById('vinyl').classList.add('playing');
+      document.querySelectorAll(`#ti-${i} .bar`).forEach(b => b.classList.remove('paused'));
+    }).catch(()=>{});
+  } else {
+    isPlaying = false;
+    document.getElementById('playBtn').textContent = '▶';
+    document.getElementById('vinyl').classList.remove('playing');
+  }
+}
+
+// CONTROLS
+document.getElementById('playBtn').addEventListener('click', () => {
+  if (!tracks.length) return;
+  if (isPlaying) {
+    audio.pause(); isPlaying = false;
+    document.getElementById('playBtn').textContent = '▶';
+    document.getElementById('vinyl').classList.remove('playing');
+    document.querySelectorAll(`#ti-${currentIndex} .bar`).forEach(b => b.classList.add('paused'));
+  } else {
+    audio.play().then(() => {
+      isPlaying = true;
+      document.getElementById('playBtn').textContent = '⏸';
+      document.getElementById('vinyl').classList.add('playing');
+      document.querySelectorAll(`#ti-${currentIndex} .bar`).forEach(b => b.classList.remove('paused'));
+    }).catch(()=>{});
+  }
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => { if(tracks.length) selectTrack((currentIndex-1+tracks.length)%tracks.length, isPlaying); });
+document.getElementById('nextBtn').addEventListener('click', () => { if(tracks.length) selectTrack((currentIndex+1)%tracks.length, isPlaying); });
+audio.addEventListener('ended', () => selectTrack((currentIndex+1)%tracks.length, true));
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  document.getElementById('progFill').style.width = (audio.currentTime/audio.duration*100)+'%';
+  document.getElementById('tElapsed').textContent = fmt(audio.currentTime);
+  document.getElementById('tTotal').textContent = fmt(audio.duration);
+});
+
+document.getElementById('progBar').addEventListener('click', e => {
+  if (!audio.duration) return;
+  const r = document.getElementById('progBar').getBoundingClientRect();
+  audio.currentTime = ((e.clientX-r.left)/r.width)*audio.duration;
+});
+
+document.getElementById('volSlider').addEventListener('input', e => { audio.volume = parseFloat(e.target.value); });
+
+function fmt(s) { if(isNaN(s)) return '0:00'; return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`; }
+
+// ADMIN
+const ADMIN_PW = '1234';
+// teacher btn removed
+
+function openModal() {
+  const i = document.getElementById('adminPw');
+  i.value=''; i.classList.remove('error');
+  document.getElementById('adminModal').classList.add('show');
+  setTimeout(()=>i.focus(),200);
+}
+
+function closeModal() { document.getElementById('adminModal').classList.remove('show'); }
+
+function checkPw() {
+  if (document.getElementById('adminPw').value === ADMIN_PW) {
+    closeModal(); window.location.href = 'admin.html';
+  } else {
+    const i = document.getElementById('adminPw');
+    i.classList.add('error'); i.value='';
+    setTimeout(()=>i.classList.remove('error'),400);
+  }
+}
+
+document.getElementById('adminPw').addEventListener('keydown', e => {
+  if (e.key==='Enter') checkPw();
+  if (e.key==='Escape') closeModal();
+});
+
+document.getElementById('adminModal').addEventListener('click', e => {
+  if (e.target.id==='adminModal') closeModal();
+});
+
+renderGrid();
+</script>
+</body>
+</html>
