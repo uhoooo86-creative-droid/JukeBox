@@ -1,0 +1,106 @@
+{
+  "album": {
+    "title": "New Orleans",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-07"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "New Orleans Play Instrument Song",
+      "artist": "",
+      "duration": "1:04",
+      "file": "NEW ORLEANS/00. New Orleans Play Instrument song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "If You Are Happy And Hello",
+      "artist": "",
+      "duration": "1:00",
+      "file": "NEW ORLEANS/01. If you are happy and Hello.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "BGM 앙탈 Feeling",
+      "artist": "",
+      "duration": "1:01",
+      "file": "NEW ORLEANS/02. BGM 앙탈 feeling.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "New Orleans Alligator Say Yes And No Song",
+      "artist": "",
+      "duration": "1:20",
+      "file": "NEW ORLEANS/05. New Orleans Alligator say Yes and No song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "New Orleans BGM Words To Know",
+      "artist": "",
+      "duration": "1:03",
+      "file": "NEW ORLEANS/06. New Orleans BGM words to know.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "New Orleans BGM I Can Not Play",
+      "artist": "",
+      "duration": "0:47",
+      "file": "NEW ORLEANS/07. New Orleans BGM I can not play.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Pass This Cane",
+      "artist": "",
+      "duration": "0:52",
+      "file": "NEW ORLEANS/08. Pass This Cane.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "New Orleans BGM Castanets(12, 123, 1234)",
+      "artist": "",
+      "duration": "1:26",
+      "file": "NEW ORLEANS/09. New Orleans BGM Castanets(12,123,1234) .mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "New Orleans Mardi Gras Parade(With Cane)",
+      "artist": "",
+      "duration": "2:14",
+      "file": "NEW ORLEANS/11. New Orleans Mardi Gras Parade(with Cane).mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "1. New Orleans Theme Opposite Alligator(With Puppet)",
+      "artist": "",
+      "duration": "0:50",
+      "file": "NEW ORLEANS/99-1. New Orleans Theme Opposite Alligator(with Puppet).mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "2. New Orleans BGM Sick Alligator(For Food Story)",
+      "artist": "",
+      "duration": "0:12",
+      "file": "NEW ORLEANS/99-2. New Orleans BGM Sick Alligator(for Food story).mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "4. New Orleans Do You Like Orange(For Food Story)",
+      "artist": "",
+      "duration": "0:55",
+      "file": "NEW ORLEANS/99-4. New Orleans Do you like Orange(for Food story).mp3",
+      "cover": ""
+    }
+  ]
+}
