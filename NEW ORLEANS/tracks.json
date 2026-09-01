@@ -32,22 +32,6 @@
     },
     {
       "id": 4,
-      "title": "Where Are You From(Korea)",
-      "artist": "",
-      "duration": "0:21",
-      "file": "NEW ORLEANS/03. Where are you from(Korea).mp3",
-      "cover": ""
-    },
-    {
-      "id": 5,
-      "title": "Let'S Go To America(Airplane)",
-      "artist": "",
-      "duration": "1:00",
-      "file": "NEW ORLEANS/04. Let's Go to America(airplane).mp3",
-      "cover": ""
-    },
-    {
-      "id": 6,
       "title": "New Orleans Alligator Say Yes And No Song",
       "artist": "",
       "duration": "1:20",
@@ -55,7 +39,7 @@
       "cover": ""
     },
     {
-      "id": 7,
+      "id": 5,
       "title": "New Orleans BGM Words To Know",
       "artist": "",
       "duration": "1:03",
@@ -63,7 +47,7 @@
       "cover": ""
     },
     {
-      "id": 8,
+      "id": 6,
       "title": "New Orleans BGM I Can Not Play",
       "artist": "",
       "duration": "0:47",
@@ -71,7 +55,7 @@
       "cover": ""
     },
     {
-      "id": 9,
+      "id": 7,
       "title": "Pass This Cane",
       "artist": "",
       "duration": "0:52",
@@ -79,7 +63,7 @@
       "cover": ""
     },
     {
-      "id": 10,
+      "id": 8,
       "title": "New Orleans BGM Castanets(12, 123, 1234)",
       "artist": "",
       "duration": "1:26",
@@ -87,7 +71,7 @@
       "cover": ""
     },
     {
-      "id": 11,
+      "id": 9,
       "title": "New Orleans Mardi Gras Parade(With Cane)",
       "artist": "",
       "duration": "2:14",
@@ -95,7 +79,7 @@
       "cover": ""
     },
     {
-      "id": 12,
+      "id": 10,
       "title": "1. New Orleans Theme Opposite Alligator(With Puppet)",
       "artist": "",
       "duration": "0:50",
@@ -103,7 +87,7 @@
       "cover": ""
     },
     {
-      "id": 13,
+      "id": 11,
       "title": "2. New Orleans BGM Sick Alligator(For Food Story)",
       "artist": "",
       "duration": "0:12",
@@ -111,7 +95,7 @@
       "cover": ""
     },
     {
-      "id": 14,
+      "id": 12,
       "title": "4. New Orleans Do You Like Orange(For Food Story)",
       "artist": "",
       "duration": "0:55",
