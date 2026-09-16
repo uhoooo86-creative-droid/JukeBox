@@ -1,0 +1,98 @@
+{
+  "album": {
+    "title": "Texas",
+    "subtitle": "빅캣 쥬크박스",
+    "cover": "",
+    "month": "2026-03"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Texas_BGM_Curby",
+      "artist": "",
+      "duration": "0:59",
+      "file": "TEXAS/00. Texas_BGM_Curby.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "Texas_BGM_Witch Is Coming",
+      "artist": "",
+      "duration": "1:23",
+      "file": "TEXAS/01. Texas_BGM_Witch is Coming.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "Texas_Witch Took The Cloud",
+      "artist": "",
+      "duration": "0:14",
+      "file": "TEXAS/02. Texas_Witch took the Cloud.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "BGM_Texas_Cowboy Coming",
+      "artist": "",
+      "duration": "2:40",
+      "file": "TEXAS/03. BGM_Texas_Cowboy Coming.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "Texas_BGM_DDR Motion",
+      "artist": "",
+      "duration": "0:52",
+      "file": "TEXAS/04. Texas_BGM_DDR Motion.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "Texas_Direction_Left & Right Song.M4a",
+      "artist": "",
+      "duration": "1:48",
+      "file": "TEXAS/05. Texas_Direction_Left & Right Song.m4a",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "Texas_Witch Coming Again To Take Stars Song",
+      "artist": "",
+      "duration": "0:48",
+      "file": "TEXAS/06. Texas_Witch Coming again to take Stars Song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "Texas_BGM_Get The Star Jump! Mission Timer 60sec",
+      "artist": "",
+      "duration": "1:06",
+      "file": "TEXAS/07. Texas_BGM_Get the star Jump! Mission timer 60sec.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "Texas_BGM_Squid Game",
+      "artist": "",
+      "duration": "3:43",
+      "file": "TEXAS/08. Texas_BGM_Squid Game.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "Texas_BGM Ending Cowboy Song",
+      "artist": "",
+      "duration": "2:30",
+      "file": "TEXAS/09. Texas_BGM Ending Cowboy song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "BGM_Tug Of The War Timer 10sec",
+      "artist": "",
+      "duration": "0:11",
+      "file": "TEXAS/BGM_Tug of the War timer 10sec.mp3",
+      "cover": ""
+    }
+  ]
+}
