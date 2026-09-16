@@ -8,38 +8,6 @@
   "tracks": [
     {
       "id": 1,
-      "title": "Texas_How Do You Feel_horse Ver",
-      "artist": "",
-      "duration": "0:51",
-      "file": "TEXAS/00.Texas_How do you feel_horse ver.mp3",
-      "cover": ""
-    },
-    {
-      "id": 2,
-      "title": "Texas_We Are Going To America",
-      "artist": "",
-      "duration": "0:50",
-      "file": "TEXAS/01.Texas_We are going to America.mp3",
-      "cover": ""
-    },
-    {
-      "id": 3,
-      "title": "1.Texas_Cactus! Yikes! Desert! So Hot!",
-      "artist": "",
-      "duration": "0:40",
-      "file": "TEXAS/03-1.Texas_Cactus! Yikes! Desert! So Hot!.mp3",
-      "cover": ""
-    },
-    {
-      "id": 4,
-      "title": "Texas_Words Chant",
-      "artist": "",
-      "duration": "0:33",
-      "file": "TEXAS/03.Texas_Words Chant.mp3",
-      "cover": ""
-    },
-    {
-      "id": 5,
       "title": "Texas_Left And Right.M4a",
       "artist": "",
       "duration": "1:48",
@@ -47,7 +15,7 @@
       "cover": ""
     },
     {
-      "id": 6,
+      "id": 2,
       "title": "Texas Cowboy Song",
       "artist": "",
       "duration": "2:30",
@@ -55,23 +23,7 @@
       "cover": ""
     },
     {
-      "id": 7,
-      "title": "1.Texas_BGM Witch Coming",
-      "artist": "",
-      "duration": "1:23",
-      "file": "TEXAS/06-1.Texas_BGM Witch coming.mp3",
-      "cover": ""
-    },
-    {
-      "id": 8,
-      "title": "Texas_Twinkle Twinkle Lone Star",
-      "artist": "",
-      "duration": "0:32",
-      "file": "TEXAS/06.Texas_Twinkle Twinkle Lone Star.mp3",
-      "cover": ""
-    },
-    {
-      "id": 9,
+      "id": 3,
       "title": "Texas_Witch Took All The Stars",
       "artist": "",
       "duration": "0:48",
@@ -79,7 +31,7 @@
       "cover": ""
     },
     {
-      "id": 10,
+      "id": 4,
       "title": "1.Texas_Squid Game",
       "artist": "",
       "duration": "3:43",
@@ -87,15 +39,7 @@
       "cover": ""
     },
     {
-      "id": 11,
-      "title": "2.Texas_Tug Of The War Timer 10sec",
-      "artist": "",
-      "duration": "0:11",
-      "file": "TEXAS/08-2.Texas_Tug of the War timer 10sec.mp3",
-      "cover": ""
-    },
-    {
-      "id": 12,
+      "id": 5,
       "title": "3.Texas_MISSION Timer 60 Sec",
       "artist": "",
       "duration": "1:06",
@@ -103,15 +47,7 @@
       "cover": ""
     },
     {
-      "id": 13,
-      "title": "Texas_66Route_Get On The Bus",
-      "artist": "",
-      "duration": "2:08",
-      "file": "TEXAS/09.Texas_66Route_Get on the Bus.mp3",
-      "cover": ""
-    },
-    {
-      "id": 14,
+      "id": 6,
       "title": "Texas_Witch Introduce",
       "artist": "",
       "duration": "0:14",
@@ -119,7 +55,7 @@
       "cover": ""
     },
     {
-      "id": 15,
+      "id": 7,
       "title": "BGM_Cowboy",
       "artist": "",
       "duration": "2:40",
@@ -127,7 +63,7 @@
       "cover": ""
     },
     {
-      "id": 16,
+      "id": 8,
       "title": "Texas_Motion",
       "artist": "",
       "duration": "0:52",
