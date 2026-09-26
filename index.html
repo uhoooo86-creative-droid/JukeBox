@@ -3,538 +3,630 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Let's Go to America!</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Let's Go to America! · JukeBox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600;700;800&family=DM+Serif+Display&family=Dancing+Script:wght@600;700&family=Noto+Sans+KR:wght@500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #f0f2f8;
-  --white: #ffffff;
-  --red: #e8192c;
-  --blue: #1e3a8a;
-  --gold: #f5a623;
-  --text: #1a1a2e;
-  --muted: #888;
-  --radius: 16px;
-  --radius-sm: 12px;
+  --navy: #1b2d6b;
+  --navy-2: #243d8a;
+  --red: #d42a35;
+  --red-soft: #fbe3e1;
+  --cream: #f7efdf;
+  --cream-2: #efe3cb;
+  --gold: #d9b25a;
+  --gold-2: #f3d98f;
+  --wood-1: #6b3a1c;
+  --wood-2: #8a4f27;
+  --wood-3: #4a2511;
+  --ink: #1d1a17;
+  --panel: #231a14;
+  --serif: 'Roboto Slab', Georgia, serif;
+  --display: 'DM Serif Display', Georgia, serif;
+  --kr: 'Noto Sans KR', sans-serif;
+  --mono: 'DM Mono', monospace;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--kr);
+  color: var(--ink);
   min-height: 100vh;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 10%, rgba(255,236,190,.9), transparent 70%),
+    linear-gradient(180deg, #efe2c6 0%, #e6d3b0 52%, transparent 52%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 2px, transparent 2px 90px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, #7a4221 52%, #5a2d14 100%);
+  background-color: #6b3a1c;
+  overflow-x: hidden;
 }
 
-/* HEADER */
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* ───────── HEADER ───────── */
 .header {
-  background: var(--white);
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 3px solid var(--red);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 14px rgba(60,30,10,.12);
 }
-
-.header-title {
-  font-size: 26px;
-  font-weight: 900;
-  line-height: 1.1;
+.header-in {
+  max-width: 1560px; margin: 0 auto;
+  display: flex; align-items: center; gap: 28px;
+  padding: 10px 28px;
 }
+.logo { display: flex; flex-direction: column; line-height: 1; flex-shrink: 0; }
+.logo .l1 { font-family: var(--display); color: var(--red); font-size: 22px; margin-left: 30px; transform: rotate(-4deg); }
+.logo .l2 { font-family: var(--display); color: var(--navy); font-size: 42px; letter-spacing: -.5px; display: flex; align-items: center; gap: 4px; }
+.logo .l2 .plane { font-size: 20px; color: var(--navy); transform: translateY(-14px) rotate(-18deg); }
+.logo .l2 .star { font-size: 14px; color: var(--red); transform: translateY(-4px); }
+.logo .l3 { font-size: 9px; letter-spacing: 3px; font-weight: 700; color: var(--navy); margin-top: 3px; text-align: center; border-top: 1px solid var(--gold); padding-top: 3px; width: 190px; }
 
-.header-title .line1 { color: var(--red); }
-.header-title .line2 { color: var(--blue); }
+.nav { display: flex; align-items: center; margin-left: auto; }
+.nav a { font-weight: 700; font-size: 17px; color: var(--navy); padding: 6px 22px; position: relative; transition: color .15s; white-space: nowrap; }
+.nav a + a::before { content: ''; position: absolute; left: 0; top: 50%; width: 1.5px; height: 16px; background: #d4a5a0; transform: translateY(-50%); }
+.nav a:hover { color: var(--red); }
 
-.header-btns {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.head-btns { display: flex; align-items: center; gap: 12px; margin-left: 18px; }
+.jb-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(180deg, #fbe3a6, #f3cd72);
+  color: var(--navy); font-weight: 900; font-size: 17px;
+  padding: 10px 22px; border-radius: 14px; position: relative;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.08);
 }
-
-.jukebox-btn {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 12px 20px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.15s;
-  box-shadow: 0 4px 12px rgba(245,166,35,0.4);
+.jb-btn::after { content: ''; position: absolute; left: 6px; right: 6px; bottom: -10px; height: 3px; background: var(--red); border-radius: 2px; }
+.head-sep { width: 2px; height: 34px; background: var(--red); opacity: .6; }
+.t-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #dbe9f8; color: var(--navy); font-weight: 900; font-size: 15px; line-height: 1.05;
+  padding: 8px 20px; border-radius: 22px; text-align: left; transition: background .15s;
 }
-
-.jukebox-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(245,166,35,0.5); }
-
-.teacher-btn {
-  background: #eef0f8;
-  color: var(--blue);
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: all 0.15s;
-  line-height: 1.2;
-  text-align: center;
+.t-btn:hover { background: #cadef4; }
+.t-btn svg { width: 30px; height: 30px; }
+.icon-link {
+  width: 42px; height: 42px; border-radius: 12px; background: #f3ebdc;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 22px; transition: transform .15s;
 }
+.icon-link:hover { transform: translateY(-2px); }
 
-.teacher-btn:hover { background: #dde0f0; }
-
-/* MAIN */
-.main {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 24px 16px 40px;
-}
-
-/* CITY SECTION */
-.city-section {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-
-.city-section-title {
-  font-size: 18px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.city-grid {
+/* ───────── STAGE ───────── */
+.stage {
+  max-width: 1560px; margin: 0 auto;
+  padding: 22px 28px 48px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.city-card {
-  background: #f8f9fc;
-  border: 1.5px solid #e8eaf0;
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.15s;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.city-card:hover {
-  background: #eef0f8;
-  border-color: var(--blue);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.city-card.active {
-  background: #e8f0fe;
-  border-color: var(--blue);
-  box-shadow: 0 4px 12px rgba(30,58,138,0.15);
-}
-
-.city-card.has-tracks .city-card-name { color: var(--blue); }
-
-.city-emoji { font-size: 24px; flex-shrink: 0; }
-.city-card-name { font-size: 14px; font-weight: 800; }
-
-.city-hint {
-  background: #fff8ee;
-  border: 1.5px solid #fde8b8;
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  font-size: 13px;
-  color: #b8700a;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-}
-
-/* PLAYER */
-.player-wrap {
-  display: none;
-  margin-top: 16px;
-}
-
-.player-wrap.visible { display: block; animation: slideDown 0.25s ease; }
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.player-box {
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 2px solid var(--blue);
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(30,58,138,0.12);
-}
-
-.player-top {
-  background: linear-gradient(135deg, var(--blue), #2d52c4);
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.player-emoji { font-size: 28px; }
-
-.player-info { flex: 1; }
-.player-city { font-size: 18px; font-weight: 900; color: #fff; }
-.player-sub { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 1px; font-family: 'DM Mono', monospace; }
-
-.close-player {
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: #fff;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 14px;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s;
-}
-
-.close-player:hover { background: rgba(255,255,255,0.25); }
-
-/* NOW PLAYING BAR */
-.now-bar {
-  padding: 14px 20px;
-  border-bottom: 1px solid #f0f2f8;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.now-info { display: flex; align-items: center; gap: 10px; }
-
-.vinyl {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: conic-gradient(#222 0deg,#333 20deg,#222 40deg,#333 60deg,#222 80deg,#333 100deg,#222 120deg,#333 140deg,#222 160deg,#333 180deg,#222 200deg,#333 220deg,#222 240deg,#333 260deg,#222 280deg,#333 300deg,#222 320deg,#333 340deg);
-  animation: spin 3s linear infinite paused;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+  grid-template-areas: "left panel" "cities cities";
+  gap: 26px 24px;
   position: relative;
-  flex-shrink: 0;
+}
+.left { grid-area: left; position: relative; }
+
+.hero-title { text-align: center; margin: 4px 0 18px; position: relative; z-index: 2; padding-right: 12%; }
+.hero-title h1 {
+  font-family: var(--display); color: var(--navy);
+  font-size: clamp(46px, 6vw, 84px); line-height: .95; letter-spacing: -1px;
+  display: inline-flex; align-items: flex-start; gap: 10px;
+}
+.hero-title h1 .notes { font-size: .42em; margin-top: .45em; }
+.hero-title h1 .notes .n1 { color: var(--red); }
+.hero-title h1 .notes .n2 { color: #3a6bd8; }
+.hero-title p { font-weight: 700; font-size: clamp(15px, 1.6vw, 22px); color: #2a2a3a; margin-top: 4px; }
+
+.script-note {
+  position: absolute; right: -10px; top: -14px; z-index: 0;
+  font-family: 'Dancing Script', cursive; font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 36px); line-height: 1.05; color: #2d3b6a;
+  transform: rotate(-14deg); text-align: left; opacity: .85;
+  background: rgba(247,239,223,.7); padding: 10px 18px 14px; border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(80,40,10,.12);
+}
+.script-note .star { color: var(--red); font-size: .7em; }
+
+/* ───────── TURNTABLE ───────── */
+.deck {
+  position: relative; z-index: 1;
+  border-radius: 18px;
+  padding: 14px;
+  background:
+    repeating-linear-gradient(92deg, rgba(0,0,0,.08) 0 3px, transparent 3px 11px, rgba(255,255,255,.04) 11px 13px, transparent 13px 26px),
+    linear-gradient(180deg, #955a2f, #6e3b1b 70%, #5a2e14);
+  box-shadow:
+    inset 0 2px 0 rgba(255,220,180,.35),
+    inset 0 -4px 0 rgba(0,0,0,.25),
+    0 30px 50px -18px rgba(40,15,0,.65),
+    0 8px 18px rgba(40,15,0,.3);
+}
+.deck-top {
+  position: relative;
+  aspect-ratio: 1000 / 620;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.07) 0 2px, transparent 2px 9px, rgba(255,255,255,.035) 9px 10px, transparent 10px 22px),
+    radial-gradient(ellipse at 40% 20%, #a86936, #7b431f 70%);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.18), inset 0 10px 30px rgba(0,0,0,.25);
+}
+.screw { position: absolute; width: 1.6%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff4d6, #a9894f 60%, #5d4420); box-shadow: 0 1px 2px rgba(0,0,0,.5); }
+
+.platter {
+  position: absolute; left: 13%; top: 6%; width: 52%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, #cfd2d6 0 60%, #8d9096 66%, #e6e8eb 69%, #6d7076 72%, #bfc2c7 100%);
+  box-shadow: 0 16px 30px rgba(0,0,0,.45), 0 0 0 3px rgba(0,0,0,.25);
+}
+.record {
+  position: absolute; inset: 3.2%; border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 31%, #0c0c0c 31.4% 33%, transparent 33.4%),
+    repeating-radial-gradient(circle, #121212 0 1.2px, #1c1c1c 1.2px 2.6px, #0f0f0f 2.6px 3.4px);
+  box-shadow: inset 0 0 0 4px #0a0a0a, inset 0 0 18px rgba(0,0,0,.8);
+  animation: spin 1.8s linear infinite; animation-play-state: paused;
+}
+.deck.playing .record { animation-play-state: running; }
+.record-sheen {
+  position: absolute; inset: 3.2%; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 20deg, transparent 0deg, rgba(255,255,255,.14) 25deg, transparent 55deg, transparent 180deg, rgba(255,255,255,.1) 210deg, transparent 240deg);
+  mix-blend-mode: screen;
+}
+.label {
+  position: absolute; left: 50%; top: 50%; width: 42%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; overflow: hidden;
+  background: linear-gradient(180deg, var(--lbl-top, #d42a35) 0 32%, #f2e7cf 32% 60%, var(--lbl-bot, #1b2d6b) 60%);
+  box-shadow: 0 0 0 4px #efe4cc, 0 0 0 7px var(--lbl-top, #d42a35);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 7% 8% 9%;
+  color: #fff;
+}
+.label .lnum { font-family: var(--serif); font-weight: 800; font-size: clamp(12px, 2vw, 28px); line-height: 1; }
+.label .lart { font-size: clamp(18px, 3.2vw, 44px); line-height: 1; margin-top: -4%; filter: drop-shadow(0 1px 1px rgba(0,0,0,.25)); }
+.label .lname { font-family: var(--serif); font-weight: 800; font-size: clamp(8px, 1.35vw, 20px); letter-spacing: .5px; text-align: center; line-height: 1.05; white-space: nowrap; }
+.label .lsub { font-family: var(--mono); font-size: clamp(5px, .6vw, 9px); opacity: .7; }
+.spindle { position: absolute; left: 50%; top: 50%; width: 4%; aspect-ratio: 1; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #a8a8a8 55%, #555); box-shadow: 0 2px 4px rgba(0,0,0,.6); z-index: 3; }
+
+.tonearm { position: absolute; left: 62%; top: 1%; width: 26%; height: 82%; z-index: 4; pointer-events: none; overflow: visible; }
+.tonearm .arm { transform-box: view-box; transform-origin: 190px 62px; transform: rotate(0deg); transition: transform 1s cubic-bezier(.5,.1,.3,1); }
+.deck.playing .tonearm .arm { transform: rotate(21deg); }
+
+.grille {
+  position: absolute; left: 79%; top: 47%; width: 17%; height: 20%;
+  border-radius: 4px;
+  background: repeating-linear-gradient(180deg, #2a1a10 0 3px, #4a2c18 3px 6px);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.6), 0 1px 0 rgba(255,220,180,.2);
 }
 
-.vinyl.playing { animation-play-state: running; }
-.vinyl::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--gold);
+.knob-wrap { position: absolute; left: 4%; top: 70%; width: 9%; text-align: center; }
+.knob {
+  width: 58%; aspect-ratio: 1; margin: 0 auto; border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, #e7c67a 0 6deg, #b8914a 6deg 12deg);
+  box-shadow: 0 5px 8px rgba(0,0,0,.5), inset 0 0 0 3px rgba(255,240,200,.5);
+  position: relative;
 }
+.knob::after { content: ''; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff1c7, #cfa651 60%, #8c6a2a); }
+.knob-marks { display: flex; justify-content: space-between; font-family: var(--mono); font-size: clamp(7px, .75vw, 11px); color: #f3e2c2; margin-top: 2px; }
+.knob-lbl { font-family: var(--mono); font-size: clamp(7px, .75vw, 11px); letter-spacing: 1px; color: #f3e2c2; font-weight: 500; }
+
+.deck-btns { position: absolute; left: 71%; top: 72%; width: 26%; display: flex; justify-content: space-between; align-items: center; }
+.gbtn {
+  aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff3cb, #dcb766 45%, #9d7431 100%);
+  box-shadow: 0 6px 10px rgba(0,0,0,.45), inset 0 -3px 0 rgba(0,0,0,.2), 0 0 0 3px #3a2210;
+  display: flex; align-items: center; justify-content: center; color: #2a1a0c;
+  transition: transform .1s, filter .15s;
+}
+.gbtn:hover { filter: brightness(1.07); }
+.gbtn:active { transform: translateY(2px); }
+.gbtn.sm { width: 27%; }
+.gbtn.lg { width: 36%; }
+.gbtn svg { width: 42%; height: 42%; }
+
+/* now-playing bar */
+.now {
+  margin-top: 12px;
+  background: linear-gradient(180deg, #211813, #16100c);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
+  align-items: center; gap: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 2px 0 rgba(255,220,180,.15);
+  color: #f3e6cc;
+}
+.now-thumb { width: 52px; height: 52px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 30px; background: linear-gradient(180deg, var(--lbl-top, #d42a35) 0 45%, var(--lbl-bot, #1b2d6b) 45%); box-shadow: 0 0 0 2px #3a2a1e; }
+.now-meta { min-width: 0; }
+.now-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: #d9b25a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.now-kicker b { color: #f3e6cc; font-weight: 500; }
+.now-title { font-family: var(--serif); font-weight: 600; font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+.prog-wrap { min-width: 0; }
+.prog { position: relative; height: 18px; cursor: pointer; display: flex; align-items: center; }
+.prog-track { width: 100%; height: 3px; background: #4a3a2e; border-radius: 2px; position: relative; }
+.prog-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: linear-gradient(90deg, #d9b25a, #f3d98f); border-radius: 2px; }
+.prog-dot { position: absolute; top: 50%; left: 0%; width: 11px; height: 11px; border-radius: 50%; background: #f3e6cc; transform: translate(-50%,-50%); box-shadow: 0 0 0 2px #16100c; }
+.times { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: #cdbb9e; }
+
+/* play modes */
+.modes { display: flex; gap: 4px; background: #0e0906; padding: 4px; border-radius: 10px; box-shadow: inset 0 1px 3px rgba(0,0,0,.6); }
+.mode {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 6px 10px; border-radius: 7px; color: #9d8a6e; font-size: 11px; font-weight: 700; white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.mode svg { width: 18px; height: 18px; }
+.mode:hover { color: #f3e6cc; }
+.mode.on { background: linear-gradient(180deg, #f3d98f, #d9b25a); color: #2a1a0c; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+
+/* ───────── TRACK PANEL ───────── */
+.panel {
+  grid-area: panel; align-self: start;
+  border-radius: 12px; padding: 16px;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 2px, transparent 2px 10px),
+    linear-gradient(180deg, #7b431f, #5a2e14);
+  box-shadow: 0 30px 50px -18px rgba(40,15,0,.65), inset 0 2px 0 rgba(255,220,180,.25);
+  position: relative;
+}
+.panel-in {
+  background: linear-gradient(180deg, #2a1e16, #1c140f);
+  border-radius: 8px; padding: 14px; position: relative;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.4), inset 0 3px 12px rgba(0,0,0,.6);
+}
+.panel .screw { width: 10px; }
+
+.p-head { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 8px; margin-bottom: 12px; }
+.p-city {
+  background: linear-gradient(180deg, #fbf5e7, #efe3cb); border-radius: 6px; padding: 14px 16px;
+  position: relative; overflow: hidden; min-height: 150px;
+  box-shadow: inset 0 0 0 1px rgba(120,80,30,.15);
+}
+.p-city .pnum { font-family: var(--serif); font-weight: 800; color: var(--red); font-size: 52px; line-height: 1; position: relative; z-index: 1; }
+.p-city .pname { font-family: var(--serif); font-weight: 800; color: var(--navy); font-size: 30px; line-height: 1.05; margin-top: 4px; position: relative; z-index: 1; max-width: 70%; }
+.p-city .part { position: absolute; right: 4px; bottom: -6px; font-size: 92px; line-height: 1; opacity: .95; }
+.p-city::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: linear-gradient(180deg, transparent, rgba(59,107,200,.18)); }
+
+.p-tl { background: linear-gradient(180deg, #f7efdf, #eadcc0); border-radius: 6px; padding: 12px; position: relative; display: flex; flex-direction: column; }
+.p-tl .tl-row { display: flex; justify-content: space-between; align-items: center; }
+.p-tl .tl-lbl { font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; font-weight: 500; }
+.p-tl .x { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background .15s; }
+.p-tl .x:hover { background: rgba(0,0,0,.08); }
+.p-tl .x svg { width: 18px; height: 18px; }
+.mini-disc {
+  margin-top: auto; position: relative; background: #121212; border-radius: 10px 60px 60px 10px; height: 92px;
+  display: flex; align-items: flex-end; padding: 8px 10px; overflow: hidden;
+}
+.mini-disc::before { content: ''; position: absolute; right: 6px; top: 50%; width: 82px; height: 82px; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(circle, #eee 0 3%, var(--lbl-top, #d42a35) 3.5% 30%, #0a0a0a 31% 33%, transparent 34%), repeating-radial-gradient(circle, #111 0 1px, #222 1px 2.5px); }
+.mini-disc .cnt { position: relative; color: #fff; font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1; }
+.mini-disc .cnt small { font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: 1px; margin-left: 4px; }
+
+.tracks { display: flex; flex-direction: column; gap: 8px; max-height: 420px; overflow-y: auto; padding-right: 2px; }
+.tracks::-webkit-scrollbar { width: 6px; }
+.tracks::-webkit-scrollbar-thumb { background: #6b4a30; border-radius: 3px; }
+.trk {
+  display: grid; grid-template-columns: 38px 40px minmax(0,1fr) 30px; align-items: center; gap: 10px;
+  background: linear-gradient(180deg, #f8f1e2, #efe4cd); border-radius: 6px; padding: 12px 16px;
+  cursor: pointer; transition: transform .12s, box-shadow .12s; border: 2px solid transparent;
+  text-align: left; width: 100%;
+}
+.trk:hover { transform: translateX(3px); }
+.trk .tn { font-family: var(--serif); font-weight: 700; font-size: 22px; color: #2c56c8; }
+.trk .tp { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #3a2a1e; display: flex; align-items: center; justify-content: center; color: #1d1a17; background: #fbf7ee; }
+.trk .tp svg { width: 14px; height: 14px; }
+.trk .tt { font-family: var(--serif); font-weight: 600; font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trk .ta { font-size: 12px; color: #8a7458; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trk .eq { display: flex; gap: 3px; align-items: flex-end; height: 22px; opacity: 0; }
+.trk .eq i { width: 4px; background: var(--red); border-radius: 1px; height: 100%; transform-origin: bottom; animation: eq .8s ease-in-out infinite alternate; animation-play-state: paused; }
+.trk .eq i:nth-child(1) { height: 40%; animation-delay: -.2s; }
+.trk .eq i:nth-child(2) { height: 65%; animation-delay: -.5s; }
+.trk .eq i:nth-child(3) { height: 85%; animation-delay: -.1s; }
+.trk .eq i:nth-child(4) { height: 100%; animation-delay: -.35s; }
+@keyframes eq { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
+
+.trk.active { background: linear-gradient(180deg, #fde9e4, #f8d9d2); border-color: var(--red); box-shadow: 0 0 0 2px rgba(212,42,53,.15); }
+.trk.active .tn { color: var(--red); }
+.trk.active .tt { color: #7a1a1f; }
+.trk.active .tp { background: var(--red); border-color: var(--red); color: #fff; }
+.trk.active .eq { opacity: 1; }
+.trk.active.playing .eq i { animation-play-state: running; }
+
+.empty { background: rgba(247,239,223,.08); border: 1.5px dashed rgba(247,239,223,.25); color: #d9c7a8; border-radius: 6px; padding: 36px 16px; text-align: center; font-size: 14px; font-weight: 500; }
+
+.p-foot { display: flex; align-items: center; gap: 12px; margin-top: 14px; color: #efe3cb; font-size: 13px; font-weight: 500; }
+.p-foot svg { width: 22px; height: 22px; flex-shrink: 0; }
+.vol { -webkit-appearance: none; appearance: none; width: 42%; height: 4px; border-radius: 2px; background: linear-gradient(90deg, #d9b25a var(--v, 80%), #4a3a2e var(--v, 80%)); outline: none; cursor: pointer; }
+.vol::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff3cb, #d9b25a 60%, #9d7431); box-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.vol::-moz-range-thumb { width: 16px; height: 16px; border: none; border-radius: 50%; background: #d9b25a; }
+.p-foot .hint { margin-left: auto; text-align: right; }
+
+/* ───────── CITY CARDS ───────── */
+.cities { grid-area: cities; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 18px; }
+.city {
+  position: relative; height: 92px; border-radius: 6px; cursor: pointer; text-align: left;
+  padding: 0; overflow: visible; transition: transform .15s;
+  filter: drop-shadow(0 8px 10px rgba(30,10,0,.45));
+}
+.city:hover { transform: translateY(-3px); }
+.city .disc {
+  position: absolute; right: -2px; top: 50%; height: 88%; aspect-ratio: 1; transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #eee 0 3%, var(--c, #1b2d6b) 3.5% 28%, #0a0a0a 29% 31%, transparent 32%), repeating-radial-gradient(circle, #101010 0 1px, #1f1f1f 1px 2.4px);
+  transition: right .3s ease;
+}
+.city:hover .disc, .city.active .disc { right: -14px; }
+.city.active .disc { animation: spin 2.2s linear infinite; }
+.city .sleeve {
+  position: absolute; left: 0; top: 0; bottom: 0; right: 13%;
+  border-radius: 5px; overflow: hidden;
+  background: var(--sky, linear-gradient(180deg, #fbf5e7, #efe3cb));
+  box-shadow: inset 0 0 0 1px rgba(120,80,30,.2);
+  padding: 10px 14px;
+}
+.city .cn { font-family: var(--serif); font-weight: 800; color: var(--red); font-size: 22px; line-height: 1; position: relative; z-index: 1; }
+.city .cnm { font-family: var(--serif); font-weight: 800; color: #1d1a17; font-size: 18px; line-height: 1.1; margin-top: 6px; position: relative; z-index: 1; letter-spacing: -.3px; white-space: nowrap; }
+.city .cart { position: absolute; right: 8px; bottom: 2px; font-size: 44px; line-height: 1; }
+.city .cart2 { position: absolute; right: 52px; bottom: 4px; font-size: 26px; opacity: .9; }
+.city .sleeve::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: var(--ground, linear-gradient(180deg, transparent, rgba(80,140,60,.25))); }
+.city.active .sleeve { box-shadow: inset 0 0 0 3px var(--red); }
+.city.active::before { content: ''; position: absolute; inset: -5px; border-radius: 9px; border: 3px solid var(--red); pointer-events: none; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+.city.active .disc { animation-name: spinY; }
+@keyframes spinY { from { transform: translateY(-50%) rotate(0deg); } to { transform: translateY(-50%) rotate(360deg); } }
 
-.now-text { flex: 1; min-width: 0; }
-.now-title { font-size: 14px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.now-artist { font-size: 11px; color: var(--muted); }
-
-.prog-bar { height: 4px; background: #eee; border-radius: 2px; cursor: pointer; }
-.prog-fill { height: 100%; background: var(--blue); border-radius: 2px; width: 0%; transition: width 0.1s linear; pointer-events: none; }
-
-.time-row { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; }
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 12px 20px;
-  border-bottom: 1px solid #f0f2f8;
-}
-
-.ctrl { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; padding: 4px; transition: color 0.15s; line-height: 1; }
-.ctrl:hover { color: var(--text); }
-
-.play-btn {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: var(--blue);
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 18px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s;
-}
-
-.play-btn:hover { background: #1a3270; transform: scale(1.05); }
-
-.vol-row { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); padding: 0 20px 12px; }
-.vol-slider { flex: 1; -webkit-appearance: none; height: 3px; background: #eee; outline: none; cursor: pointer; border-radius: 2px; }
-.vol-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: var(--blue); cursor: pointer; border-radius: 50%; }
-
-/* TRACK LIST */
-.track-list { max-height: 320px; overflow-y: auto; }
-
-.track-item {
-  display: grid;
-  grid-template-columns: 32px 1fr auto auto;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 16px;
-  border-bottom: 1px solid #f5f6fa;
-  cursor: pointer;
-  transition: background 0.1s;
-}
-
-.track-item:hover { background: #f8f9fc; }
-.track-item.active { background: #e8f0fe; }
-.track-item.active .ti-num { color: var(--blue); }
-.track-item.active .ti-title { color: var(--blue); font-weight: 900; }
-.track-item:last-child { border-bottom: none; }
-
-.ti-num { font-size: 11px; color: var(--muted); text-align: center; font-family: 'DM Mono', monospace; }
-.ti-info { min-width: 0; }
-.ti-title { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 1px; }
-.ti-artist { font-size: 10px; color: var(--muted); }
-.ti-dur { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; white-space: nowrap; }
-
-.bars { display: flex; gap: 2px; align-items: flex-end; height: 13px; opacity: 0; }
-.track-item.active .bars { opacity: 1; }
-.bar { width: 2px; background: var(--blue); border-radius: 1px; animation: bb 0.7s ease-in-out infinite alternate; }
-.bar:nth-child(1) { animation-delay: 0s; height: 5px; }
-.bar:nth-child(2) { animation-delay: 0.2s; height: 10px; }
-.bar:nth-child(3) { animation-delay: 0.4s; height: 7px; }
-.bar.paused { animation-play-state: paused; }
-@keyframes bb { from { transform: scaleY(0.3); } to { transform: scaleY(1); } }
-
-.no-tracks { padding: 32px; text-align: center; color: var(--muted); font-size: 13px; }
-
-/* ADMIN MODAL */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 9999;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: opacity 0.2s;
-  backdrop-filter: blur(4px);
-}
-
+/* ───────── MODAL ───────── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(20,10,0,.55); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .2s; backdrop-filter: blur(4px); }
 .modal-overlay.show { opacity: 1; pointer-events: all; }
-
-.modal {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 32px;
-  width: 280px;
-  display: flex; flex-direction: column; gap: 14px;
-  transform: translateY(12px); transition: transform 0.2s;
-  box-shadow: 0 20px 48px rgba(0,0,0,0.2);
-}
-
-.modal-overlay.show .modal { transform: translateY(0); }
-.modal-title { font-size: 18px; font-weight: 900; color: var(--blue); }
-
-.modal-input {
-  background: #f0f2f8;
-  border: 2px solid #e0e4f0;
-  color: var(--text);
-  font-family: 'DM Mono', monospace;
-  font-size: 20px;
-  padding: 12px 16px;
-  outline: none;
-  letter-spacing: 8px;
-  text-align: center;
-  width: 100%;
-  border-radius: var(--radius-sm);
-  transition: border-color 0.15s;
-}
-
-.modal-input:focus { border-color: var(--blue); }
-.modal-input.error { border-color: var(--red); animation: shake 0.3s; }
+.modal { background: var(--cream); border-radius: 14px; padding: 30px; width: 290px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 20px 48px rgba(0,0,0,.3); border: 3px solid var(--wood-2); }
+.modal-title { font-family: var(--serif); font-size: 20px; font-weight: 800; color: var(--navy); }
+.modal-input { background: #fff; border: 2px solid #e0d2b6; font-family: var(--mono); font-size: 20px; padding: 12px; outline: none; letter-spacing: 8px; text-align: center; width: 100%; border-radius: 10px; }
+.modal-input:focus { border-color: var(--navy); }
+.modal-input.error { border-color: var(--red); animation: shake .3s; }
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
-
 .modal-btns { display: flex; gap: 8px; }
-.modal-btn { flex: 1; padding: 11px; font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; cursor: pointer; border-radius: var(--radius-sm); border: 2px solid #e0e4f0; background: none; color: var(--muted); transition: all 0.15s; }
-.modal-btn.ok { background: var(--blue); border-color: var(--blue); color: #fff; }
-.modal-btn.ok:hover { background: #1a3270; }
-.modal-btn.cancel:hover { background: #f0f2f8; color: var(--text); }
+.modal-btn { flex: 1; padding: 11px; font-size: 14px; font-weight: 700; border-radius: 10px; border: 2px solid #e0d2b6; color: #7a6a52; }
+.modal-btn.ok { background: var(--navy); border-color: var(--navy); color: #fff; }
 
-@media (max-width: 480px) {
-  .header-title { font-size: 20px; }
-  .jukebox-btn { padding: 10px 14px; font-size: 13px; }
-  .teacher-btn { padding: 10px 12px; font-size: 12px; }
-  .city-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .city-card { padding: 12px; }
-  .city-card-name { font-size: 13px; }
+/* ───────── RESPONSIVE ───────── */
+@media (max-width: 1280px) {
+  .nav a { font-size: 15px; padding: 6px 14px; }
+  .now { grid-template-columns: auto minmax(0,1fr) minmax(0,1fr); }
+  .now .modes { grid-column: 1 / -1; justify-self: center; }
 }
-
-  .header-logo { display: flex; align-items: center; gap: 10px; }
-  .header-text .line1 { color: var(--red); font-size: 18px; font-weight: 900; line-height: 1.1; }
-  .header-text .line2 { color: var(--blue); font-size: 22px; font-weight: 900; line-height: 1.1; }
-
-  .usa-flag {
-    width: 52px; height: 34px;
-    border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    flex-shrink: 0;
-  }
-
-  .flag-stripes { width: 100%; height: 100%; display: flex; flex-direction: column; }
-  .s { flex: 1; }
-  .r { background: #b22234; }
-  .w { background: #fff; }
-
-  .flag-canton {
-    position: absolute; top: 0; left: 0;
-    width: 54%; height: 53%;
-    background: #3c3b6e;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .stars { font-size: 5.5px; color: #fff; line-height: 1.7; letter-spacing: 1.5px; text-align: center; }
-
-  .jukebox-btn { text-decoration: none; display: inline-flex; }
-
-
-  .flag-btn {
-    padding: 8px 16px 8px 8px !important;
-    gap: 10px !important;
-    align-items: center;
-    display: inline-flex !important;
-  }
-
-  .btn-flag {
-    width: 44px; height: 30px;
-    border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    flex-shrink: 0;
-  }
-
-  .btn-flag-stripes { width: 100%; height: 100%; display: flex; flex-direction: column; }
-
-  .btn-flag-canton {
-    position: absolute; top: 0; left: 0;
-    width: 54%; height: 53%;
-    background: #3c3b6e;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .btn-stars { font-size: 5px; color: #fff; line-height: 1.7; letter-spacing: 1.5px; text-align: center; }
-
-  .btn-label { font-size: 15px; font-weight: 800; color: #fff; }
-
-
-  .game-btn {
-    background: #eef0f8;
-    border-radius: var(--radius-sm);
-    width: 52px; height: 52px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px;
-    text-decoration: none;
-    transition: all 0.15s;
-    flex-shrink: 0;
-  }
-  .game-btn:hover { background: #dde0f0; transform: translateY(-2px); }
-
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .head-btns { margin-left: auto; }
+  .stage { grid-template-columns: minmax(0,1fr); grid-template-areas: "left" "panel" "cities"; }
+  .cities { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .script-note { display: none; }
+  .hero-title { padding-right: 0; }
+}
+@media (max-width: 720px) {
+  .header-in { padding: 8px 14px; gap: 10px; }
+  .logo .l1 { font-size: 15px; margin-left: 18px; }
+  .logo .l2 { font-size: 28px; }
+  .logo .l3 { width: 130px; font-size: 7px; letter-spacing: 2px; }
+  .jb-btn { padding: 8px 12px; font-size: 14px; }
+  .jb-btn .txt, .head-sep { display: none; }
+  .t-btn { padding: 6px 12px; font-size: 12px; }
+  .t-btn svg { width: 22px; height: 22px; }
+  .icon-link { width: 36px; height: 36px; font-size: 18px; }
+  .stage { padding: 14px 16px 36px; gap: 18px; }
+  .deck { padding: 8px; }
+  .now { grid-template-columns: auto minmax(0,1fr); gap: 10px; }
+  .now .prog-wrap, .now .modes { grid-column: 1 / -1; }
+  .now .modes { justify-self: stretch; }
+  .now .mode { flex: 1; }
+  .cities { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px 16px; }
+  .city { height: 80px; }
+  .city .cnm { font-size: 14px; }
+  .city .cn { font-size: 18px; }
+  .city .cart { font-size: 34px; }
+  .city .cart2 { display: none; }
+  .city:hover .disc, .city.active .disc { right: -4px; }
+  .city .sleeve { right: 16%; }
+  .p-city .pnum { font-size: 38px; }
+  .p-city .pname { font-size: 22px; }
+  .p-city .part { font-size: 64px; }
+  .p-city { min-height: 120px; }
+  .mini-disc { height: 72px; }
+  .mini-disc::before { width: 62px; height: 62px; }
+  .trk { grid-template-columns: 28px 34px minmax(0,1fr) 24px; padding: 10px 12px; gap: 8px; }
+  .trk .tn { font-size: 18px; }
+  .trk .tt { font-size: 16px; }
+  .trk .tp { width: 32px; height: 32px; }
+  .p-foot { flex-wrap: wrap; }
+  .p-foot .vol { flex: 1; }
+  .p-foot .hint { width: 100%; text-align: center; margin: 0; }
+}
+@media (max-width: 480px) {
+  .t-btn span, .icon-link { display: none; }
+  .hero-title { padding-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .record, .city.active .disc, .trk .eq i { animation: none !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<div class="header">
-  <div class="header-logo">
-    <div class="usa-flag">
-      <div class="flag-stripes">
-        <div class="s r"></div><div class="s w"></div>
-        <div class="s r"></div><div class="s w"></div>
-        <div class="s r"></div><div class="s w"></div>
-        <div class="s r"></div>
-      </div>
-      <div class="flag-canton"><span class="stars">★★★<br>★★★<br>★★★</span></div>
+<header class="header">
+  <div class="header-in">
+    <a class="logo" href="#" aria-label="Let's Go to America">
+      <span class="l1">Let's Go to</span>
+      <span class="l2">America<span class="plane">✈</span><span class="star">★</span></span>
+      <span class="l3">WOOLLIM EDUCATION</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#">프로그램소개</a>
+      <a href="#">교육계획안</a>
+      <a href="#">이달의 도시</a>
+      <a href="#">스피치타임</a>
+    </nav>
+
+    <div class="head-btns">
+      <a class="icon-link" href="https://jazzy-blini-502dc7.netlify.app/" target="_blank" title="게임 1">✈️</a>
+      <a class="icon-link" href="https://voluble-genie-328a7b.netlify.app/" target="_blank" title="게임 2">🎮</a>
+      <a class="jb-btn" href="#"><span>🎵</span><span class="txt">JukeBox</span></a>
+      <span class="head-sep"></span>
+      <button class="t-btn" onclick="openModal()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.3l-6 3.3-6-3.3z"/></svg>
+        <span>For<br>Teacher</span>
+      </button>
     </div>
-    <div class="header-text">
-      <div class="line1">Let's Go to</div>
-      <div class="line2">America!</div>
+  </div>
+</header>
+
+<main class="stage">
+  <!-- LEFT : TITLE + TURNTABLE -->
+  <section class="left">
+    <div class="script-note">Music<br>&nbsp;Journey<br>&nbsp;&nbsp;Across<br>&nbsp;&nbsp;&nbsp;America <span class="star">★</span></div>
+
+    <div class="hero-title">
+      <h1><span class="notes"><span class="n1">♫</span><span class="n2">♪</span></span>JukeBox</h1>
+      <p>레코드로 떠나는 12개 미국 여행지</p>
     </div>
-  </div>
-  <div class="header-btns">
-    <a class="game-btn" href="https://jazzy-blini-502dc7.netlify.app/" target="_blank">✈️</a>
-    <a class="game-btn" href="https://voluble-genie-328a7b.netlify.app/" target="_blank">🎮</a>
-  </div>
-</div>
 
-<!-- MAIN -->
-<div class="main">
-  <div class="city-section">
-    <div class="city-section-title">🗺️ 우리가 여행할 12개 도시</div>
-    <div class="city-grid" id="cityGrid"></div>
-    <div class="city-hint">▶ 도시 카드를 누르면 음원을 들을 수 있어요! 🎵</div>
-  </div>
+    <div class="deck" id="deck">
+      <div class="deck-top">
+        <span class="screw" style="left:2%;top:4%"></span>
+        <span class="screw" style="right:2%;top:4%"></span>
+        <span class="screw" style="left:2%;bottom:4%"></span>
+        <span class="screw" style="right:2%;bottom:4%"></span>
 
-  <!-- PLAYER -->
-  <div class="player-wrap" id="playerWrap">
-    <div class="player-box">
-      <div class="player-top">
-        <span class="player-emoji" id="pEmoji"></span>
-        <div class="player-info">
-          <div class="player-city" id="pCityName"></div>
-          <div class="player-sub">JUKEBOX · CITY EXPLORER</div>
-        </div>
-        <button class="close-player" onclick="closePlayer()">✕</button>
-      </div>
-
-      <div class="now-bar">
-        <div class="now-info">
-          <div class="vinyl" id="vinyl"></div>
-          <div class="now-text">
-            <div class="now-title" id="nowTitle">—</div>
-            <div class="now-artist" id="nowArtist">—</div>
+        <div class="platter">
+          <div class="record" id="record">
+            <div class="label" id="label">
+              <span class="lnum" id="lNum">—</span>
+              <span class="lart" id="lArt">🎵</span>
+              <span class="lname" id="lName">SELECT CITY</span>
+            </div>
           </div>
+          <div class="record-sheen"></div>
+          <div class="spindle"></div>
         </div>
-        <div class="prog-bar" id="progBar"><div class="prog-fill" id="progFill"></div></div>
-        <div class="time-row"><span id="tElapsed">0:00</span><span id="tTotal">0:00</span></div>
+
+        <!-- tonearm -->
+        <svg class="tonearm" viewBox="0 0 260 496" aria-hidden="true">
+          <defs>
+            <linearGradient id="chrome" x1="0" x2="1">
+              <stop offset="0" stop-color="#6f7378"/><stop offset=".45" stop-color="#f4f5f6"/><stop offset="1" stop-color="#7d8186"/>
+            </linearGradient>
+            <radialGradient id="base" cx=".4" cy=".35">
+              <stop offset="0" stop-color="#5a5d62"/><stop offset="1" stop-color="#16171a"/>
+            </radialGradient>
+          </defs>
+          <circle cx="190" cy="62" r="52" fill="url(#base)" stroke="#0b0b0c" stroke-width="3"/>
+          <circle cx="190" cy="62" r="36" fill="#26282c" stroke="#3b3e43" stroke-width="2"/>
+          <rect x="222" y="120" width="26" height="70" rx="6" fill="#1b1c1f"/>
+          <rect x="228" y="108" width="14" height="30" rx="4" fill="url(#chrome)"/>
+          <g class="arm">
+            <rect x="178" y="0" width="26" height="40" rx="6" fill="url(#chrome)" stroke="#555" stroke-width="1"/>
+            <rect x="172" y="-12" width="38" height="18" rx="5" fill="#2a2b2e"/>
+            <circle cx="190" cy="62" r="20" fill="url(#chrome)" stroke="#555" stroke-width="1.5"/>
+            <path d="M190 62 L182 250 Q176 330 128 386" fill="none" stroke="#6b6e73" stroke-width="12" stroke-linecap="round"/>
+            <path d="M190 62 L182 250 Q176 330 128 386" fill="none" stroke="url(#chrome)" stroke-width="8" stroke-linecap="round"/>
+            <g transform="translate(128 386) rotate(40)">
+              <rect x="-18" y="-6" width="40" height="30" rx="4" fill="#d9d4c7" stroke="#6d6a62" stroke-width="1.5"/>
+              <rect x="-14" y="22" width="30" height="16" rx="2" fill="#2a2b2e"/>
+              <rect x="20" y="0" width="16" height="5" rx="2" fill="#bdbab2"/>
+            </g>
+          </g>
+        </svg>
+
+        <div class="grille"></div>
+
+        <div class="knob-wrap">
+          <div class="knob"></div>
+          <div class="knob-marks"><span>33</span><span>45</span></div>
+          <div class="knob-lbl">SPEED</div>
+        </div>
+
+        <div class="deck-btns">
+          <button class="gbtn sm" id="prevBtn" aria-label="이전 곡">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 6v12L2.5 12 11 6zm10 0v12l-8.5-6L21 6z"/></svg>
+          </button>
+          <button class="gbtn lg" id="playBtn" aria-label="재생">
+            <svg viewBox="0 0 24 24" fill="currentColor" id="playIco"><path d="M7 4.5v15L20 12 7 4.5z"/></svg>
+          </button>
+          <button class="gbtn sm" id="nextBtn" aria-label="다음 곡">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 6v12l8.5-6L13 6zM3 6v12l8.5-6L3 6z"/></svg>
+          </button>
+        </div>
       </div>
 
-      <div class="controls">
-        <button class="ctrl" id="prevBtn">⏮</button>
-        <button class="play-btn" id="playBtn">▶</button>
-        <button class="ctrl" id="nextBtn">⏭</button>
+      <!-- NOW PLAYING -->
+      <div class="now">
+        <div class="now-thumb" id="nowThumb">🎵</div>
+        <div class="now-meta">
+          <div class="now-kicker">NOW PLAYING · <b id="nowCity">—</b></div>
+          <div class="now-title" id="nowTitle">도시를 선택하세요</div>
+        </div>
+        <div class="prog-wrap">
+          <div class="prog" id="prog">
+            <div class="prog-track"><div class="prog-fill" id="progFill"></div><div class="prog-dot" id="progDot"></div></div>
+          </div>
+          <div class="times"><span id="tNow">0:00</span><span id="tDur">0:00</span></div>
+        </div>
+        <div class="modes" role="radiogroup" aria-label="재생 방식">
+          <button class="mode on" data-mode="all" role="radio" aria-checked="true" title="목록 전체를 이어서 재생 (끝나면 처음부터)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h12M3 12h12M3 18h7"/><path d="M16 15l5 3-5 3z" fill="currentColor"/></svg>
+            연속재생
+          </button>
+          <button class="mode" data-mode="one" role="radio" aria-checked="false" title="선택한 곡 하나만 재생하고 멈춤">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l2-1.5V16.5"/></svg>
+            한곡재생
+          </button>
+          <button class="mode" data-mode="repeat" role="radio" aria-checked="false" title="선택한 곡을 계속 반복">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/><path d="M11.5 10.5l1.5-1v5.5" stroke-width="1.8"/></svg>
+            반복재생
+          </button>
+        </div>
       </div>
-
-      <div class="vol-row">
-        <span>🔈</span>
-        <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.01" value="0.8">
-        <span>🔊</span>
-      </div>
-
-      <div class="track-list" id="trackList"></div>
     </div>
-  </div>
-</div>
+  </section>
 
-<audio id="audio"></audio>
+  <!-- RIGHT : TRACK PANEL -->
+  <aside class="panel">
+    <span class="screw" style="left:5px;top:5px"></span>
+    <span class="screw" style="right:5px;top:5px"></span>
+    <span class="screw" style="left:5px;bottom:5px"></span>
+    <span class="screw" style="right:5px;bottom:5px"></span>
+    <div class="panel-in">
+      <div class="p-head">
+        <div class="p-city">
+          <div class="pnum" id="pNum">—</div>
+          <div class="pname" id="pName">JUKEBOX</div>
+          <div class="part" id="pArt">🎶</div>
+        </div>
+        <div class="p-tl">
+          <div class="tl-row">
+            <span class="tl-lbl">TRACK LIST</span>
+            <button class="x" onclick="closeCity()" aria-label="닫기">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+            </button>
+          </div>
+          <div class="mini-disc"><span class="cnt"><span id="tCount">0</span><small>TRACKS</small></span></div>
+        </div>
+      </div>
+
+      <div class="tracks" id="trackList">
+        <div class="empty">아래 도시 레코드를 선택하세요 🎵</div>
+      </div>
+
+      <div class="p-foot">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="range" class="vol" id="vol" min="0" max="1" step="0.01" value="0.8" aria-label="볼륨">
+        <span class="hint">곡을 선택하면 레코드가 재생돼요</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CITY RECORDS -->
+  <section class="cities" id="cities"></section>
+</main>
+
+<audio id="audio" preload="metadata"></audio>
 
 <!-- ADMIN MODAL -->
 <div class="modal-overlay" id="adminModal">
@@ -549,200 +641,243 @@ body {
 </div>
 
 <script>
+/* 도시 데이터 — folder 는 서버의 폴더명 (tracks.json 위치) */
 const CITIES = [
-  { id:'new-york',      name:'New York',        folder:'NEW YORK',       emoji:'🗽' },
-  { id:'texas',         name:'Texas',           folder:'TEXAS',          emoji:'🤠' },
-  { id:'harvard',       name:'Harvard',         folder:'HARVARD',        emoji:'🧠' },
-  { id:'washington-dc', name:'Washington D.C.', folder:'WASHINGTON D.C', emoji:'🏛️' },
-  { id:'san-francisco', name:'San Francisco',   folder:'SAN FRANCISCO',  emoji:'🌉' },
-  { id:'iowa',          name:'Iowa',            folder:'IOWA',           emoji:'🌽' },
-  { id:'new-orleans',   name:'New Orleans',     folder:'NEW ORLEANS',    emoji:'🎺' },
-  { id:'florida',       name:'Florida',         folder:'FLORIDA',        emoji:'🎢' },
-  { id:'vermont',       name:'Vermont',         folder:'VERMONT',        emoji:'🍁' },
-  { id:'alaska',        name:'Alaska',          folder:'ALASKA',         emoji:'❄️' },
-  { id:'minnesota',     name:'Minnesota',       folder:'MINNESOTA',      emoji:'🌲' },
-  { id:'hollywood',     name:'Hollywood',       folder:'HOLLYWOOD',      emoji:'🎬' }
+  { id:'new-york',      num:'03', name:'New York',        folder:'NEW YORK',       art:'🗽', art2:'🏙️', top:'#d42a35', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#e9eefb 100%)' },
+  { id:'texas',         num:'04', name:'Texas',           folder:'TEXAS',          art:'🤠', art2:'🌵', top:'#c8551f', bot:'#6b3a1c', sky:'linear-gradient(180deg,#fbf3e2 0%,#f6e0bd 100%)' },
+  { id:'harvard',       num:'05', name:'Boston',          folder:'HARVARD',        art:'🏛️', art2:'🌳', top:'#9e1b32', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#e8f0dd 100%)' },
+  { id:'washington-dc', num:'06', name:'Washington D.C.', folder:'WASHINGTON D.C',  art:'🏛️', art2:'🌸', top:'#d42a35', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#fbe3ea 100%)' },
+  { id:'san-francisco', num:'07', name:'San Francisco',   folder:'SAN FRANCISCO',  art:'🌉', art2:'🌊', top:'#d2502b', bot:'#24507a', sky:'linear-gradient(180deg,#fbf2e6 0%,#dfeaf6 100%)' },
+  { id:'iowa',          num:'08', name:'Iowa',            folder:'IOWA',           art:'🌽', art2:'🚜', top:'#c7362c', bot:'#3f6b2a', sky:'linear-gradient(180deg,#fbf5e7 0%,#e5efcd 100%)' },
+  { id:'new-orleans',   num:'09', name:'New Orleans',     folder:'NEW ORLEANS',    art:'🎺', art2:'🏮', top:'#6b2c91', bot:'#1e6b4f', sky:'linear-gradient(180deg,#fbf5e7 0%,#ece3f3 100%)' },
+  { id:'florida',       num:'10', name:'Florida',         folder:'FLORIDA',        art:'🌴', art2:'🎢', top:'#e8742c', bot:'#1a7a9c', sky:'linear-gradient(180deg,#fbf5e7 0%,#d9f0f2 100%)' },
+  { id:'vermont',       num:'11', name:'Vermont',         folder:'VERMONT',        art:'⛪', art2:'🍁', top:'#c2431f', bot:'#2f5a3a', sky:'linear-gradient(180deg,#fbf5e7 0%,#f6e1c8 100%)' },
+  { id:'alaska',        num:'12', name:'Alaska',          folder:'ALASKA',         art:'🏔️', art2:'🌲', top:'#2d6fb5', bot:'#1b2d6b', sky:'linear-gradient(180deg,#f5f8fb 0%,#dbe8f5 100%)' },
+  { id:'minnesota',     num:'01', name:'Minnesota',       folder:'MINNESOTA',      art:'🌲', art2:'🛶', top:'#2f7a4a', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#dcecee 100%)' },
+  { id:'hollywood',     num:'02', name:'Hollywood',       folder:'HOLLYWOOD',      art:'🎬', art2:'🌴', top:'#b8902c', bot:'#3a2a1e', sky:'linear-gradient(180deg,#fbf5e7 0%,#f3e3c6 100%)' }
 ];
 
-const audio = document.getElementById('audio');
-let tracks = [], currentIndex = 0, isPlaying = false;
+const $ = id => document.getElementById(id);
+const audio = $('audio');
+const deck = $('deck');
+const ICON_PLAY  = '<path d="M7 4.5v15L20 12 7 4.5z"/>';
+const ICON_PAUSE = '<path d="M6 4.5h4.2v15H6zM13.8 4.5H18v15h-4.2z"/>';
 
-// RENDER GRID
-function renderGrid() {
-  document.getElementById('cityGrid').innerHTML = CITIES.map(c => `
-    <div class="city-card" id="card-${c.id}" onclick="openCity('${c.id}')">
-      <span class="city-emoji">${c.emoji}</span>
-      <span class="city-card-name">${c.name}</span>
-    </div>
-  `).join('');
-  CITIES.forEach(loadCount);
+let city = null, tracks = [], cur = -1, isPlaying = false;
+let mode = 'all';               // 'all' 연속재생 | 'one' 한곡재생 | 'repeat' 반복재생
+let loadToken = 0;
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = s => (!isFinite(s) || s < 0) ? '0:00' : `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+
+/* ── CITY CARDS ── */
+function renderCities() {
+  $('cities').innerHTML = CITIES.map(c => `
+    <button class="city" id="card-${c.id}" style="--c:${c.top};--sky:${c.sky}" onclick="openCity('${c.id}')">
+      <span class="disc"></span>
+      <span class="sleeve">
+        <div class="cn">${c.num}</div>
+        <div class="cnm">${esc(c.name.toUpperCase())}</div>
+        <span class="cart2">${c.art2}</span>
+        <span class="cart">${c.art}</span>
+      </span>
+    </button>`).join('');
 }
 
-async function loadCount(city) {
-  try {
-    const r = await fetch(`${city.folder}/tracks.json?t=${Date.now()}`);
-    if (!r.ok) return;
-    const d = await r.json();
-    if ((d.tracks?.length||0) > 0)
-      document.getElementById(`card-${city.id}`)?.classList.add('has-tracks');
-  } catch {}
-}
+/* ── OPEN CITY ── */
+async function openCity(id, autoplay = false) {
+  const c = CITIES.find(x => x.id === id);
+  if (!c) return;
+  const token = ++loadToken;
+  stop();
+  city = c; tracks = []; cur = -1;
 
-// OPEN CITY
-async function openCity(id) {
-  const city = CITIES.find(c => c.id === id);
-  if (!city) return;
-
-  document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
-  document.getElementById(`card-${id}`)?.classList.add('active');
-
-  document.getElementById('pEmoji').textContent = city.emoji;
-  document.getElementById('pCityName').textContent = city.name;
-  document.getElementById('trackList').innerHTML = '<div class="no-tracks">로딩 중...</div>';
-
-  const pw = document.getElementById('playerWrap');
-  pw.classList.add('visible');
-  setTimeout(() => pw.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
-
-  audio.pause(); isPlaying = false;
-  document.getElementById('playBtn').textContent = '▶';
-  document.getElementById('vinyl').classList.remove('playing');
+  document.querySelectorAll('.city').forEach(el => el.classList.toggle('active', el.id === `card-${id}`));
+  document.documentElement.style.setProperty('--lbl-top', c.top);
+  document.documentElement.style.setProperty('--lbl-bot', c.bot);
+  $('lNum').textContent = c.num;
+  $('lArt').textContent = c.art;
+  $('lName').textContent = c.name.toUpperCase();
+  $('pNum').textContent = c.num;
+  $('pName').textContent = c.name.toUpperCase();
+  $('pArt').textContent = c.art;
+  $('nowThumb').textContent = c.art;
+  $('nowCity').textContent = c.name.toUpperCase();
+  $('nowTitle').textContent = '—';
+  $('tCount').textContent = '0';
+  $('trackList').innerHTML = '<div class="empty">레코드를 꺼내는 중...</div>';
 
   try {
-    const r = await fetch(`${city.folder}/tracks.json?t=${Date.now()}`);
+    const r = await fetch(`${encodeURI(c.folder)}/tracks.json?t=${Date.now()}`);
     if (!r.ok) throw 0;
     const d = await r.json();
-    tracks = d.tracks || [];
-    renderTracks();
-    if (tracks.length) selectTrack(0, false);
+    if (token !== loadToken) return;
+    tracks = Array.isArray(d.tracks) ? d.tracks : [];
   } catch {
-    document.getElementById('trackList').innerHTML = '<div class="no-tracks">음원이 없습니다</div>';
+    if (token !== loadToken) return;
+    tracks = [];
   }
+  $('tCount').textContent = tracks.length;
+  renderTracks();
+  if (tracks.length) selectTrack(0, autoplay);
+  else $('nowTitle').textContent = '아직 음원이 없어요';
 }
 
-function closePlayer() {
-  audio.pause(); isPlaying = false;
-  document.getElementById('playBtn').textContent = '▶';
-  document.getElementById('vinyl').classList.remove('playing');
-  document.getElementById('playerWrap').classList.remove('visible');
-  document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
+function closeCity() {
+  loadToken++;
+  stop();
+  city = null; tracks = []; cur = -1;
+  audio.removeAttribute('src'); audio.load();
+  document.querySelectorAll('.city').forEach(el => el.classList.remove('active'));
+  $('lNum').textContent = '—'; $('lArt').textContent = '🎵'; $('lName').textContent = 'SELECT CITY';
+  $('pNum').textContent = '—'; $('pName').textContent = 'JUKEBOX'; $('pArt').textContent = '🎶';
+  $('nowThumb').textContent = '🎵'; $('nowCity').textContent = '—'; $('nowTitle').textContent = '도시를 선택하세요';
+  $('tCount').textContent = '0';
+  $('trackList').innerHTML = '<div class="empty">아래 도시 레코드를 선택하세요 🎵</div>';
+  resetProgress();
 }
 
-// TRACKS
+/* ── TRACK LIST ── */
 function renderTracks() {
   if (!tracks.length) {
-    document.getElementById('trackList').innerHTML = '<div class="no-tracks">트랙이 없습니다</div>';
+    $('trackList').innerHTML = '<div class="empty">아직 등록된 음원이 없어요</div>';
     return;
   }
-  document.getElementById('trackList').innerHTML = tracks.map((t,i) => `
-    <div class="track-item" id="ti-${i}" onclick="selectTrack(${i},true)">
-      <div class="ti-num">${String(i+1).padStart(2,'0')}</div>
-      <div class="ti-info">
-        <div class="ti-title">${t.title}</div>
-        <div class="ti-artist">${t.artist||''}</div>
-      </div>
-      <div class="bars"><div class="bar paused"></div><div class="bar paused"></div><div class="bar paused"></div></div>
-      <div class="ti-dur">${t.duration||''}</div>
-    </div>
-  `).join('');
+  $('trackList').innerHTML = tracks.map((t, i) => `
+    <button class="trk" id="trk-${i}" onclick="onTrackClick(${i})">
+      <span class="tn">${String(i+1).padStart(2,'0')}</span>
+      <span class="tp"><svg viewBox="0 0 24 24" fill="currentColor">${ICON_PLAY}</svg></span>
+      <span style="min-width:0">
+        <div class="tt">${esc(t.title)}</div>
+        ${t.artist ? `<div class="ta">${esc(t.artist)}</div>` : ''}
+      </span>
+      <span class="eq"><i></i><i></i><i></i><i></i></span>
+    </button>`).join('');
+}
+
+function onTrackClick(i) {
+  if (i === cur) togglePlay();
+  else selectTrack(i, true);
 }
 
 function selectTrack(i, play) {
-  document.querySelectorAll('.track-item').forEach(e => e.classList.remove('active'));
-  currentIndex = i;
-  const t = tracks[i]; if (!t) return;
-  document.getElementById(`ti-${i}`)?.classList.add('active');
-  document.getElementById('nowTitle').textContent = t.title;
-  document.getElementById('nowArtist').textContent = t.artist||'';
+  const t = tracks[i];
+  if (!t) return;
+  cur = i;
   audio.src = t.file;
-  audio.volume = parseFloat(document.getElementById('volSlider').value);
-  document.querySelectorAll('.bar').forEach(b => b.classList.add('paused'));
-  if (play) {
-    audio.play().then(() => {
-      isPlaying = true;
-      document.getElementById('playBtn').textContent = '⏸';
-      document.getElementById('vinyl').classList.add('playing');
-      document.querySelectorAll(`#ti-${i} .bar`).forEach(b => b.classList.remove('paused'));
-    }).catch(()=>{});
-  } else {
-    isPlaying = false;
-    document.getElementById('playBtn').textContent = '▶';
-    document.getElementById('vinyl').classList.remove('playing');
-  }
+  audio.loop = (mode === 'repeat');
+  audio.volume = parseFloat($('vol').value);
+  $('nowTitle').textContent = t.title;
+  resetProgress();
+  document.querySelectorAll('.trk').forEach((el, k) => el.classList.toggle('active', k === i));
+  $(`trk-${i}`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  if (play) doPlay(); else setUI(false);
 }
 
-// CONTROLS
-document.getElementById('playBtn').addEventListener('click', () => {
+/* ── PLAYBACK ── */
+function doPlay() {
+  if (cur < 0) return;
+  audio.play().then(() => setUI(true)).catch(() => setUI(false));
+}
+function stop() { audio.pause(); setUI(false); }
+function togglePlay() {
   if (!tracks.length) return;
-  if (isPlaying) {
-    audio.pause(); isPlaying = false;
-    document.getElementById('playBtn').textContent = '▶';
-    document.getElementById('vinyl').classList.remove('playing');
-    document.querySelectorAll(`#ti-${currentIndex} .bar`).forEach(b => b.classList.add('paused'));
-  } else {
-    audio.play().then(() => {
-      isPlaying = true;
-      document.getElementById('playBtn').textContent = '⏸';
-      document.getElementById('vinyl').classList.add('playing');
-      document.querySelectorAll(`#ti-${currentIndex} .bar`).forEach(b => b.classList.remove('paused'));
-    }).catch(()=>{});
-  }
+  if (cur < 0) return selectTrack(0, true);
+  isPlaying ? stop() : doPlay();
+}
+
+function setUI(on) {
+  isPlaying = on;
+  deck.classList.toggle('playing', on);
+  $('playIco').innerHTML = on ? ICON_PAUSE : ICON_PLAY;
+  $('playBtn').setAttribute('aria-label', on ? '일시정지' : '재생');
+  document.querySelectorAll('.trk').forEach((el, k) => {
+    const active = k === cur;
+    el.classList.toggle('playing', active && on);
+    el.querySelector('.tp svg').innerHTML = (active && on) ? ICON_PAUSE : ICON_PLAY;
+  });
+}
+
+function next(play) { if (tracks.length) selectTrack((cur + 1) % tracks.length, play); }
+function prev(play) {
+  if (!tracks.length) return;
+  if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+  selectTrack((cur - 1 + tracks.length) % tracks.length, play);
+}
+
+audio.addEventListener('ended', () => {
+  if (mode === 'repeat') { audio.currentTime = 0; doPlay(); return; }   // 안전장치 (loop 이 꺼져 있을 때)
+  if (mode === 'one')    { setUI(false); audio.currentTime = 0; return; } // 한 곡만 재생 후 정지
+  next(true);                                                            // 연속재생: 다음 곡 (마지막 곡 뒤엔 처음으로)
 });
+audio.addEventListener('pause', () => { if (!audio.ended) setUI(false); });
+audio.addEventListener('play',  () => setUI(true));
 
-document.getElementById('prevBtn').addEventListener('click', () => { if(tracks.length) selectTrack((currentIndex-1+tracks.length)%tracks.length, isPlaying); });
-document.getElementById('nextBtn').addEventListener('click', () => { if(tracks.length) selectTrack((currentIndex+1)%tracks.length, isPlaying); });
-audio.addEventListener('ended', () => selectTrack((currentIndex+1)%tracks.length, true));
+$('playBtn').addEventListener('click', togglePlay);
+$('nextBtn').addEventListener('click', () => next(isPlaying));
+$('prevBtn').addEventListener('click', () => prev(isPlaying));
 
+/* ── PLAY MODES ── */
+document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+function setMode(m) {
+  mode = m;
+  audio.loop = (m === 'repeat');
+  document.querySelectorAll('.mode').forEach(b => {
+    const on = b.dataset.mode === m;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-checked', on);
+  });
+  try { localStorage.setItem('jb-mode', m); } catch {}
+}
+
+/* ── PROGRESS ── */
+function resetProgress() {
+  $('progFill').style.width = '0%'; $('progDot').style.left = '0%';
+  $('tNow').textContent = '0:00'; $('tDur').textContent = '0:00';
+}
+audio.addEventListener('loadedmetadata', () => { $('tDur').textContent = fmt(audio.duration); });
 audio.addEventListener('timeupdate', () => {
   if (!audio.duration) return;
-  document.getElementById('progFill').style.width = (audio.currentTime/audio.duration*100)+'%';
-  document.getElementById('tElapsed').textContent = fmt(audio.currentTime);
-  document.getElementById('tTotal').textContent = fmt(audio.duration);
+  const p = audio.currentTime / audio.duration * 100;
+  $('progFill').style.width = p + '%';
+  $('progDot').style.left = p + '%';
+  $('tNow').textContent = fmt(audio.currentTime);
+  $('tDur').textContent = fmt(audio.duration);
 });
-
-document.getElementById('progBar').addEventListener('click', e => {
+$('prog').addEventListener('click', e => {
   if (!audio.duration) return;
-  const r = document.getElementById('progBar').getBoundingClientRect();
-  audio.currentTime = ((e.clientX-r.left)/r.width)*audio.duration;
+  const r = $('prog').getBoundingClientRect();
+  audio.currentTime = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * audio.duration;
 });
 
-document.getElementById('volSlider').addEventListener('input', e => { audio.volume = parseFloat(e.target.value); });
+/* ── VOLUME ── */
+function paintVol() { $('vol').style.setProperty('--v', ($('vol').value * 100) + '%'); }
+$('vol').addEventListener('input', e => { audio.volume = parseFloat(e.target.value); paintVol(); });
+paintVol();
 
-function fmt(s) { if(isNaN(s)) return '0:00'; return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`; }
+/* ── KEYBOARD: space = 재생/정지 ── */
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' && !/INPUT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)) { e.preventDefault(); togglePlay(); }
+});
 
-// ADMIN
+/* ── ADMIN ── */
 const ADMIN_PW = '1234';
-// teacher btn removed
-
 function openModal() {
-  const i = document.getElementById('adminPw');
-  i.value=''; i.classList.remove('error');
-  document.getElementById('adminModal').classList.add('show');
-  setTimeout(()=>i.focus(),200);
+  const i = $('adminPw'); i.value = ''; i.classList.remove('error');
+  $('adminModal').classList.add('show'); setTimeout(() => i.focus(), 200);
 }
-
-function closeModal() { document.getElementById('adminModal').classList.remove('show'); }
-
+function closeModal() { $('adminModal').classList.remove('show'); }
 function checkPw() {
-  if (document.getElementById('adminPw').value === ADMIN_PW) {
-    closeModal(); window.location.href = 'admin.html';
-  } else {
-    const i = document.getElementById('adminPw');
-    i.classList.add('error'); i.value='';
-    setTimeout(()=>i.classList.remove('error'),400);
-  }
+  if ($('adminPw').value === ADMIN_PW) { closeModal(); location.href = 'admin.html'; }
+  else { const i = $('adminPw'); i.classList.add('error'); i.value = ''; setTimeout(() => i.classList.remove('error'), 400); }
 }
+$('adminPw').addEventListener('keydown', e => { if (e.key === 'Enter') checkPw(); if (e.key === 'Escape') closeModal(); });
+$('adminModal').addEventListener('click', e => { if (e.target.id === 'adminModal') closeModal(); });
 
-document.getElementById('adminPw').addEventListener('keydown', e => {
-  if (e.key==='Enter') checkPw();
-  if (e.key==='Escape') closeModal();
-});
-
-document.getElementById('adminModal').addEventListener('click', e => {
-  if (e.target.id==='adminModal') closeModal();
-});
-
-renderGrid();
+/* ── INIT ── */
+renderCities();
+try { const m = localStorage.getItem('jb-mode'); if (m) setMode(m); } catch {}
+openCity(CITIES[0].id, false);
 </script>
 </body>
 </html>
