@@ -466,7 +466,7 @@ a { color: inherit; text-decoration: none; }
 
     <div class="head-btns">
       <a class="icon-link" href="https://jazzy-blini-502dc7.netlify.app/" target="_blank" title="게임 1">✈️</a>
-      <a class="icon-link" href="https://voluble-genie-328a7b.netlify.app/" target="_blank" title="게임 2">🎮</a>
+      <a class="icon-link" href="https://66-1234.netlify.app/" target="_blank" title="Route 66 Word Shootout">🎮</a>
       <a class="jb-btn" href="#"><span>🎵</span><span class="txt">JukeBox</span></a>
       <span class="head-sep"></span>
       <button class="t-btn" onclick="openModal()">
@@ -643,18 +643,18 @@ a { color: inherit; text-decoration: none; }
 <script>
 /* 도시 데이터 — folder 는 서버의 폴더명 (tracks.json 위치) */
 const CITIES = [
-  { id:'new-york',      num:'03', name:'New York',        folder:'NEW YORK',       art:'🗽', art2:'🏙️', top:'#d42a35', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#e9eefb 100%)' },
-  { id:'texas',         num:'04', name:'Texas',           folder:'TEXAS',          art:'🤠', art2:'🌵', top:'#c8551f', bot:'#6b3a1c', sky:'linear-gradient(180deg,#fbf3e2 0%,#f6e0bd 100%)' },
-  { id:'harvard',       num:'05', name:'Boston',          folder:'HARVARD',        art:'🏛️', art2:'🌳', top:'#9e1b32', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#e8f0dd 100%)' },
-  { id:'washington-dc', num:'06', name:'Washington D.C.', folder:'WASHINGTON D.C',  art:'🏛️', art2:'🌸', top:'#d42a35', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#fbe3ea 100%)' },
-  { id:'san-francisco', num:'07', name:'San Francisco',   folder:'SAN FRANCISCO',  art:'🌉', art2:'🌊', top:'#d2502b', bot:'#24507a', sky:'linear-gradient(180deg,#fbf2e6 0%,#dfeaf6 100%)' },
-  { id:'iowa',          num:'08', name:'Iowa',            folder:'IOWA',           art:'🌽', art2:'🚜', top:'#c7362c', bot:'#3f6b2a', sky:'linear-gradient(180deg,#fbf5e7 0%,#e5efcd 100%)' },
-  { id:'new-orleans',   num:'09', name:'New Orleans',     folder:'NEW ORLEANS',    art:'🎺', art2:'🏮', top:'#6b2c91', bot:'#1e6b4f', sky:'linear-gradient(180deg,#fbf5e7 0%,#ece3f3 100%)' },
-  { id:'florida',       num:'10', name:'Florida',         folder:'FLORIDA',        art:'🌴', art2:'🎢', top:'#e8742c', bot:'#1a7a9c', sky:'linear-gradient(180deg,#fbf5e7 0%,#d9f0f2 100%)' },
-  { id:'vermont',       num:'11', name:'Vermont',         folder:'VERMONT',        art:'⛪', art2:'🍁', top:'#c2431f', bot:'#2f5a3a', sky:'linear-gradient(180deg,#fbf5e7 0%,#f6e1c8 100%)' },
-  { id:'alaska',        num:'12', name:'Alaska',          folder:'ALASKA',         art:'🏔️', art2:'🌲', top:'#2d6fb5', bot:'#1b2d6b', sky:'linear-gradient(180deg,#f5f8fb 0%,#dbe8f5 100%)' },
-  { id:'minnesota',     num:'01', name:'Minnesota',       folder:'MINNESOTA',      art:'🌲', art2:'🛶', top:'#2f7a4a', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#dcecee 100%)' },
-  { id:'hollywood',     num:'02', name:'Hollywood',       folder:'HOLLYWOOD',      art:'🎬', art2:'🌴', top:'#b8902c', bot:'#3a2a1e', sky:'linear-gradient(180deg,#fbf5e7 0%,#f3e3c6 100%)' }
+  { id:'new-york',      num:'01', name:'New York',        folder:'NEW YORK',       art:'🗽', art2:'🏙️', top:'#d42a35', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#e9eefb 100%)' },
+  { id:'texas',         num:'02', name:'Texas',           folder:'TEXAS',          art:'🤠', art2:'🌵', top:'#c8551f', bot:'#6b3a1c', sky:'linear-gradient(180deg,#fbf3e2 0%,#f6e0bd 100%)' },
+  { id:'harvard',       num:'03', name:'Boston',          folder:'HARVARD',        art:'🏛️', art2:'🌳', top:'#9e1b32', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#e8f0dd 100%)' },
+  { id:'san-francisco', num:'04', name:'San Francisco',   folder:'SAN FRANCISCO',  art:'🌉', art2:'🌊', top:'#d2502b', bot:'#24507a', sky:'linear-gradient(180deg,#fbf2e6 0%,#dfeaf6 100%)' },
+  { id:'florida',       num:'05', name:'Florida',         folder:'FLORIDA',        art:'🌴', art2:'🎢', top:'#e8742c', bot:'#1a7a9c', sky:'linear-gradient(180deg,#fbf5e7 0%,#d9f0f2 100%)' },
+  { id:'iowa',          num:'06', name:'Iowa',            folder:'IOWA',           art:'🌽', art2:'🚜', top:'#c7362c', bot:'#3f6b2a', sky:'linear-gradient(180deg,#fbf5e7 0%,#e5efcd 100%)' },
+  { id:'new-orleans',   num:'07', name:'New Orleans',     folder:'NEW ORLEANS',    art:'🎺', art2:'🏮', top:'#6b2c91', bot:'#1e6b4f', sky:'linear-gradient(180deg,#fbf5e7 0%,#ece3f3 100%)' },
+  { id:'vermont',       num:'08', name:'Vermont',         folder:'VERMONT',        art:'⛪', art2:'🍁', top:'#c2431f', bot:'#2f5a3a', sky:'linear-gradient(180deg,#fbf5e7 0%,#f6e1c8 100%)' },
+  { id:'minnesota',     num:'09', name:'Minnesota',       folder:'MINNESOTA',      art:'🌲', art2:'🛶', top:'#2f7a4a', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#dcecee 100%)' },
+  { id:'alaska',        num:'10', name:'Alaska',          folder:'ALASKA',         art:'🏔️', art2:'🌲', top:'#2d6fb5', bot:'#1b2d6b', sky:'linear-gradient(180deg,#f5f8fb 0%,#dbe8f5 100%)' },
+  { id:'hollywood',     num:'11', name:'Hollywood',       folder:'HOLLYWOOD',      art:'🎬', art2:'🌴', top:'#b8902c', bot:'#3a2a1e', sky:'linear-gradient(180deg,#fbf5e7 0%,#f3e3c6 100%)' },
+  { id:'washington-dc', num:'12', name:'Washington D.C.', folder:'WASHINGTON D.C',  art:'🏛️', art2:'🌸', top:'#d42a35', bot:'#1b2d6b', sky:'linear-gradient(180deg,#fbf5e7 0%,#fbe3ea 100%)' }
 ];
 
 const $ = id => document.getElementById(id);
