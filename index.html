@@ -259,6 +259,9 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
   .t-btn span, .icon-link { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .vinyl, .trk .eq i, .city .now-tag i { animation: none !important; } }
+.t-btn.lock-btn { width: 42px; height: 42px; padding: 0; gap: 0; justify-content: center; border-radius: 12px; }
+.t-btn.lock-btn svg { width: 22px; height: 22px; }
+@media (max-width: 720px) { .t-btn.lock-btn { width: 36px; height: 36px; padding: 0; } .t-btn.lock-btn svg { width: 19px; height: 19px; } }
 </style>
 </head>
 <body>
@@ -271,19 +274,18 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
       <span class="l3">WOOLLIM EDUCATION</span>
     </a>
     <nav class="nav">
-      <a href="#">프로그램소개</a>
-      <a href="#">교육계획안</a>
-      <a href="#">이달의 도시</a>
-      <a href="#">스피치타임</a>
+      <a href="https://jazzy-blini-502dc7.netlify.app/#intro">프로그램소개</a>
+      <a href="https://jazzy-blini-502dc7.netlify.app/#plan">교육계획안</a>
+      <a href="https://jazzy-blini-502dc7.netlify.app/#city">이달의 도시</a>
+      <a href="https://jazzy-blini-502dc7.netlify.app/#speech">스피치타임</a>
     </nav>
     <div class="head-btns">
       <a class="icon-link" href="https://jazzy-blini-502dc7.netlify.app/" target="_blank" title="게임 1">✈️</a>
       <a class="icon-link" href="https://66-1234.netlify.app/" target="_blank" title="Route 66 Word Shootout">🎮</a>
       <a class="jb-btn" href="#"><span>🎵</span><span class="txt">JukeBox</span></a>
       <span class="head-sep"></span>
-      <button class="t-btn" onclick="openModal()">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.3l-6 3.3-6-3.3z"/></svg>
-        <span>For<br>Teacher</span>
+      <button class="t-btn lock-btn" onclick="openModal()" aria-label="관리자 (선생님용)" title="관리자">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" fill="currentColor" stroke="none"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.3" r="1.5" fill="#dbe9f8" stroke="none"/></svg>
       </button>
     </div>
   </div>
@@ -362,8 +364,8 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
 
 <div class="modal-overlay" id="adminModal">
   <div class="modal">
-    <div class="modal-title">🔐 For Teacher</div>
-    <input class="modal-input" type="password" id="adminPw" placeholder="••••" maxlength="20">
+    <div class="modal-title">🔐 관리자</div>
+    <input class="modal-input" type="password" id="adminPw" placeholder="비밀번호" maxlength="20" inputmode="numeric" autocomplete="off">
     <div class="modal-btns">
       <button class="modal-btn cancel" onclick="closeModal()">취소</button>
       <button class="modal-btn ok" onclick="checkPw()">확인</button>
@@ -557,7 +559,7 @@ document.addEventListener('keydown', e => {
   if (e.code === 'Space' && !/INPUT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)) { e.preventDefault(); togglePlay(); }
 });
 
-const ADMIN_PW = '1234';
+const ADMIN_PW = '123456789';
 function openModal() { const i = $('adminPw'); i.value = ''; i.classList.remove('error'); $('adminModal').classList.add('show'); setTimeout(() => i.focus(), 200); }
 function closeModal() { $('adminModal').classList.remove('show'); }
 function checkPw() {
