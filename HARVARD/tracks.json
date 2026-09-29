@@ -1,0 +1,138 @@
+{
+  "album": {
+    "title": "Harvard",
+    "subtitle": "월간 음악",
+    "cover": "",
+    "month": "2026-09"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "title": "01_Listen_and_Move",
+      "artist": "",
+      "duration": "1:22",
+      "file": "HARVARD/01_Listen_and_Move.mp3",
+      "cover": ""
+    },
+    {
+      "id": 2,
+      "title": "02_ABC_Song_Faster",
+      "artist": "",
+      "duration": "0:54",
+      "file": "HARVARD/02_ABC_Song_Faster.mp3",
+      "cover": ""
+    },
+    {
+      "id": 3,
+      "title": "03_Missing_Face_Parts",
+      "artist": "",
+      "duration": "0:13",
+      "file": "HARVARD/03_Missing_Face_Parts.mp3",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "04_Xray_Take_a_Picture",
+      "artist": "",
+      "duration": "0:05",
+      "file": "HARVARD/04_Xray_Take_a_Picture.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "1_Body_Massage",
+      "artist": "",
+      "duration": "0:17",
+      "file": "HARVARD/04-1_Body_Massage.mp3",
+      "cover": ""
+    },
+    {
+      "id": 6,
+      "title": "05_Xray_Camera_Intro",
+      "artist": "",
+      "duration": "0:11",
+      "file": "HARVARD/05_Xray_Camera_Intro.mp3",
+      "cover": ""
+    },
+    {
+      "id": 7,
+      "title": "06_Organ Word Chant_Brain, Lung, Liver, Heart",
+      "artist": "",
+      "duration": "0:36",
+      "file": "HARVARD/06_Organ word chant_Brain, Lung, Liver, Heart.mp3",
+      "cover": ""
+    },
+    {
+      "id": 8,
+      "title": "1_Head Shoulder Knees And Organ Song",
+      "artist": "",
+      "duration": "1:07",
+      "file": "HARVARD/06-1_Head shoulder knees and Organ song.mp3",
+      "cover": ""
+    },
+    {
+      "id": 9,
+      "title": "07_Robot_Dance",
+      "artist": "",
+      "duration": "1:21",
+      "file": "HARVARD/07_Robot_Dance.mp3",
+      "cover": ""
+    },
+    {
+      "id": 10,
+      "title": "08_Beanbag_Body_Balance",
+      "artist": "",
+      "duration": "1:54",
+      "file": "HARVARD/08_Beanbag_Body_Balance.mp3",
+      "cover": ""
+    },
+    {
+      "id": 11,
+      "title": "09_Graduation_Celebration",
+      "artist": "",
+      "duration": "1:00",
+      "file": "HARVARD/09_Graduation_Celebration.mp3",
+      "cover": ""
+    },
+    {
+      "id": 12,
+      "title": "1_Robot_Motions_On_and_Off",
+      "artist": "",
+      "duration": "2:24",
+      "file": "HARVARD/09-1_Robot_Motions_On_and_Off.mp3",
+      "cover": ""
+    },
+    {
+      "id": 13,
+      "title": "10_Review_and_Photo",
+      "artist": "",
+      "duration": "0:16",
+      "file": "HARVARD/10_Review_and_Photo.mp3",
+      "cover": ""
+    },
+    {
+      "id": 14,
+      "title": "Head_Shoulders_Knees_and_Toes",
+      "artist": "",
+      "duration": "1:28",
+      "file": "HARVARD/Head_Shoulders_Knees_and_Toes.mp3",
+      "cover": ""
+    },
+    {
+      "id": 15,
+      "title": "Robot Reading A To Z",
+      "artist": "",
+      "duration": "0:33",
+      "file": "HARVARD/Robot reading A to Z.mp3",
+      "cover": ""
+    },
+    {
+      "id": 16,
+      "title": "What Day Is It School",
+      "artist": "",
+      "duration": "1:45",
+      "file": "HARVARD/What day is it school.mp3",
+      "cover": ""
+    }
+  ]
+}
