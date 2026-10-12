@@ -45,7 +45,7 @@ a { color: inherit; text-decoration: none; }
 .nav a { font-weight: 700; font-size: 17px; color: var(--navy); padding: 6px 22px; position: relative; white-space: nowrap; transition: color .15s; }
 .nav a + a::before { content: ''; position: absolute; left: 0; top: 50%; width: 1.5px; height: 16px; background: #d4a5a0; transform: translateY(-50%); }
 .nav a:hover { color: var(--red); }
-.head-btns { display: flex; align-items: center; gap: 12px; margin-left: 18px; }
+.head-btns { display: flex; align-items: center; gap: 12px; margin-left: auto; }
 .jb-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(180deg,#fbe3a6,#f3cd72); color: var(--navy); font-weight: 900; font-size: 17px; padding: 10px 22px; border-radius: 14px; position: relative; }
 .jb-btn::after { content: ''; position: absolute; left: 6px; right: 6px; bottom: -10px; height: 3px; background: var(--red); border-radius: 2px; }
 .head-sep { width: 2px; height: 34px; background: var(--red); opacity: .6; }
@@ -142,6 +142,70 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
 .close { margin-left: auto; width: 40px; height: 40px; border-radius: 50%; background: #f1ebdf; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .15s; }
 .close:hover { background: #e7dfcf; }
 .close svg { width: 18px; height: 18px; }
+.p-top { flex-wrap: wrap; }
+.p-top > div:first-child { flex: 1 1 0; min-width: 0; }
+.p-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; flex-basis: 100%; }
+.p-actions:not(:has(.show)) { display: none; }
+.lesson-btn { display: none; align-items: center; gap: 8px; padding: 9px 16px 9px 10px; border-radius: 22px; background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; box-shadow: 0 3px 10px rgba(27,45,107,.3); transition: transform .12s, background .15s; }
+.lesson-btn.show { display: inline-flex; }
+.lesson-btn:hover { background: #22388a; transform: translateY(-1px); }
+.lesson-btn .ic { width: 26px; height: 26px; border-radius: 50%; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; }
+.lesson-btn .ic svg { width: 15px; height: 15px; }
+.setup-btn { background: #2f7a4a; box-shadow: 0 3px 10px rgba(47,122,74,.3); }
+.setup-btn:hover { background: #276840; }
+.setup-btn .ic { color: #2f7a4a; }
+.s-gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.s-gal figure { background: #fff; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; cursor: zoom-in; transition: transform .12s, box-shadow .12s; }
+.s-gal figure:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.1); }
+.s-gal img { display: block; width: 100%; height: 130px; object-fit: contain; background: #f6f2ea; }
+.s-gal figcaption { padding: 6px 10px; font-size: 13px; font-weight: 600; color: #3a3d4c; line-height: 1.35; }
+.s-step { background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+.s-step .l-sh { margin-bottom: 8px; }
+.s-thumbs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
+.s-thumbs img { height: 88px; width: auto; max-width: 160px; object-fit: contain; border-radius: 6px; background: #f6f2ea; border: 1px solid var(--line); cursor: zoom-in; flex-shrink: 0; }
+.s-note { background: #fff8e8; border: 1.5px dashed #ecd7a6; color: #8a6a1e; border-radius: 10px; padding: 10px 14px; font-size: 14px; }
+.lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,20,.9); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
+.lightbox.show { display: flex; }
+.lightbox img { max-width: 100%; max-height: calc(100vh - 90px); object-fit: contain; border-radius: 6px; background: #fff; }
+.lightbox p { color: #fff; margin-top: 12px; font-weight: 600; text-align: center; }
+.lbody { padding: 4px 22px 22px; max-height: min(70vh, 640px); overflow-y: auto; font-size: 15px; line-height: 1.7; color: #2a2c38; }
+.lbody h3 { font-family: var(--serif); color: var(--navy); font-size: 17px; margin: 16px 0 6px; }
+.lbody ul, .lbody ol { padding-left: 20px; }
+.l-meta { margin-top: 2px; }
+.l-topic { font-weight: 700; color: var(--navy); margin-top: 8px; }
+.l-expr { display: flex; flex-wrap: wrap; gap: 6px; }
+.l-expr span { background: #eef2fb; color: var(--navy); border-radius: 8px; padding: 4px 10px; font-size: 14px; font-weight: 600; line-height: 1.45; }
+.l-steps { list-style: none; padding: 0 !important; counter-reset: st; display: flex; flex-direction: column; gap: 8px; }
+.l-steps li { counter-increment: st; background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 14px 10px 50px; position: relative; }
+.l-steps li::before { content: counter(st); position: absolute; left: 14px; top: 11px; width: 24px; height: 24px; border-radius: 50%; background: var(--red); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.l-sh { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.l-sh b { color: var(--navy); font-size: 15px; }
+.l-sh span { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.l-steps p { margin-top: 2px; font-size: 14.5px; }
+.l-mat { font-size: 14px; color: #4a4c58; }
+.lbody .tag { display: inline-block; background: #f1ebdf; border-radius: 10px; padding: 1px 10px; font-size: 12px; font-weight: 700; color: #7d7768; margin-right: 6px; }
+.video-btn { display: none; align-items: center; gap: 8px; padding: 9px 16px 9px 10px; border-radius: 22px; background: #d8232f; color: #fff; font-weight: 700; font-size: 14px; box-shadow: 0 3px 10px rgba(216,35,47,.3); transition: transform .12s, background .15s; }
+.video-btn.show { display: inline-flex; }
+.video-btn:hover { background: #bf1d28; transform: translateY(-1px); }
+.video-btn .yt { width: 26px; height: 26px; border-radius: 50%; background: #fff; color: #d8232f; display: flex; align-items: center; justify-content: center; }
+.video-btn .yt svg { width: 12px; height: 12px; margin-left: 2px; }
+.video-btn .cnt { background: rgba(255,255,255,.25); border-radius: 10px; padding: 1px 8px; font-size: 12px; }
+
+/* VIDEO MODAL */
+.vmodal { position: fixed; inset: 0; z-index: 998; background: rgba(15,15,30,.78); display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity .2s; backdrop-filter: blur(4px); }
+.vmodal.show { opacity: 1; pointer-events: all; }
+.vbox { width: min(960px, 100%); background: #fdf8ee; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+.vhead { display: flex; align-items: center; gap: 12px; padding: 14px 18px; }
+.vhead .vt { font-family: var(--serif); font-weight: 800; font-size: 20px; color: var(--navy); line-height: 1.2; }
+.vhead .vs { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.vtabs { display: flex; gap: 6px; padding: 0 18px 12px; flex-wrap: wrap; }
+.vtabs:empty { display: none; }
+.vtab { padding: 7px 14px; border-radius: 16px; background: #f1ebdf; font-size: 13px; font-weight: 700; color: #7d7768; }
+.vtab.on { background: var(--navy); color: #fff; }
+.vframe { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.vframe iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vfoot { padding: 10px 18px; text-align: right; font-size: 13px; }
+.vfoot a { color: var(--blue); font-weight: 700; }
 
 .p-now { display: grid; grid-template-columns: auto minmax(0,1fr) minmax(0,1.4fr) auto; align-items: center; gap: 18px; padding: 14px 0 10px; }
 .vinyl { width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(circle, #1a1a1a 0 8%, #f5a623 9% 28%, #151515 29% 31%, transparent 32%), repeating-radial-gradient(circle, #151515 0 1.4px, #262626 1.4px 3px); animation: spin 2.4s linear infinite paused; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
@@ -210,7 +274,7 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
 @media (max-width: 1480px) {
   .header-in { gap: 16px; }
   .nav a { font-size: 15px; padding: 6px 12px; }
-  .head-btns { margin-left: 10px; gap: 8px; }
+  .head-btns { gap: 8px; }
   .jb-btn { padding: 10px 16px; }
   .t-btn { padding: 8px 14px; }
 }
@@ -266,6 +330,10 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
   .trk { padding: 12px 12px; gap: 10px; }
   .trk .tt { font-size: 16px; }
   .np-title { font-size: 17px; }
+  .p-actions > button { flex: 1 1 100%; justify-content: center; }
+  .s-gal { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .s-gal img { height: 96px; }
+  .p-top .list-btn { padding: 8px 10px; font-size: 13px; }
   .p-now { grid-template-columns: auto minmax(0,1fr); gap: 12px 14px; }
   .p-now .ctrls { grid-column: 1 / -1; grid-row: 3; justify-self: center; gap: 22px; }
 }
@@ -285,12 +353,6 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
       <span class="l2">America<span class="plane">✈</span><span class="star">★</span></span>
       <span class="l3">WOOLLIM EDUCATION</span>
     </a>
-    <nav class="nav">
-      <a href="#" data-i18n="nav1">프로그램소개</a>
-      <a href="#" data-i18n="nav2">교육계획안</a>
-      <a href="#" data-i18n="nav3">이달의 도시</a>
-      <a href="#" data-i18n="nav4">스피치타임</a>
-    </nav>
     <div class="head-btns">
       <a class="icon-link" href="https://jazzy-blini-502dc7.netlify.app/" target="_blank" title="Game 1" data-i18n-title="game1">✈️</a>
       <a class="icon-link" href="https://66-1234.netlify.app/" target="_blank" title="Route 66 Word Shootout">🎮</a>
@@ -301,7 +363,7 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
       <span class="head-sep"></span>
       <button class="t-btn" onclick="openModal()">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.3l-6 3.3-6-3.3z"/></svg>
-        <span>For<br>Teacher</span>
+        <span data-i18n="admin">관리자용</span>
       </button>
     </div>
   </div>
@@ -334,6 +396,11 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
         <button class="close" onclick="closeCity()" aria-label="Close" data-i18n-aria="close">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
+          <div class="p-actions">
+          <button class="video-btn" id="videoBtn" onclick="openVideo()"><span class="yt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span data-i18n="watch"></span><span class="cnt" id="videoCnt"></span></button>
+          <button class="lesson-btn" id="lessonBtn" onclick="openLesson()"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><span data-i18n="lesson"></span></button>
+          <button class="lesson-btn setup-btn" id="setupBtn" onclick="openSetup()"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 14l5-4 4 3 3-2 6 4"/><path d="M8 21h8M12 17v4"/></svg></span><span data-i18n="setup"></span></button>
+          </div>
       </div>
 
       <div class="p-now">
@@ -378,9 +445,42 @@ body:not(.open) .list-btn svg { transform: rotate(180deg); }
 
 <audio id="audio" preload="metadata"></audio>
 
+<div class="vmodal" id="vModal" onclick="if(event.target===this)closeVideo()">
+  <div class="vbox" role="dialog" aria-modal="true">
+    <div class="vhead">
+      <div><div class="vt" id="vTitle"></div><div class="vs" data-i18n="watchSub"></div></div>
+      <button class="close" onclick="closeVideo()" aria-label="Close" data-i18n-aria="close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="vtabs" id="vTabs"></div>
+    <div class="vframe" id="vFrame"></div>
+    <div class="vfoot"><a id="vLink" href="#" target="_blank" rel="noopener" data-i18n="openYT"></a></div>
+  </div>
+</div>
+
+<div class="vmodal" id="sModal" onclick="if(event.target===this)closeSetup()">
+  <div class="vbox" role="dialog" aria-modal="true" style="width:min(980px,100%)">
+    <div class="vhead">
+      <div><div class="vt" id="sTitle"></div><div class="vs" data-i18n="setupSub"></div></div>
+      <button class="close" onclick="closeSetup()" aria-label="Close" data-i18n-aria="close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="lbody" id="sBody"></div>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')"><img id="lbImg" alt=""><p id="lbCap"></p></div>
+
+<div class="vmodal" id="lModal" onclick="if(event.target===this)closeLesson()">
+  <div class="vbox" role="dialog" aria-modal="true" style="width:min(760px,100%)">
+    <div class="vhead">
+      <div><div class="vt" id="lTitle"></div><div class="vs" data-i18n="lessonSub"></div></div>
+      <button class="close" onclick="closeLesson()" aria-label="Close" data-i18n-aria="close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="lbody" id="lBody"></div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="adminModal">
   <div class="modal">
-    <div class="modal-title">🔐 For Teacher</div>
+    <div class="modal-title">🔐 <span data-i18n="admin">관리자용</span></div>
     <input class="modal-input" type="password" id="adminPw" placeholder="••••" maxlength="20">
     <div class="modal-btns">
       <button class="modal-btn cancel" onclick="closeModal()" data-i18n="cancel">Cancel</button>
@@ -417,6 +517,864 @@ let city = null, tracks = [], cur = -1, isPlaying = false, mode = 'all', loadTok
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = s => (!isFinite(s) || s < 0) ? '0:00' : `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
 
+/* ── 빅캣의 티칭 영상 (도시 id → 유튜브 영상 ID) ── */
+const VIDEOS = {
+  'new-york':    [{ yt:'aMIfEdjn9lQ' }],
+  'texas':       [{ yt:'qb7mEyrgj9g' }],
+  'harvard':     [{ yt:'UbkY3DSoMzo' }],
+  'florida':     [{ yt:'bVSQLcm6-Lc' }],
+  'iowa':        [{ yt:'xWxigtMcnFQ', label:'part', n:1 }, { yt:'kC08j5J0MkI', label:'part', n:2 }],
+  'new-orleans': [{ yt:'Dl3TsaLf-u4', label:'vMain' }, { yt:'i7KtjTHx4vw', label:'vParent' }]
+};
+let vIdx = 0;
+
+/* ── 간단 레슨플랜 (도시 id → { ko: HTML, en: HTML }) — 계획안을 받으면 여기에 채워요 ── */
+const LESSONS = {
+  'new-york': {
+    topic: { ko:'자유의 여신상 · 엠파이어스테이트 빌딩 · 타임스퀘어', en:'Statue of Liberty · Empire State Building · Times Square' },
+    age: { ko:'4~7세 혼합연령', en:'Ages 4–7, mixed' },
+    goals: {
+      ko:['입장 질문(이름 · 출신 · 기분)에 영어로 대답한다.','랜드마크 핵심 표현을 듣고 따라 말한다.','신체 활동과 협동 게임에서 자연스럽게 영어로 말해 본다.'],
+      en:['Answer entry questions (name, country, feelings) in English.','Listen to and repeat key landmark expressions.','Speak naturally during movement and team games.']
+    },
+    expr:['Here is my passport!','What is your name? → My name is ___.','Where are you from? → I\'m from Korea!','Liberty! Statue! Freeze!','How many floors? Let\'s count! 10, 20 … 100!','Take the Yellow Cab!','I love New York!'],
+    materials: { ko:'비행기 티켓·여권, 여행 스탬프, 횃불 소품(유아 수), 택시 조끼·모자(강사용), 성조기, 기념품 카드 10종, I♥NY 티셔츠(유아 수)', en:'Plane tickets & passports, travel stamp, torch props (one per child), taxi vest & cap (teacher), U.S. flags, 10 souvenir cards, I♥NY T-shirts (one per child)' },
+    steps: [
+      { t:'Entry Mission', min:3, ko:'여권 심사처럼 이름·출신·기분을 묻고 스탬프를 찍어 준 뒤, 다 함께 비행기 놀이로 출발한다.', en:'Ask name, country and feelings like passport control, stamp each passport, then "fly" around the room together.' },
+      { t:'Statue of Liberty', min:6, ko:'음악을 틀었다 멈추며 "Liberty! Statue! Freeze!" 게임. 횃불을 들고 멈출 때 여신상 포즈를 취한다.', en:'Music start/stop game: "Liberty! Statue! Freeze!" Children hold torches and freeze in the Statue pose.' },
+      { t:'Empire State Building', min:6, ko:'10 단위로 102층까지 박수·점프하며 세고, 고속 엘리베이터로 100→0 카운트다운하며 내려온다.', en:'Count up by tens to the 102nd floor with claps and jumps, then ride the express elevator down counting 100 → 0.' },
+      { t:'Times Square', min:8, ko:'"Ring ring! Mom is calling!" 상황극 → 노란 택시 기차로 전광판 구경 → 기념품 말하기 → 티셔츠 입고 단체 사진.', en:'"Ring ring! Mom is calling!" role-play → yellow-taxi train past the billboards → name souvenirs → T-shirts on for a group photo.' },
+      { t:'Wrap-up', min:2, ko:'세 랜드마크를 다 함께 외치고 "I love New York!"으로 인사.', en:'Shout all three landmarks together and finish with "I love New York!"' }
+    ]
+  },
+  'texas': {
+    topic: { ko:'카우보이 · 사막 · 론스타', en:'Cowboy · Desert · Lone Star' },
+    age: { ko:'4~7세 혼합연령', en:'Ages 4–7, mixed' },
+    goals: {
+      ko:['감정 표현(How do you feel?)을 듣고 말한다.','방향 표현(Go straight / Turn left / Turn right / Stop)에 몸으로 반응한다.','사막과 카우보이 문화를 신체활동으로 경험한다.'],
+      en:['Understand and use "How do you feel?" feeling words.','Respond with the body to Go straight / Turn left / Turn right / Stop.','Experience desert and cowboy culture through movement.']
+    },
+    expr:['Where are we? → We\'re in Texas!','It\'s a desert! It\'s so hot! I need a hat!','It\'s a cactus! Ouch!','How do you feel? → I\'m so thirsty!','Go straight! Turn left! Turn right! Stop!','Yee-haw!'],
+    materials: { ko:'사막 바닥재, 선인장 장애물, 방향 DDR 매트, 말 가면(유아 수), 카우보이 모자·의상, 감정카드, 별 카드, 성조기·텍사스 주기, 사막 마녀 손인형', en:'Desert floor mat, cactus obstacles, direction (DDR) mats, horse masks (one per child), cowboy hat & costume, feeling cards, star cards, U.S. & Texas flags, desert-witch puppet' },
+    steps: [
+      { t:'Texas Arrival', min:5, ko:'사막·선인장 상황극(hot, ouch!) 후 카우보이 등장. 화난 말의 기분을 감정카드로 이야기한다.', en:'Desert and cactus role-play ("So hot!", "Ouch!"), then the cowboy arrives. Talk about the angry horse\'s feelings with feeling cards.' },
+      { t:'Cowboy Direction Ride', min:8, ko:'DDR 방향판으로 방향 표현 연습 → 말 가면을 쓰고 지시대로 선인장을 피해 오아시스까지. 도착하면 "Yee-haw!"', en:'Practice directions on the DDR mats → wear horse masks and follow commands around the cacti to the oasis. Shout "Yee-haw!" on arrival.' },
+      { t:'Star Rescue Mission', min:8, ko:'마녀가 별을 훔쳐 갔다! 텍사스판 "무궁화 꽃이 피었습니다"로 별을 되찾아 성조기에 붙인다.', en:'The witch stole the stars! Play a Texas version of "Red Light, Green Light" to win stars back and stick them on the flag.' },
+      { t:'Desert Escape', min:4, ko:'"Desert!" → 점프, "Cactus!" → 숙이기, "Oasis!" → 달리기로 단어 복습 후 카우보이 포즈로 단체 사진.', en:'Review: "Desert!" → jump, "Cactus!" → duck, "Oasis!" → run. Finish with a cowboy-pose group photo.' }
+    ]
+  },
+  'harvard': {
+    topic: { ko:'Harvard & MIT 체험 수업 — 몸·장기 탐구 → 로봇 댄스·밸런스 대결 → 졸업식', en:'Harvard & MIT Experience — body & organs → robot dance & balance battle → graduation' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['알파벳, 얼굴·신체 부위, 장기의 영어 이름을 듣고 말한다.','로봇 댄스와 빈백 밸런스로 균형 감각을 기르고 Switch on/off 신호에 반응한다.','졸업식과 기념사진으로 "We did it!"의 성취감을 느낀다.'],
+      en:['Say the alphabet, face and body parts, and organ names in English.','Build balance with robot dance and beanbags; move and stop on "Switch on / off".','Feel the pride of "We did it!" at the graduation ceremony.']
+    },
+    expr:['Stand up! Sit down!','A, B, C …','What\'s missing? → Eyes, come back!','One, two, three! Click!','Head, shoulders, knees and toes','Brain, heart, lungs, stomach','Switch on! Switch off! Freeze!','We did it! We are great!'],
+    materials: { ko:'음원 01~12, 알파벳 시력검사표, 흰 가운(인원수), 몬스터 얼굴 교구, X-ray 카메라·사진, MY BODY 그림, 로봇 동작 카드, 빈백, 졸업 가운·학사모·졸업장', en:'Tracks 01–12, alphabet eye chart, white lab coats (one per child), monster-face set, X-ray camera & photo, MY BODY poster, robot action cards, beanbags, graduation gowns, caps & certificates' },
+    steps: [
+      { t:'Welcome to Harvard', min:5, ko:'Stand up / Sit down 듣기 놀이 → 시력검사표로 ABC 읽기·빠른 ABC 노래 → 흰 가운 입고 하버드 학생 되기. (음원 01–03)', en:'Stand up / Sit down listening game → read the ABC eye chart and sing a fast ABC song → put on lab coats. (Tracks 01–03)' },
+      { t:'Monster Face', min:2.5, ko:'몬스터 얼굴에서 부위를 떼고 "What\'s missing?" → "Eyes, come back!"으로 다시 붙인다. (음원 04)', en:'Remove a face part: "What\'s missing?" → "Eyes, come back!" and put it back. (Track 04)' },
+      { t:'X-ray & Inside My Body', min:4, ko:'한 명씩 X-ray 촬영 "One, two, three! Click!" → 뼈 사진으로 신체 부위 찾기 → 으스스한 BGM 속 장기 탐험. (음원 05–06)', en:'X-ray one child: "One, two, three! Click!" → find body parts on the X-ray → spooky-music organ tour. (Tracks 05–06)' },
+      { t:'Organ Chant', min:2.5, ko:'장기 챈트에 맞춰 그림과 자기 몸의 장기를 짚으며 4번 반복. (음원 07)', en:'Point to organs on the poster and on yourself while chanting, four times. (Track 07)' },
+      { t:'MIT Robot Lab', min:2.5, ko:'로봇처럼 Clap → Jump → Spin → Swim → Stand on one foot, Freeze!로 마무리. (음원 08)', en:'Dance like robots: Clap → Jump → Spin → Swim → Stand on one foot, then Freeze! (Track 08)' },
+      { t:'Balance Battle & Switch On/Off', min:4.5, ko:'빈백을 머리·어깨·무릎에 올려 로봇과 균형 대결 → Switch on/off로 오늘 배운 동작 복습. (음원 09–10)', en:'Beanbag balance battle on head, shoulder and knee → review today\'s moves with Switch on / off. (Tracks 09–10)' },
+      { t:'Graduation & Photo', min:4, ko:'졸업 가운·학사모로 갈아입고 졸업장 수여 "We did it!" → 학사모 던지며 단체 사진. (음원 11–12)', en:'Change into gowns and caps, receive certificates ("We did it!") → cap-toss group photo. (Tracks 11–12)' }
+    ]
+  },
+  'san-francisco': {
+    topic: { ko:'샌프란시스코 바다 탐험과 협동 다리 만들기', en:'Sea adventure & team bridge-building' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['바다와 바닷속 세계를 상상 놀이로 경험한다.','친구들과 협동하여 구조물을 완성한다.','역할 분담과 협력으로 문제를 해결하는 즐거움을 느낀다.'],
+      en:['Explore the sea and underwater world through pretend play.','Build a structure together as a team.','Enjoy solving a problem by sharing roles and cooperating.']
+    },
+    expr:['We are in San Francisco.','Hello, sea lion! Hello, seagull!','What\'s in the sea? → I see a ___.','Carry it! Build it!','Horizontal, vertical','We did it! It\'s the Golden Gate Bridge!'],
+    materials: { ko:'Pier 39 배경, 바다사자 카드, 선장 모자·조종키, 물고기·문어·상어 카드, 파란 천, 금 블록, 다리 블록(유아당 4개)·도로 6장, RC 트럭', en:'Pier 39 backdrop, sea-lion card, captain hat & wheel, fish/octopus/shark cards, blue fabric, gold blocks, bridge blocks (4 per child) & 6 road pieces, RC truck' },
+    steps: [
+      { t:'Pier 39', min:4, ko:'Pier 39에 도착! 바다사자 소리와 박수를 흉내 내며 "Hello, sea lion!"', en:'Arrive at Pier 39! Copy sea-lion barks and claps: "Hello, sea lion!"' },
+      { t:'Captain Song', min:4, ko:'선장으로 등장해 "I can\'t see~ What\'s in the ocean?" 챈트를 함께 부른다.', en:'Teacher appears as the captain and leads the chant "I can\'t see~ What\'s in the ocean?"' },
+      { t:'Under the Sea', min:6, ko:'잠수부가 되어 물고기·문어·상어 카드를 보며 "I see a fish!", "Hello, shark!"', en:'Become divers: "I see a fish!", "Hello, shark!" as the cards appear.' },
+      { t:'Gold Discovery', min:3, ko:'바다 건너 금을 발견! "It\'s too far. We can\'t carry it." → 다리가 필요해요.', en:'Gold across the water! "It\'s too far. We can\'t carry it." → we need a bridge.' },
+      { t:'Build the Bridge', min:5, ko:'블록을 가로·세로로 쌓아 보고, 팀별로 두 타워를 세워 케이블을 연결한다. "Carry it! Build it!"', en:'Stack blocks horizontally and vertically, then teams build two towers and connect cables. "Carry it! Build it!"' },
+      { t:'RC Truck Mission', min:3, ko:'완성된 다리 위로 RC 트럭이 금을 옮기고 다 함께 "We did it!"', en:'An RC truck carries the gold across the bridge — everyone shouts "We did it!"' }
+    ]
+  },
+  'florida': {
+    topic: { ko:'디즈니월드 테마파크 여행', en:'Disney World theme-park trip' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['영어 지시 표현을 듣고 몸으로 표현한다.','리듬에 맞춰 박수·발 구르기·행진을 함께 한다.','요일과 동물 이름을 말하고 동작으로 표현한다.','롤러코스터 노래로 친구들과 파도 동작을 완성한다.'],
+      en:['Follow English instructions with the body.','Clap, stomp and march together to the rhythm.','Say the days of the week and animal names with actions.','Make a roller-coaster wave together while singing.']
+    },
+    expr:['Welcome to Disney World!','Put on your mouse ears!','Bibbidi-Bobbidi-Boo!','Right! Left! Lightsabers up! March!','Hold on tight! Hands up!','I love roller coasters!','Monkey – Swing! T. rex – Roar!'],
+    materials: { ko:'Hot Dog Song·Bibbidi-Bobbidi-Boo·스타워즈 행진·롤러코스터·정글 요일 노래, 생쥐 머리띠(유아 수), 마법 마차, 여행 지도, 리듬 카드, 광선검, 사파리 트럭, 요일별 동물 쇼 배너', en:'Hot Dog Song, Bibbidi-Bobbidi-Boo, Star Wars march, roller-coaster & jungle-days songs, mouse ears (one per child), magic carriage, park map, rhythm cards, lightsabers, safari truck, animal-show banner' },
+    steps: [
+      { t:'Welcome & Hot Dog Dance', min:4, ko:'미키·미니와 인사하고 생쥐 머리띠를 쓴 뒤 Hot Dog Dance!', en:'Greet Mickey & Minnie, put on mouse ears, and do the Hot Dog Dance!' },
+      { t:'Magic Carriage', min:3, ko:'"Bibbidi-Bobbidi-Boo!" 주문으로 마차 등장 → 타고 한 바퀴 돌며 오늘 갈 곳 소개.', en:'"Bibbidi-Bobbidi-Boo!" brings the carriage → ride around and preview today\'s stops.' },
+      { t:'EPCOT Star Wars March', min:4, ko:'리듬 카드로 박수·발 구르기 행진(1절) → 간주에 광선검 받기 → 광선검 들고 2절 행진.', en:'Verse 1: clap-and-stomp march with rhythm cards → get lightsabers during the interlude → verse 2 march with lightsabers up.' },
+      { t:'Roller Coaster', min:6, ko:'두 줄로 앉아 광선검을 안전바처럼 잡고 "Hold on tight!" → 한 명씩 손을 올려 파도 만들기.', en:'Sit in two rows holding lightsabers as safety bars: "Hold on tight!" → make a wave one child at a time.' },
+      { t:'Animal Kingdom Safari', min:5, ko:'사파리 트럭 타고 생명의 나무 구경 → 정글 요일 노래로 요일별 동물 동작.', en:'Ride the safari truck to the Tree of Life → jungle-days song with an animal move for each day.' },
+      { t:'Goodbye & Group Photo', min:3, ko:'마지막 Hot Dog Dance 후 "One, two, three! DISNEY WORLD!" 단체 사진.', en:'One last Hot Dog Dance, then "One, two, three! DISNEY WORLD!" group photo.' }
+    ]
+  },
+  'iowa': {
+    topic: { ko:'버니의 옥수수밭 & 아이스크림 공장 모험', en:'Bunny\'s Cornfield & Ice Cream Factory Adventure' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['인사하고 도움을 요청·거절하는 표현을 따라 말한다.','"Will you help me?"에 다양한 동의 표현으로 답한다.','가위바위보 레시피를 따라 하고 "Please / Thank you" 예의 표현을 쓴다.'],
+      en:['Greet, ask for help and say no in English.','Answer "Will you help me?" with different ways to say yes.','Follow a rock-paper-scissors recipe and use "please" and "thank you".']
+    },
+    expr:['Hello! How are you?','Will you help me? → Not me!','Okay, I will! / Sure! / Of course! / Why not?','Pick, pick, pick! Squish, squish! Mix, mix!','Can I get some ice cream, please?','Here you are. → Thank you!','I love Iowa!'],
+    materials: { ko:'버니 인형, 옥수수밭·공장 배경, 천둥·빗소리 음원, 동물 앞치마(말·양·오리·소), Old MacDonald 음원, 옥수수 수레·옥수수 소품, 가위바위보 카드, 냉동실 소품, 숫자 카드 1-10, 글자 아이스크림 카드, 스쿱 소품', en:'Bunny puppet, cornfield & factory backdrops, thunder/rain sound, animal aprons (horse, sheep, duck, cow), Old MacDonald track, corn cart & corn props, rock-paper-scissors cards, freezer prop, number cards 1–10, word ice-cream cards, scoop prop' },
+    steps: [
+      { t:'Meet Bunny', min:4, ko:'아이오와 도착! 버니와 인사하고 옥수수밭과 아이스크림 공장 이야기를 듣는다.', en:'Arrive in Iowa! Say hello to Bunny and hear about the cornfield and ice cream factory.' },
+      { t:'Rain! Farm Helpers', min:4, ko:'천둥·빗소리에 버니가 "Will you help me?" → 동물 앞치마를 입고 Old MacDonald에 맞춰 농장일 돕기.', en:'Thunder and rain! Bunny asks "Will you help me?" → wear animal aprons and do farm work to Old MacDonald.' },
+      { t:'Not Me! → Ice Cream for You', min:4, ko:'동물 역할을 바꾸며 "Not me!" 반복 → 버니의 반전 "I wanted to make ice cream for you!"', en:'Swap animal roles saying "Not me!" → Bunny reveals "I wanted to make ice cream for you!"' },
+      { t:'Corn Delivery Race', min:5, ko:'동의 표현 5가지 연습 → 잘 대답한 친구가 옥수수 수레를 끌거나 옥수수 10개를 바구니로 옮긴다.', en:'Practice five ways to say yes → good answers earn a turn pulling the corn cart or moving 10 corns to the basket.' },
+      { t:'Rock Paper Scissors Factory', min:4, ko:'가위 "Pick!" · 보 "Squish!" · 바위 "Mix!"로 아이스크림 만들기 → 냉동실에 넣고 1~10 세기.', en:'Scissors "Pick!", paper "Squish!", rock "Mix!" to make ice cream → freeze it while counting 1–10.' },
+      { t:'Magic Words', min:3, ko:'글자 카드로 "Can I get some ice cream, please?" 완성 → "Here you are." / "Thank you!" 주고받기.', en:'Build "Can I get some ice cream, please?" with word cards → trade "Here you are." / "Thank you!"' },
+      { t:'Do You Like Iowa?', min:1, ko:'맛별로 묻다가 "Do you like IOWA?" → "YES! I LOVE IOWA!" 단체 사진.', en:'Ask about flavors, then "Do you like IOWA?" → "YES! I LOVE IOWA!" group photo.' }
+    ]
+  },
+  'new-orleans': {
+    topic: { ko:'심술쟁이 악어 & 뮤직 퍼레이드', en:'Grumpy Crocodile & Music Parade' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['New / Old 콜앤리스폰스로 반복 표현을 익힌다.','악기 이름과 의성어를 몸짓과 노래로 표현한다.','마르디그라 퍼레이드에 함께 참여하며 협동심을 기른다.'],
+      en:['Practice repeated phrases through New / Old call-and-response.','Act out instrument names and sounds with moves and song.','Build teamwork by joining a Mardi Gras parade.']
+    },
+    expr:['3, 2, 1 … WOW! This is NEW ORLEANS!','NEW! / OLD!','I can play the drum / trumpet / guitar / piano!','Boom boom! Toot toot! Strum strum! Pling pling!','Open! Close! Click click!'],
+    materials: { ko:'악어 인형, 악기 그림카드·소품(드럼·기타·트럼펫·색소폰·피아노), 캐스터네츠(유아 수), 마르디그라 마스크(유아 수), 캐스터네츠 배경음악', en:'Crocodile puppet, instrument cards & props (drum, guitar, trumpet, saxophone, piano), castanets (one per child), Mardi Gras masks (one per child), castanets backing track' },
+    steps: [
+      { t:'Arrival & Grumpy Crocodile', min:5, ko:'"This is NEW ORLEANS!" ↔ 악어 "OLD ORLEANS!" 콜앤리스폰스 → "음악 도시에 필요한 건? Instruments!"', en:'"This is NEW ORLEANS!" vs. the crocodile\'s "OLD ORLEANS!" call-and-response → "What does a music city need? Instruments!"' },
+      { t:'Instrument Parade', min:7, ko:'악기별 동작+소리(Boom boom! Toot toot! …)를 배우고 "I can play the ___!" 노래로 확장.', en:'Learn each instrument\'s move and sound (Boom boom! Toot toot! …), then sing "I can play the ___!"' },
+      { t:'Castanets Crocodile', min:6, ko:'악기가 없어 시무룩한 악어에게 "입이 캐스터네츠!" → "Open! Close!" 다 함께 합주.', en:'The crocodile has no instrument — "Your mouth is castanets!" → "Open! Close!" and everyone plays together.' },
+      { t:'Mardi Gras Ready', min:4, ko:'축제 색깔 Green · Purple · Gold를 옷에서 찾고 마르디그라 마스크 착용.', en:'Find the festival colors Green, Purple and Gold on clothes, then put on Mardi Gras masks.' },
+      { t:'Crocodile Parade', min:3, ko:'악어를 따라 원을 그려 행진하다 "NEW ORLEANS!!!" 신호에 점프·회전. 단체 사진.', en:'March in a circle behind the crocodile; on "NEW ORLEANS!!!" jump and spin. Group photo.' }
+    ]
+  },
+  'vermont': {
+    topic: { ko:'메이플 시럽 수확 & 가을 단풍', en:'Maple Syrup Harvest & Fall Colors' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['단풍 색깔(red · orange · yellow)을 보고 말한다.','메이플 시럽이 만들어지는 과정을 몸으로 표현한다.','팬케이크 요리 놀이로 완성의 기쁨과 감사 표현을 배운다.'],
+      en:['Name fall leaf colors: red, orange, yellow.','Act out how maple syrup is made.','Feel the joy of finishing and say thanks through pancake play.']
+    },
+    expr:['It\'s fall! Red, orange, yellow!','This is a maple tree! Let\'s tap it for syrup!','Bubble, bubble, boil!','Pancakes with maple syrup, please! → Yummy!','Vermont is beautiful in fall!'],
+    materials: { ko:'단풍잎 카드(빨강·주황·노랑), 메이플 나무 모형·그림, 시럽통, 냄비·국자 소품, 팬케이크 모형, 시럽 소품', en:'Leaf cards (red, orange, yellow), maple tree model or picture, syrup bucket, pot & ladle props, pancake model, syrup prop' },
+    steps: [
+      { t:'Fall Color Walk', min:5, ko:'단풍잎 카드를 보며 "What color?" → "Red! Orange! Yellow!" 외치며 낙엽 밟기 흉내.', en:'"What color?" → "Red! Orange! Yellow!" while pretending to crunch through leaves.' },
+      { t:'Tap the Maple Tree', min:7, ko:'"Let\'s tap it for syrup!" 나무를 콕콕 두드리고 시럽 받는 통을 상상하며 논다.', en:'"Let\'s tap it for syrup!" Tap the tree and pretend to collect syrup in a bucket.' },
+      { t:'Bubble Bubble Boil', min:6, ko:'냄비를 저으며 "Bubble, bubble, boil!" 점점 빠르게.', en:'Stir the pot: "Bubble, bubble, boil!" — faster and faster.' },
+      { t:'Pancake Party', min:7, ko:'"Pancakes with maple syrup, please!" → 먹는 시늉 "Yummy!" → "Vermont is beautiful in fall!" 단체 사진.', en:'"Pancakes with maple syrup, please!" → pretend to eat: "Yummy!" → "Vermont is beautiful in fall!" group photo.' }
+    ]
+  },
+  'minnesota': {
+    topic: { ko:'서바이벌 & 자연 — 없으면, 직접 만든다', en:'Survival & Nature — if we don\'t have it, we make it' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['미네소타의 자연과 동물을 안다.','전기·마트가 없는 상황에서 문제를 해결해 본다.','도구 → 음식 → 생존의 순서를 몸으로 이해한다.'],
+      en:['Meet Minnesota\'s nature and wildlife.','Solve problems with no electricity and no store.','Understand "tools → food → survival" through movement.']
+    },
+    expr:['Hello, loon! Big moose!','No car. No train. No bus.','We stay here tonight. → Oh no!','No store! No electricity!','We need this!','Catch a fish! I got it!','Chop! Chop! Fire! Cook the fish!','We survived!'],
+    materials: { ko:'Loon·Beaver·Moose 카드, 교통·마트·전기·전자레인지 카드, 도구 카드(Axe·Stick·Rope), 자석 낚시 세트·낚싯대, 장작 모형, 모닥불 소품', en:'Loon, beaver & moose cards; car/train/bus, store, electricity & microwave cards; tool cards (axe, stick, rope); magnetic fishing set & rod; toy firewood; campfire prop' },
+    steps: [
+      { t:'Minnesota Wild Animals', min:5, ko:'Loon(주 새)·Beaver·Moose의 소리와 걸음을 흉내 내며 "Hello, loon!", "Big moose!"', en:'Copy the sounds and walks of the loon (state bird), beaver and moose: "Hello, loon!", "Big moose!"' },
+      { t:'No Road, No Train!', min:4, ko:'"No car. No train. No bus." → "We stay here tonight." "Oh no!"', en:'"No car. No train. No bus." → "We stay here tonight." "Oh no!"' },
+      { t:'No Store, No Electricity', min:4, ko:'마트·전기·전자레인지 카드로 "No store!", "No electricity!" 콜앤리스폰스.', en:'Call-and-response with store, electricity and microwave cards: "No store!", "No electricity!"' },
+      { t:'Find the Tools', min:4, ko:'Axe · Stick · Rope 카드를 보며 "We need this!" 생존은 도구부터.', en:'Axe, stick, rope: "We need this!" Survival starts with tools.' },
+      { t:'Fishing Time', min:4, ko:'자석 낚시로 물고기를 잡으며 "I got it!", "Fish!"', en:'Magnetic fishing: "I got it!", "Fish!"' },
+      { t:'Campfire Cooking', min:4, ko:'"Chop! Chop!" 장작 패기 → "Fire!" → "Cook the fish!" → 다 함께 "We survived!"', en:'"Chop! Chop!" → "Fire!" → "Cook the fish!" → all together: "We survived!"' }
+    ]
+  },
+  'alaska': {
+    topic: { ko:'오로라, 자석 & 개썰매 모험', en:'Aurora, Magnets & Dog Sled Adventure' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['오로라 색깔을 관찰하고 영어로 말한다.','자석의 N극·S극과 밀고 당기는 성질을 탐색한다.','썰매 레이스와 배달 미션으로 협동과 성취감을 경험한다.'],
+      en:['Observe and name aurora colors.','Explore magnet poles and push vs. pull.','Feel teamwork and success in a sled race and delivery mission.']
+    },
+    expr:['It\'s cold! What do we need?','Green! Blue! Purple!','Push or pull?','Ready, set, go!','Let\'s go dog sledding!','Let\'s deliver the presents!'],
+    materials: { ko:'겨울옷 카드(장갑·목도리·털모자·코트), 여행 가방, 오로라 색 천·조명, 색깔 카드, 자석 세트(N·S 표시)·클립, 허스키 썰매, 눈밭 매트, 선물 상자, 목적지 표지판', en:'Winter-clothes cards (gloves, scarf, hat, coat), suitcase, aurora fabric or lights, color cards, magnet set (N/S) & clips, husky sled, snow mat, present boxes, destination signs' },
+    steps: [
+      { t:'Pack for Alaska', min:4, ko:'"It\'s cold! What do we need?" 겨울옷 카드를 골라 가방에 담는다.', en:'"It\'s cold! What do we need?" Pick winter-clothes cards and pack the suitcase.' },
+      { t:'Aurora Color Adventure', min:5, ko:'오로라 색이 바뀔 때마다 "Green! Blue! Purple!" 외치며 색 천을 흔든다.', en:'Shout "Green! Blue! Purple!" and wave fabric as the aurora changes color.' },
+      { t:'North Pole & South Pole', min:6, ko:'자석을 붙이고 밀어내며 "Push or pull?" 소그룹 탐색.', en:'Small-group magnet exploration: "Push or pull?"' },
+      { t:'Dog Sled Race', min:5, ko:'"Ready, set, go! Let\'s go dog sledding!" 썰매를 끌며 눈밭 달리기.', en:'"Ready, set, go! Let\'s go dog sledding!" Pull the sled across the snow.' },
+      { t:'Special Delivery!', min:5, ko:'썰매에 선물을 싣고 목적지까지 배달 → "We did it!" 단체 사진.', en:'Load presents on the sled and deliver them → "We did it!" group photo.' }
+    ]
+  },
+  'hollywood': {
+    topic: { ko:'토네이도 타고 영화 촬영장으로!', en:'Tornado to the Movie Set Adventure' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['감정과 동물을 몸짓·목소리로 표현하며 어휘를 말한다.','영화 촬영 상황극에서 효과음·비트박스를 경험한다.','시상식 놀이로 성취감과 자신감을 표현한다.'],
+      en:['Act out feelings and animals with body and voice.','Make sound effects and beatbox on a movie set.','Show pride and confidence at an awards ceremony.']
+    },
+    expr:['Round and round!','Where are we?','Lights, camera, action!','I\'m sad. I\'m angry. I\'m shy.','Roar!','Boom! Tss! Pop!','I\'m a star!'],
+    materials: { ko:'토네이도 회전 천, 감독 의자·메가폰, 감정카드(Sad·Angry·Shy), 거울, 동물 가면, 비트박스 예시 음원, 마이크, 오스카 트로피, 레드카펫', en:'Tornado spinning fabric, director\'s chair & megaphone, feeling cards (sad, angry, shy), mirror, animal masks, beatbox sample, microphone, Oscar trophies, red carpet' },
+    steps: [
+      { t:'Tornado to Hollywood!', min:3, ko:'토네이도에 휩쓸려 "Round and round!" 빙글빙글 → 착지 후 "Where are we?"', en:'Swept up by a tornado: "Round and round!" → land and ask "Where are we?"' },
+      { t:'Welcome to the Movie Set!', min:3, ko:'꼬마 배우로 변신! 감독처럼 "Lights, camera, action!" 외치기.', en:'Become little actors! Shout "Lights, camera, action!" like a director.' },
+      { t:'Emotion Acting', min:5, ko:'감정카드를 보고 표정·목소리로 "I\'m sad.", "I\'m angry.", "I\'m shy." 연기.', en:'Act "I\'m sad.", "I\'m angry.", "I\'m shy." with faces and voices.' },
+      { t:'Animal Acting', min:5, ko:'영화 속 동물이 되어 소리와 움직임 표현 "Roar!"', en:'Become movie animals with sounds and moves: "Roar!"' },
+      { t:'Movie Sound & Beatbox', min:5, ko:'입으로 효과음 만들기 — Boom · Tss · Pop 비트박스.', en:'Make sound effects with your mouth — Boom, Tss, Pop beatbox.' },
+      { t:'And the Oscar Goes to…', min:4, ko:'레드카펫을 걷고 트로피를 받으며 "I\'m a star!" 단체 사진.', en:'Walk the red carpet, receive a trophy: "I\'m a star!" Group photo.' }
+    ]
+  },
+  'washington-dc': {
+    topic: { ko:'리더십, 텔레파시 & 투표 미션', en:'Leadership, Telepathy & Vote Mission' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['집중력 챌린지로 자신감을 경험하고 좋은 리더의 모습을 알아본다.','좋아하는 것을 고르고 친구와 비교하며 말한다.','투표로 내 생각을 표현하고 서로 존중한다.'],
+      en:['Build confidence with a focus challenge and learn what makes a good leader.','Choose favorites and compare them with friends.','Express opinions by voting and respect others\' choices.']
+    },
+    expr:['Ready? Freeze!','What do you like? → I like summer!','Me too!','What\'s your favorite subject?','My favorite subject is English!'],
+    materials: { ko:'링컨 기념관·백악관·국회의사당·워싱턴 기념탑 카드, 스톱워치, 계절·음식·날씨·요일·색깔·악기 카드, 과목 카드 6종, 투표함, 투표 스티커', en:'Lincoln Memorial, White House, Capitol & Washington Monument cards; stopwatch; season/food/weather/day/color/instrument cards; 6 subject cards; ballot box; voting stickers' },
+    steps: [
+      { t:'Lincoln Challenge', min:4, ko:'링컨처럼 멋진 리더! "Ready? Freeze!" 투명의자 자세로 버티기.', en:'Be a leader like Lincoln! "Ready? Freeze!" — hold the invisible-chair pose.' },
+      { t:'How to Be a Great Leader', min:5, ko:'백악관·국회의사당을 보며 좋은 리더(듣기·도와주기·생각 말하기)를 짧은 역할극으로.', en:'With the White House and Capitol, role-play what good leaders do: listen, help, share ideas.' },
+      { t:'Telepathy Game', min:8, ko:'카테고리별 "What do you like?" → "I like ___!" 친구와 같으면 "Me too!"', en:'"What do you like?" by category → "I like ___!" Same as your friend? "Me too!"' },
+      { t:'Vote for Your Favorite Subject!', min:8, ko:'"What\'s your favorite subject?" → 투표함에 스티커 투표 후 결과 함께 확인.', en:'"What\'s your favorite subject?" → vote with stickers and check the results together.' }
+    ]
+  }
+};
+function lessonHTML(l) {
+  const L = lang;
+  const total = l.steps.reduce((a, s) => a + s.min, 0);
+  const mins = m => (Number.isInteger(m) ? m : m.toFixed(1)) + (L === 'ko' ? '분' : ' min');
+  return `
+    <div class="l-meta"><span class="tag">${esc(l.age[L])}</span><span class="tag">${T('lTotal')} ${mins(total)}</span></div>
+    <p class="l-topic">${esc(l.topic[L])}</p>
+    <h3>${T('lGoals')}</h3>
+    <ul>${l.goals[L].map(g => `<li>${esc(g)}</li>`).join('')}</ul>
+    <h3>${T('lExpr')}</h3>
+    <div class="l-expr">${l.expr.map(e => `<span>${esc(e)}</span>`).join('')}</div>
+    <h3>${T('lFlow')}</h3>
+    <ol class="l-steps">${l.steps.map((s, i) => `
+      <li><div class="l-sh"><b>${esc(s.t)}</b><span>${mins(s.min)}</span></div><p>${esc(s[L])}</p></li>`).join('')}
+    </ol>
+    <h3>${T('lMat')}</h3>
+    <p class="l-mat">${esc(l.materials[L])}</p>`;
+}
+function openLesson() {
+  const l = city && LESSONS[city.id];
+  if (!l) return;
+  $('lTitle').textContent = city.name.toUpperCase() + ' · ' + T('lTitle');
+  $('lBody').innerHTML = lessonHTML(l);
+  $('lModal').classList.add('show');
+}
+const SETUP = {
+ "new-york": {
+  "bannersText": {
+   "ko": "뉴욕 메인 · 공항 · 비행기 내부 · 타임스퀘어 야경 현수막, 타임스퀘어 바닥재 2종, 자유의 여신상 · 엠파이어스테이트 빌딩 등신대, 타임스퀘어 천장 간판 4매(교실 각 코너)",
+   "en": "New York main, airport, airplane cabin & Times Square night banners; 2 Times Square floor mats; Statue of Liberty & Empire State Building standees; 4 Times Square ceiling signs (one per corner)"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "뉴욕 메인 현수막",
+    "en": "New York main banner"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "공항 현수막",
+    "en": "Airport banner"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "비행기 내부 현수막",
+    "en": "Airplane cabin banner"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "타임스퀘어 야경 현수막",
+    "en": "Times Square night banner"
+   },
+   {
+    "f": "b05.jpg",
+    "ko": "타임스퀘어 바닥재",
+    "en": "Times Square floor mat"
+   },
+   {
+    "f": "b06.jpg",
+    "ko": "현관 웰컴 현수막",
+    "en": "Entrance welcome banner"
+   },
+   {
+    "f": "b07.jpg",
+    "ko": "타임스퀘어 천장 간판 (4매)",
+    "en": "Times Square ceiling signs (4)"
+   },
+   {
+    "f": "b08.jpg",
+    "ko": "천장 간판",
+    "en": "Ceiling signs"
+   },
+   {
+    "f": "b09.jpg",
+    "ko": "I♥NY 기념품샵 간판",
+    "en": "I♥NY souvenir shop sign"
+   },
+   {
+    "f": "b10.jpg",
+    "ko": "교실 구성 예시",
+    "en": "Classroom layout example"
+   },
+   {
+    "f": "b11.jpg",
+    "ko": "실제 교실 세팅 사진",
+    "en": "Real classroom setup (photo)"
+   },
+   {
+    "f": "b12.jpg",
+    "ko": "실제 교실 세팅 사진",
+    "en": "Real classroom setup (photo)"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg",
+    "p02.jpg",
+    "p03.jpg",
+    "p04.jpg"
+   ],
+   [
+    "p05.jpg",
+    "p06.jpg",
+    "p07.jpg"
+   ],
+   [
+    "p08.jpg",
+    "p09.jpg"
+   ],
+   [
+    "p10.jpg",
+    "p11.jpg",
+    "p12.jpg",
+    "p13.jpg",
+    "p14.jpg",
+    "p15.jpg",
+    "p16.jpg",
+    "p17.jpg"
+   ],
+   [
+    "p18.jpg"
+   ]
+  ]
+ },
+ "texas": {
+  "bannersText": {
+   "ko": "텍사스 현관 · 메인 현수막, 사막 바닥재 2매, 데코 선인장 6개, 카우보이 포토배너",
+   "en": "Texas entrance & main banners, 2 desert floor mats, 6 decor cacti, cowboy photo banner"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "현관 웰컴 현수막",
+    "en": "Entrance welcome banner"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "텍사스 메인 현수막",
+    "en": "Texas main banner"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "카우보이 포토배너",
+    "en": "Cowboy photo banner"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "사막 · 오아시스 배경",
+    "en": "Desert & oasis backdrop"
+   },
+   {
+    "f": "b05.jpg",
+    "ko": "데코 선인장",
+    "en": "Decor cacti"
+   },
+   {
+    "f": "b06.jpg",
+    "ko": "데코 선인장",
+    "en": "Decor cactus"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg",
+    "p02.jpg",
+    "p03.jpg"
+   ],
+   [
+    "p04.jpg",
+    "p05.jpg"
+   ],
+   [
+    "p06.jpg",
+    "p07.jpg",
+    "p08.jpg",
+    "p09.jpg"
+   ]
+  ]
+ },
+ "harvard": {
+  "bannersText": {
+   "ko": "Harvard 대학교 현수막, 하버드 바닥재, 졸업식 현수막(포토존), MIT Robotics Lab 현수막",
+   "en": "Harvard University banner, Harvard floor mat, graduation banner (photo zone), MIT Robotics Lab banner"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "Harvard 대학교 현수막",
+    "en": "Harvard University banner"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "하버드 바닥재",
+    "en": "Harvard floor mat"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "졸업식 현수막 (포토존)",
+    "en": "Graduation banner (photo zone)"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "MIT Robotics Lab 현수막",
+    "en": "MIT Robotics Lab banner"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg",
+    "p02.jpg"
+   ],
+   [
+    "p03.jpg"
+   ],
+   [
+    "p04.jpg",
+    "p05.jpg"
+   ],
+   [
+    "p06.jpg"
+   ],
+   [
+    "p07.jpg"
+   ],
+   [
+    "p08.jpg"
+   ],
+   [
+    "p09.jpg",
+    "p10.jpg",
+    "p11.jpg"
+   ]
+  ],
+  "layout": {
+   "ko": "앞쪽 중앙: 교사 자리 · 스피커 / 왼편: 몬스터 교구 · MY BODY 그림 / 오른편: X-ray 카메라(바닥 스티커) / 가운데: 활동 공간(자리마다 바닥 스티커, 팔 벌려도 닿지 않는 간격) / 옆 · 뒤편: 흰 가운 · 졸업 가운 테이블, 빈백 바구니 / 포토존: 졸업식 현수막 앞",
+   "en": "Front center: teacher & speaker / Left: monster-face set & MY BODY poster / Right: X-ray camera (floor sticker) / Middle: activity space (floor stickers, arm's-length apart) / Side & back: lab-coat & gown tables, beanbag basket / Photo zone: in front of the graduation banner"
+  }
+ },
+ "san-francisco": {
+  "bannersText": {
+   "ko": "공항 · 비행기 내부 현수막, 샌프란시스코 현수막 3종, 현관 현수막, 바닥재 2종, 등신대 5종(보트 · 바다사자 · 상어 · 문어 · 게)",
+   "en": "Airport & cabin banners, 3 San Francisco banners, entrance banner, 2 floor mats, 5 standees (boat, sea lion, shark, octopus, crab)"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "현관 웰컴 현수막",
+    "en": "Entrance welcome banner"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "공항 현수막",
+    "en": "Airport banner"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "비행기 내부 현수막",
+    "en": "Airplane cabin banner"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "교실 구성 예시",
+    "en": "Classroom layout example"
+   },
+   {
+    "f": "b05.jpg",
+    "ko": "Pier 39 현수막",
+    "en": "Pier 39 banner"
+   },
+   {
+    "f": "b06.jpg",
+    "ko": "금문교 현수막",
+    "en": "Golden Gate Bridge banner"
+   },
+   {
+    "f": "b07.jpg",
+    "ko": "케이블카 현수막",
+    "en": "Cable car banner"
+   },
+   {
+    "f": "b08.jpg",
+    "ko": "바다 · 도로 바닥재",
+    "en": "Sea & road floor mat"
+   },
+   {
+    "f": "b09.jpg",
+    "ko": "바다사자 등신대",
+    "en": "Sea lion standee"
+   },
+   {
+    "f": "b10.jpg",
+    "ko": "문어 등신대",
+    "en": "Octopus standee"
+   },
+   {
+    "f": "b11.jpg",
+    "ko": "보트 등신대",
+    "en": "Boat standee"
+   },
+   {
+    "f": "b12.jpg",
+    "ko": "상어 등신대",
+    "en": "Shark standee"
+   },
+   {
+    "f": "b13.jpg",
+    "ko": "게 등신대",
+    "en": "Crab standee"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg"
+   ],
+   [
+    "p02.jpg",
+    "p03.jpg"
+   ],
+   [
+    "p04.jpg"
+   ],
+   [
+    "p05.jpg"
+   ],
+   [
+    "p06.jpg",
+    "p07.jpg",
+    "p08.jpg",
+    "p09.jpg"
+   ],
+   [
+    "p10.jpg"
+   ]
+  ]
+ },
+ "florida": {
+  "bannersText": {
+   "ko": "웰컴 포스터, 가랜드, 디즈니월드 입구 · 애니멀 킹덤 현수막, 요일별 동물쇼 배너",
+   "en": "Welcome poster, garland, Disney World entrance & Animal Kingdom banners, animal-show banners for each weekday"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "현관 웰컴 포스터",
+    "en": "Entrance welcome poster"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "가랜드",
+    "en": "Garland"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "디즈니월드 입구 현수막",
+    "en": "Disney World entrance banner"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "애니멀 킹덤 현수막",
+    "en": "Animal Kingdom banner"
+   },
+   {
+    "f": "b05.jpg",
+    "ko": "교실 세팅 예시",
+    "en": "Classroom setup example"
+   },
+   {
+    "f": "b06.jpg",
+    "ko": "월요일 동물쇼 배너",
+    "en": "Monday animal-show banner"
+   },
+   {
+    "f": "b07.jpg",
+    "ko": "화요일 동물쇼 배너",
+    "en": "Tuesday animal-show banner"
+   },
+   {
+    "f": "b08.jpg",
+    "ko": "수요일 동물쇼 배너",
+    "en": "Wednesday animal-show banner"
+   },
+   {
+    "f": "b09.jpg",
+    "ko": "목요일 동물쇼 배너",
+    "en": "Thursday animal-show banner"
+   },
+   {
+    "f": "b10.jpg",
+    "ko": "금요일 동물쇼 배너",
+    "en": "Friday animal-show banner"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg"
+   ],
+   [
+    "p02.jpg",
+    "p03.jpg"
+   ],
+   [
+    "p04.jpg",
+    "p05.jpg",
+    "p06.jpg",
+    "p07.jpg"
+   ],
+   [
+    "p08.jpg",
+    "p09.jpg"
+   ],
+   [
+    "p10.jpg",
+    "p11.jpg"
+   ],
+   [
+    "p12.jpg"
+   ]
+  ]
+ },
+ "iowa": {
+  "bannersText": {
+   "ko": "아이오와 옥수수밭 · 입구 현수막, \"너를 사랑해\" 현수막, Welcome to USA 기내 배너",
+   "en": "Iowa cornfield & entrance banners, \"I love you\" banner, Welcome to USA in-flight banner"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "아이오와 옥수수밭 메인 현수막",
+    "en": "Iowa cornfield main banner"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "현관 웰컴 현수막",
+    "en": "Entrance welcome banner"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "기내 배너",
+    "en": "In-flight banner"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg",
+    "p02.jpg"
+   ],
+   [
+    "p03.jpg",
+    "p04.jpg"
+   ],
+   [
+    "p05.jpg",
+    "p06.jpg",
+    "p07.jpg",
+    "p08.jpg",
+    "p09.jpg",
+    "p10.jpg"
+   ],
+   [
+    "p11.jpg",
+    "p12.jpg",
+    "p13.jpg",
+    "p14.jpg",
+    "p15.jpg"
+   ],
+   [
+    "p16.jpg",
+    "p17.jpg",
+    "p18.jpg"
+   ],
+   [
+    "p19.jpg",
+    "p20.jpg",
+    "p21.jpg",
+    "p22.jpg"
+   ],
+   [
+    "p23.jpg",
+    "p24.jpg",
+    "p25.jpg",
+    "p26.jpg"
+   ]
+  ]
+ },
+ "new-orleans": {
+  "bannersText": {
+   "ko": "French Quarter · 재즈밴드 · 미시시피 강 · 버이유 습지 · 마르디그라 퍼레이드 배경",
+   "en": "French Quarter, jazz band, Mississippi River, bayou and Mardi Gras parade backdrops"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "현관 웰컴 현수막",
+    "en": "Entrance welcome banner"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "뉴올리언스 메인 현수막",
+    "en": "New Orleans main banner"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "마르디그라 퍼레이드 배경",
+    "en": "Mardi Gras parade backdrop"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "마르디그라 가랜드",
+    "en": "Mardi Gras garland"
+   },
+   {
+    "f": "b05.jpg",
+    "ko": "악어 이야기 배경 (버이유 습지)",
+    "en": "Crocodile story backdrop (bayou)"
+   }
+  ],
+  "steps": [
+   [
+    "p01.jpg",
+    "p02.jpg",
+    "p03.jpg",
+    "p04.jpg"
+   ],
+   [
+    "p05.jpg",
+    "p06.jpg"
+   ],
+   [
+    "p07.jpg"
+   ],
+   [
+    "p08.jpg",
+    "p09.jpg"
+   ],
+   [
+    "p10.jpg",
+    "p11.jpg"
+   ]
+  ]
+ },
+ "vermont": {
+  "bannersText": {
+   "ko": "버몬트 단풍숲, 메이플 농장, 눈 덮인 산 배경",
+   "en": "Vermont fall forest, maple farm and snowy mountain backdrops"
+  }
+ },
+ "minnesota": {
+  "bannersText": {
+   "ko": "미네소타 숲, 호수, 야생동물 배경",
+   "en": "Minnesota forest, lake and wildlife backdrops"
+  }
+ },
+ "alaska": {
+  "bannersText": {
+   "ko": "알래스카 오로라, 설원, 이글루, 썰매개 마을 배경",
+   "en": "Alaska aurora, snowfield, igloo and sled-dog village backdrops"
+  }
+ },
+ "hollywood": {
+  "bannersText": {
+   "ko": "할리우드 사인, 영화 촬영장, 레드카펫, 오스카 시상식장 배경",
+   "en": "Hollywood sign, movie set, red carpet and Oscars stage backdrops"
+  }
+ },
+ "washington-dc": {
+  "bannersText": {
+   "ko": "백악관, 링컨 기념관, 워싱턴 기념탑, 국회의사당 배경",
+   "en": "White House, Lincoln Memorial, Washington Monument and Capitol backdrops"
+  }
+ }
+};
+const SETUP_DIR = 'SETUP';
+function setupHTML(id) {
+  const S = SETUP[id] || {}, l = LESSONS[id], L = lang;
+  const src = f => `${SETUP_DIR}/${id}/${f}`;
+  const mins = m => (Number.isInteger(m) ? m : m.toFixed(1)) + (L === 'ko' ? '분' : ' min');
+  let h = `<h3>${T('sBanners')}</h3>`;
+  if (S.banners && S.banners.length) {
+    h += `<p class="l-mat" style="margin-bottom:10px">${esc(S.bannersText[L])}</p><div class="s-gal">${S.banners.map(b =>
+      `<figure onclick="zoom('${src(b.f)}', this.querySelector('figcaption').textContent)"><img loading="lazy" src="${src(b.f)}" alt=""><figcaption>${esc(b[L])}</figcaption></figure>`).join('')}</div>`;
+  } else if (S.bannersText) {
+    h += `<div class="s-note">${T('sNoImg')}<br><b>${esc(S.bannersText[L])}</b></div>`;
+  }
+  if (S.layout) h += `<h3>${T('sLayout')}</h3><ul>${S.layout[L].split(' / ').map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
+  if (l && S.steps) {
+    h += `<h3>${T('sSteps')}</h3>` + l.steps.map((st, i) => {
+      const imgs = S.steps[i] || [];
+      return `<div class="s-step"><div class="l-sh"><b>${i + 1}. ${esc(st.t)}</b><span>${mins(st.min)}</span></div>${imgs.length
+        ? `<div class="s-thumbs">${imgs.map(f => `<img loading="lazy" src="${src(f)}" alt="" onclick="zoom('${src(f)}', '${esc(st.t).replace(/'/g, '&#39;')}')">`).join('')}</div>` : ''}</div>`;
+    }).join('');
+  }
+  if (l) h += `<h3>${T('sMat')}</h3><p class="l-mat">${esc(l.materials[L])}</p>`;
+  return h;
+}
+function openSetup() {
+  if (!city || !SETUP[city.id]) return;
+  $('sTitle').textContent = city.name.toUpperCase() + ' · ' + T('setup');
+  $('sBody').innerHTML = setupHTML(city.id);
+  $('sBody').scrollTop = 0;
+  $('sModal').classList.add('show');
+}
+function closeSetup() { $('sModal').classList.remove('show'); }
+function zoom(src, cap) { $('lbImg').src = src; $('lbCap').textContent = cap || ''; $('lightbox').classList.add('show'); }
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if ($('lightbox').classList.contains('show')) { $('lightbox').classList.remove('show'); return; }
+  closeSetup();
+});
+
+function closeLesson() { $('lModal').classList.remove('show'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLesson(); });
+const vLabel = v => v.label === 'part' ? `${T('vPart')} ${v.n}` : T(v.label || 'vMain');
+function updateVideoBtn() {
+  const list = city ? (VIDEOS[city.id] || []) : [];
+  $('videoBtn').classList.toggle('show', list.length > 0);
+  $('lessonBtn').classList.toggle('show', !!(city && LESSONS[city.id]));
+  $('setupBtn').classList.toggle('show', !!(city && SETUP[city.id]));
+  $('videoCnt').textContent = list.length > 1 ? list.length : '';
+  $('videoCnt').style.display = list.length > 1 ? '' : 'none';
+}
+function openVideo(i = 0) {
+  const list = city ? (VIDEOS[city.id] || []) : [];
+  if (!list.length) return;
+  if (isPlaying) stop();
+  vIdx = i;
+  const v = list[i];
+  $('vTitle').textContent = city.name.toUpperCase() + (list.length > 1 ? ' · ' + vLabel(v) : '');
+  $('vTabs').innerHTML = list.length > 1 ? list.map((x, k) => `<button class="vtab ${k === i ? 'on' : ''}" onclick="openVideo(${k})">${esc(vLabel(x))}</button>`).join('') : '';
+  $('vFrame').innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.yt}?rel=0&autoplay=1" title="${esc(city.name)} teaching video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  $('vLink').href = `https://youtu.be/${v.yt}`;
+  $('vModal').classList.add('show');
+}
+function closeVideo() { $('vModal').classList.remove('show'); $('vFrame').innerHTML = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('vModal').classList.contains('show')) closeVideo(); });
+
 /* ── LANGUAGE (EN / 한국어) ── */
 const I18N = {
   en: {
@@ -429,7 +1387,10 @@ const I18N = {
     oneTip:'Play only the selected song, then stop',
     repeatTip:'Repeat the selected song',
     pickHint:'Pick a city above to see its songs 🎵', loading:'Loading songs...', noTracks:'No songs yet',
-    cancel:'Cancel', ok:'OK'
+    cancel:'Cancel', ok:'OK',
+    watch:"Watch Big Cat's Teaching Video", watchSub:'Teaching video for instructors', openYT:'Open on YouTube ↗',
+    vMain:'Class video', vParent:'Parent participation', vPart:'Video',
+    lesson:'Quick Lesson Plan', lessonSub:'Lesson plan for instructors', lTitle:'Quick Lesson Plan', admin:'Admin', setup:'Classroom Setup', setupSub:'Banners, props & room layout — picture the class before you teach', sBanners:'Banners & backdrops', sSteps:'Props by activity', sLayout:'Room layout', sNoImg:'Banner design images for this city aren\'t uploaded yet. Here is the list from the lesson plan:', sMat:'Full materials list', lTotal:'Total', lGoals:'Goals', lExpr:'Key expressions', lFlow:'Class flow', lMat:'Materials'
   },
   ko: {
     nav1:'프로그램소개', nav2:'교육계획안', nav3:'이달의 도시', nav4:'스피치타임', game1:'게임 1',
@@ -441,7 +1402,10 @@ const I18N = {
     oneTip:'선택한 곡 하나만 재생하고 멈춤',
     repeatTip:'선택한 곡을 계속 반복',
     pickHint:'위에서 도시 카드를 선택하세요 🎵', loading:'음원을 불러오는 중...', noTracks:'아직 등록된 음원이 없어요',
-    cancel:'취소', ok:'확인'
+    cancel:'취소', ok:'확인',
+    watch:'빅캣의 티칭 영상 시청하기', watchSub:'강사용 교육 영상', openYT:'유튜브에서 열기 ↗',
+    vMain:'수업 영상', vParent:'부모참여용', vPart:'영상',
+    lesson:'간단 레슨플랜 보기', lessonSub:'강사용 수업 계획안', lTitle:'간단 레슨플랜', admin:'관리자용', setup:'교실 구성 보기', setupSub:'현수막 · 교구 · 교실 배치 — 수업 전에 미리 그려 보세요', sBanners:'현수막 & 배경', sSteps:'활동별 교구', sLayout:'교실 배치', sNoImg:'이 도시의 현수막 디자인 이미지는 아직 없어요. 계획안 기준 목록이에요:', sMat:'전체 준비물', lTotal:'총', lGoals:'학습 목표', lExpr:'핵심 표현', lFlow:'수업 흐름', lMat:'준비물'
   }
 };
 let lang = 'en';
@@ -459,6 +1423,8 @@ function applyLang() {
 }
 function setLang(l) {
   lang = l;
+  if (city && $('lModal').classList.contains('show')) setTimeout(openLesson);
+  if (city && $('sModal').classList.contains('show')) setTimeout(openSetup);
   try { localStorage.setItem('jb-lang', l); } catch {}
   renderCities();
   if (city) $(`card-${city.id}`)?.classList.add('active');
@@ -493,6 +1459,7 @@ async function openCity(id, autoplay = false) {
   $('thumb').style.setProperty('--ground', c.ground);
   $('thumbArt').textContent = c.a1;
   clearKey($('pTitle')).textContent = c.name.toUpperCase();
+  updateVideoBtn();
   $('npTitle').textContent = '—'; $('npArtist').textContent = '';
   $('trackList').innerHTML = emptyBox('loading');
   resetProgress();
@@ -518,6 +1485,7 @@ function setOpen(on) {
 function toggleList() { setOpen(!document.body.classList.contains('open')); }
 
 function closeCity() {
+  setTimeout(updateVideoBtn);
   document.body.classList.remove('open', 'has-city');
   loadToken++; stop();
   city = null; tracks = []; cur = -1;
