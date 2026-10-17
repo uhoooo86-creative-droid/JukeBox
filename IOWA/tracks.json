@@ -24,26 +24,26 @@
     },
     {
       "id": 3,
-      "title": "1 BGM No Popcorn.Wav",
-      "artist": "",
-      "duration": "0:02",
-      "file": "IOWA/2-1 BGM No Popcorn.wav",
-      "cover": ""
-    },
-    {
-      "id": 4,
-      "title": "2. 앙탈 I Want Popcorn",
-      "artist": "",
-      "duration": "1:01",
-      "file": "IOWA/2-2. 앙탈 I want Popcorn.mp3",
-      "cover": ""
-    },
-    {
-      "id": 5,
       "title": "BGM Eat Popcorn.Wav",
       "artist": "",
       "duration": "0:08",
       "file": "IOWA/2. BGM Eat Popcorn.wav",
+      "cover": ""
+    },
+    {
+      "id": 4,
+      "title": "BGM I Want Popcorn",
+      "artist": "",
+      "duration": "1:01",
+      "file": "IOWA/2. BGM I Want Popcorn.mp3",
+      "cover": ""
+    },
+    {
+      "id": 5,
+      "title": "BGM No Popcorn.Wav",
+      "artist": "",
+      "duration": "0:02",
+      "file": "IOWA/2. BGM No Popcorn.wav",
       "cover": ""
     },
     {
