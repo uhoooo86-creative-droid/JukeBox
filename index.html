@@ -523,7 +523,7 @@ const VIDEOS = {
   'texas':       [{ yt:'qb7mEyrgj9g' }],
   'harvard':     [{ yt:'UbkY3DSoMzo' }],
   'florida':     [{ yt:'bVSQLcm6-Lc' }],
-  'iowa':        [{ yt:'xWxigtMcnFQ', label:'part', n:1 }, { yt:'kC08j5J0MkI', label:'part', n:2 }],
+  'iowa':        [{ yt:'DpefOn7bWmo', label:'part', n:1 }, { yt:'xWxigtMcnFQ', label:'part', n:2 }, { yt:'kC08j5J0MkI', label:'part', n:3 }],
   'new-orleans': [{ yt:'Dl3TsaLf-u4', label:'vMain' }, { yt:'i7KtjTHx4vw', label:'vParent' }]
 };
 let vIdx = 0;
@@ -619,23 +619,33 @@ const LESSONS = {
     ]
   },
   'iowa': {
-    topic: { ko:'버니의 옥수수밭 & 아이스크림 공장 모험', en:'Bunny\'s Cornfield & Ice Cream Factory Adventure' },
+    topic: { ko:'토끼를 도와요! 아이오와 농장과 아이스크림 공장', en:'Help the Bunnies! Iowa Farm & Ice Cream Factory' },
     age: { ko:'5~7세', en:'Ages 5–7' },
     goals: {
-      ko:['인사하고 도움을 요청·거절하는 표현을 따라 말한다.','"Will you help me?"에 다양한 동의 표현으로 답한다.','가위바위보 레시피를 따라 하고 "Please / Thank you" 예의 표현을 쓴다.'],
-      en:['Greet, ask for help and say no in English.','Answer "Will you help me?" with different ways to say yes.','Follow a rock-paper-scissors recipe and use "please" and "thank you".']
+      ko:['아이오와의 옥수수밭과 아이스크림 공장에 관심을 갖는다.','친구와 협력하여 수확 · 운반 · 만들기 활동에 참여한다.','도움을 주고받고, 원하는 것을 정중하게 요청하는 영어 표현을 사용한다.'],
+      en:['Get curious about Iowa\'s cornfields and ice cream factory.','Work with friends to harvest, carry and make things.','Use English to offer and ask for help and to make polite requests.']
     },
-    expr:['Hello! How are you?','Will you help me? → Not me!','Okay, I will! / Sure! / Of course! / Why not?','Pick, pick, pick! Squish, squish! Mix, mix!','Can I get some ice cream, please?','Here you are. → Thank you!','I love Iowa!'],
-    materials: { ko:'버니 인형, 옥수수밭·공장 배경, 천둥·빗소리 음원, 동물 앞치마(말·양·오리·소), Old MacDonald 음원, 옥수수 수레·옥수수 소품, 가위바위보 카드, 냉동실 소품, 숫자 카드 1-10, 글자 아이스크림 카드, 스쿱 소품', en:'Bunny puppet, cornfield & factory backdrops, thunder/rain sound, animal aprons (horse, sheep, duck, cow), Old MacDonald track, corn cart & corn props, rock-paper-scissors cards, freezer prop, number cards 1–10, word ice-cream cards, scoop prop' },
+    expr:['Do you like ice cream? → Yes, I do!','Will you help me? → Yes, I will! / Sure! / Of course! / I will! / Me too!','May I help you?','Can I have some ice cream, please? → Here you are. → Thank you!','corn · bunny · blueberries · pick · carry · squish · mix'],
+    materials: { ko:'팝콘 상자 · 빈 과자 봉지, 아이오와 주기 · 간판, 양면 버니 찾기 교구, 밀짚모자, 옥수수 교구 · 바구니 · 수레, 동물 앞치마, 레시피 그림, 냉장고 교구, 문장 아이스크림 카드 6개, 슈팅 아이스크림, 음악 · 효과음', en:'Popcorn box & empty snack bags, Iowa flag & sign, two-sided find-the-bunny board, straw hats, corn props, basket & cart, animal aprons, recipe pictures, fridge prop, 6 sentence ice-cream cards, shooting ice cream, music & sound effects' },
     steps: [
-      { t:'Meet Bunny', min:4, ko:'아이오와 도착! 버니와 인사하고 옥수수밭과 아이스크림 공장 이야기를 듣는다.', en:'Arrive in Iowa! Say hello to Bunny and hear about the cornfield and ice cream factory.' },
-      { t:'Rain! Farm Helpers', min:4, ko:'천둥·빗소리에 버니가 "Will you help me?" → 동물 앞치마를 입고 Old MacDonald에 맞춰 농장일 돕기.', en:'Thunder and rain! Bunny asks "Will you help me?" → wear animal aprons and do farm work to Old MacDonald.' },
-      { t:'Not Me! → Ice Cream for You', min:4, ko:'동물 역할을 바꾸며 "Not me!" 반복 → 버니의 반전 "I wanted to make ice cream for you!"', en:'Swap animal roles saying "Not me!" → Bunny reveals "I wanted to make ice cream for you!"' },
-      { t:'Corn Delivery Race', min:5, ko:'동의 표현 5가지 연습 → 잘 대답한 친구가 옥수수 수레를 끌거나 옥수수 10개를 바구니로 옮긴다.', en:'Practice five ways to say yes → good answers earn a turn pulling the corn cart or moving 10 corns to the basket.' },
-      { t:'Rock Paper Scissors Factory', min:4, ko:'가위 "Pick!" · 보 "Squish!" · 바위 "Mix!"로 아이스크림 만들기 → 냉동실에 넣고 1~10 세기.', en:'Scissors "Pick!", paper "Squish!", rock "Mix!" to make ice cream → freeze it while counting 1–10.' },
-      { t:'Magic Words', min:3, ko:'글자 카드로 "Can I get some ice cream, please?" 완성 → "Here you are." / "Thank you!" 주고받기.', en:'Build "Can I get some ice cream, please?" with word cards → trade "Here you are." / "Thank you!"' },
-      { t:'Do You Like Iowa?', min:1, ko:'맛별로 묻다가 "Do you like IOWA?" → "YES! I LOVE IOWA!" 단체 사진.', en:'Ask about flavors, then "Do you like IOWA?" → "YES! I LOVE IOWA!" group photo.' }
-    ]
+      { t:'Popcorn Surprise', min:3, ko:'강사가 팝콘을 먹으며 인사 → 팝콘 상자 · 과자 봉지가 텅 빈 상황을 재미있게 → 손으로 아이스크림 모양을 만들며 맛있는 간식을 찾아 아이오와로 떠나자고 제안.', en:'Teacher greets while eating popcorn → the popcorn box and snack bags are empty! → make an ice cream with hands and suggest a trip to Iowa for yummy snacks. "Hello!" "Yummy!"' },
+      { t:'Let\'s Go to Iowa!', min:2, ko:'주기 속 독수리를 보고 날개 펴는 동작 → Let\'s Go Iowa 노래에 맞춰 이동 → IOWA 간판과 옥수수밭 발견.', en:'Spot the eagle on the flag and spread your wings → move to the Let\'s Go Iowa song → find the IOWA sign and the cornfield. "Let\'s go to Iowa!"' },
+      { t:'Help the Yellow Bunny', min:4, ko:'옥수수밭에 숨은 노란 버니 찾기 → 바쁜 버니에게 "May I help you?" → 모자를 쓰고 옥수수를 따서(Pick!) 친구에게 전달(Pass!) → 수레에 담기. (Pass the Beanbag)', en:'Find the yellow bunny hiding in the cornfield → offer help: "May I help you?" → put on hats, pick corn ("Pick!"), pass it along ("Pass!") and load the cart. (Pass the Beanbag)' },
+      { t:'Corn Delivery Team', min:3, ko:'"Do you like ice cream?" 묻고 답하기 → "Will you help me?"에 다양한 표현으로 응답 → 5명이 한 바퀴씩 수레를 끌고, 나머지는 응원하며 횟수를 센다.', en:'"Do you like ice cream?" Q&A → answer "Will you help me?" in different ways → five children each pull the cart one lap while the others cheer and count.' },
+      { t:'Rain! Find the Blue Bunny', min:3, ko:'천둥 · 빗소리에 머리를 감싸고 가게로 이동 → 비가 그치고 더워지는 날씨를 몸으로 표현 → 블루베리 속 파란 버니를 찾고, 재료가 떨어진 버니를 돕기로 한다.', en:'Thunder and rain — cover heads and follow to the shop ("Follow me!") → the rain stops and it gets hot ("It\'s hot!") → find the blue bunny in the blueberries; she\'s out of ingredients, so let\'s help!' },
+      { t:'Make Blueberry Ice Cream', min:4, ko:'동물 앞치마를 입고 레시피 그림 보기 → 따기 · 으깨기 · 우유 짜기 · 섞기 동작 익히기 → DJ Old MacDonald에 맞춰 동물별 동작 → 오리걸음으로 마무리하다 냉장고 발견!', en:'Put on animal aprons and look at the recipe pictures → learn the moves: "Pick!" "Squish!" "Milk!" "Mix!" → animal moves to DJ Old MacDonald → finish with a duck walk… and find the fridge!' },
+      { t:'Can I Have Some Ice Cream, Please?', min:4, ko:'문장 카드를 하나씩 꺼내며 따라 말하기 → 6명이 Can / I / have / some / ice cream / please? 카드를 들고 문장 완성 → 다음 팀과 요청 · 전달 표현을 주고받고 슈팅 아이스크림 받기.', en:'Take out the sentence cards one by one and repeat → six children hold Can / I / have / some / ice cream / please? to build the sentence → swap requests and "Here you are." / "Thank you!" with the next team, then get the shooting ice cream.' },
+      { t:'Wrap-up & Photo', min:2, ko:'토끼를 도왔던 활동과 주요 표현 떠올리기 → 아이스크림 공장 앞 기념사진 → 교구 정리 후 인사. "I love Iowa!" "Bye-bye!"', en:'Recall how we helped the bunnies and the key expressions → photo in front of the ice cream factory → tidy up and say goodbye. "I love Iowa!" "Bye-bye!"' }
+    ],
+    notes: {
+      ko:['음악은 활동에 필요한 부분만 사용한다.','수레에는 가벼운 교구만 싣고 짧은 동선으로 이동한다.','문장 카드 활동은 교사의 시범과 함께 말하기로 참여를 돕는다.'],
+      en:['Play only the parts of the music each activity needs.','Load only light props on the cart and keep its route short.','For the sentence cards, model first and say it together to help everyone join in.']
+    },
+    eval: {
+      ko:['친구와 차례를 지키며 협력하는가?','주요 동작 어휘를 듣고 몸으로 표현하는가?','도움 · 요청 · 감사 표현을 따라 말하거나 상황에 맞게 사용하는가?'],
+      en:['Does the child take turns and cooperate with friends?','Does the child respond to the key action words with their body?','Does the child repeat or use helping, requesting and thank-you expressions in context?']
+    },
+    home: { ko:'가족과 손동작으로 아이스크림을 만들고, "Can I have some ice cream, please?" "Here you are." "Thank you!"를 주고받는다.', en:'Make ice cream with hand moves at home and trade "Can I have some ice cream, please?" "Here you are." "Thank you!" with family.' }
   },
   'new-orleans': {
     topic: { ko:'심술쟁이 악어 & 뮤직 퍼레이드', en:'Grumpy Crocodile & Music Parade' },
@@ -756,7 +766,10 @@ function lessonHTML(l) {
       <li><div class="l-sh"><b>${esc(s.t)}</b><span>${mins(s.min)}</span></div><p>${esc(s[L])}</p></li>`).join('')}
     </ol>
     <h3>${T('lMat')}</h3>
-    <p class="l-mat">${esc(l.materials[L])}</p>`;
+    <p class="l-mat">${esc(l.materials[L])}</p>${l.notes ? `
+    <h3>${T('lNotes')}</h3><ul>${l.notes[L].map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${l.eval ? `
+    <h3>${T('lEval')}</h3><ol>${l.eval[L].map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}${l.home ? `
+    <h3>${T('lHome')}</h3><p class="l-mat">${esc(l.home[L])}</p>` : ''}`;
 }
 function openLesson() {
   const l = city && LESSONS[city.id];
@@ -1161,24 +1174,29 @@ const SETUP = {
  },
  "iowa": {
   "bannersText": {
-   "ko": "아이오와 옥수수밭 · 입구 현수막, \"너를 사랑해\" 현수막, Welcome to USA 기내 배너",
-   "en": "Iowa cornfield & entrance banners, \"I love you\" banner, Welcome to USA in-flight banner"
+   "ko": "교실 세팅 / 벽면: 아이오와 국기 농장 · Wells 아이스크림 가게 / 바닥 옥수수밭 매트",
+   "en": "Classroom setup / Walls: Iowa flag farm, Wells ice-cream shop / Cornfield floor mat"
   },
   "banners": [
    {
     "f": "b01.jpg",
-    "ko": "아이오와 옥수수밭 메인 현수막",
-    "en": "Iowa cornfield main banner"
-   },
-   {
-    "f": "b02.jpg",
-    "ko": "현관 웰컴 현수막",
-    "en": "Entrance welcome banner"
+    "ko": "교실 세팅",
+    "en": "Classroom setup"
    },
    {
     "f": "b03.jpg",
-    "ko": "기내 배너",
-    "en": "In-flight banner"
+    "ko": "아이오와 국기 농장 현수막",
+    "en": "Iowa flag farm banner"
+   },
+   {
+    "f": "b06.jpg",
+    "ko": "Wells 아이스크림 가게 현수막",
+    "en": "Wells ice-cream shop banner"
+   },
+   {
+    "f": "b07.jpg",
+    "ko": "바닥 옥수수밭 매트",
+    "en": "Cornfield floor mat"
    }
   ],
   "steps": [
@@ -1188,39 +1206,40 @@ const SETUP = {
    ],
    [
     "p03.jpg",
+    "b03.jpg",
     "p04.jpg"
    ],
    [
     "p05.jpg",
+    "p19.jpg",
+    "b07.jpg",
     "p06.jpg",
-    "p07.jpg",
-    "p08.jpg",
-    "p09.jpg",
-    "p10.jpg"
+    "p21.jpg"
    ],
    [
+    "p21.jpg"
+   ],
+   [
+    "p04.jpg",
+    "p07.jpg"
+   ],
+   [
+    "p08.jpg",
+    "p09.jpg",
+    "p10.jpg",
     "p11.jpg",
     "p12.jpg",
     "p13.jpg",
+    "p20.jpg"
+   ],
+   [
     "p14.jpg",
-    "p15.jpg"
-   ],
-   [
+    "p15.jpg",
     "p16.jpg",
-    "p17.jpg",
+    "p17.jpg"
+   ],
+   [
     "p18.jpg"
-   ],
-   [
-    "p19.jpg",
-    "p20.jpg",
-    "p21.jpg",
-    "p22.jpg"
-   ],
-   [
-    "p23.jpg",
-    "p24.jpg",
-    "p25.jpg",
-    "p26.jpg"
    ]
   ]
  },
@@ -1390,7 +1409,7 @@ const I18N = {
     cancel:'Cancel', ok:'OK',
     watch:"Watch Big Cat's Teaching Video", watchSub:'Teaching video for instructors', openYT:'Open on YouTube ↗',
     vMain:'Class video', vParent:'Parent participation', vPart:'Video',
-    lesson:'Quick Lesson Plan', lessonSub:'Lesson plan for instructors', lTitle:'Quick Lesson Plan', admin:'Admin', setup:'Classroom Setup', setupSub:'Banners, props & room layout — picture the class before you teach', sBanners:'Banners & backdrops', sSteps:'Props by activity', sLayout:'Room layout', sNoImg:'Banner design images for this city aren\'t uploaded yet. Here is the list from the lesson plan:', sMat:'Full materials list', lTotal:'Total', lGoals:'Goals', lExpr:'Key expressions', lFlow:'Class flow', lMat:'Materials'
+    lesson:'Quick Lesson Plan', lessonSub:'Lesson plan for instructors', lTitle:'Quick Lesson Plan', admin:'Admin', setup:'Classroom Setup', setupSub:'Banners, props & room layout — picture the class before you teach', sBanners:'Banners & backdrops', sSteps:'Props by activity', sLayout:'Room layout', sNoImg:'Banner design images for this city aren\'t uploaded yet. Here is the list from the lesson plan:', sMat:'Full materials list', lTotal:'Total', lGoals:'Goals', lExpr:'Key expressions', lFlow:'Class flow', lMat:'Materials', lNotes:'Teaching tips', lEval:'Assessment', lHome:'Home connection'
   },
   ko: {
     nav1:'프로그램소개', nav2:'교육계획안', nav3:'이달의 도시', nav4:'스피치타임', game1:'게임 1',
@@ -1405,7 +1424,7 @@ const I18N = {
     cancel:'취소', ok:'확인',
     watch:'빅캣의 티칭 영상 시청하기', watchSub:'강사용 교육 영상', openYT:'유튜브에서 열기 ↗',
     vMain:'수업 영상', vParent:'부모참여용', vPart:'영상',
-    lesson:'간단 레슨플랜 보기', lessonSub:'강사용 수업 계획안', lTitle:'간단 레슨플랜', admin:'관리자용', setup:'교실 구성 보기', setupSub:'현수막 · 교구 · 교실 배치 — 수업 전에 미리 그려 보세요', sBanners:'현수막 & 배경', sSteps:'활동별 교구', sLayout:'교실 배치', sNoImg:'이 도시의 현수막 디자인 이미지는 아직 없어요. 계획안 기준 목록이에요:', sMat:'전체 준비물', lTotal:'총', lGoals:'학습 목표', lExpr:'핵심 표현', lFlow:'수업 흐름', lMat:'준비물'
+    lesson:'간단 레슨플랜 보기', lessonSub:'강사용 수업 계획안', lTitle:'간단 레슨플랜', admin:'관리자용', setup:'교실 구성 보기', setupSub:'현수막 · 교구 · 교실 배치 — 수업 전에 미리 그려 보세요', sBanners:'현수막 & 배경', sSteps:'활동별 교구', sLayout:'교실 배치', sNoImg:'이 도시의 현수막 디자인 이미지는 아직 없어요. 계획안 기준 목록이에요:', sMat:'전체 준비물', lTotal:'총', lGoals:'학습 목표', lExpr:'핵심 표현', lFlow:'수업 흐름', lMat:'준비물', lNotes:'지도상 유의점', lEval:'활동 평가', lHome:'가정 연계'
   }
 };
 let lang = 'en';
