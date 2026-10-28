@@ -538,7 +538,8 @@ const VIDEOS = {
   'san-francisco': [{ yt:'JsPV3uqI9PI' }],
   'florida':     [{ yt:'bVSQLcm6-Lc' }],
   'iowa':        [{ yt:'DpefOn7bWmo', label:'part', n:1 }, { yt:'xWxigtMcnFQ', label:'part', n:2 }, { yt:'kC08j5J0MkI', label:'part', n:3 }],
-  'new-orleans': [{ yt:'Dl3TsaLf-u4', label:'vMain' }, { yt:'i7KtjTHx4vw', label:'vParent' }]
+  'new-orleans': [{ yt:'Dl3TsaLf-u4', label:'vMain' }, { yt:'i7KtjTHx4vw', label:'vParent' }],
+  'houston':     [{ yt:'ioURBzu15Uk' }]
 };
 let vIdx = 0;
 
@@ -762,6 +763,33 @@ const LESSONS = {
       { t:'Telepathy Game', min:8, ko:'카테고리별 "What do you like?" → "I like ___!" 친구와 같으면 "Me too!"', en:'"What do you like?" by category → "I like ___!" Same as your friend? "Me too!"' },
       { t:'Vote for Your Favorite Subject!', min:8, ko:'"What\'s your favorite subject?" → 투표함에 스티커 투표 후 결과 함께 확인.', en:'"What\'s your favorite subject?" → vote with stickers and check the results together.' }
     ]
+  },
+  'houston': {
+    topic: { ko:'휴스턴 우주센터에서 우주인 되기 — 우주 생활 체험 & 요일 로켓 달 탐험', en:'Become an astronaut at Houston Space Center — space life & the Day-of-the-Week rocket to the Moon' },
+    age: { ko:'5~7세', en:'Ages 5–7' },
+    goals: {
+      ko:['휴스턴 우주센터(NASA)와 우주인이 하는 일에 관심을 가진다.','우주 생활 동작과 일상 어휘(우주 물건 · 방 이름 · 일상 동작)를 영어로 표현한다.','일곱 요일 이름을 말하고, 요일과 짝이 되는 일곱 우주 친구(해 · 달 · 행성)를 연결한다.','영어 지시어 · 노래 · 챈트를 듣고 몸으로 즐겁게 반응한다.'],
+      en:['Show interest in Houston Space Center (NASA) and what astronauts do.','Say space-life actions and daily vocabulary (space objects, room names, daily routines) in English.','Say the seven days and match each with its space friend (Sun, Moon, planets).','Respond to English commands, songs and chants with the body.']
+    },
+    expr:['Houston! NASA! Space Center! Astronaut!','Listen! What\'s that sound?','Gravity pulls us down! Walk! Float! Freeze!','Find the toothpaste! Bathroom / Living Room / Gym!','Same as us! Clean! Brush your teeth! Comb your hair! Exercise! Read a book!','Put on your spacesuits! Sit down. Buckle up!','Find Monday. Find 月! Press the button! Monday! Moon!','Five, four, three, two, one! Blast off!','Houston, we landed! — Roger!','The Eagle has landed! Follow the footprints! Neil Armstrong!','Sunday! The Sun is hot! Sun POWER!','Up! Down! Slowly! Mission complete!'],
+    materials: { ko:'현수막 4장(외관 · 전시관 · 달 바닥 2종), NASA HOUSTON 로고, 캐릭터 판넬 6종(Saturn V · Space Capsule · Space Station · Living Room · Bathroom · Gym), 로켓 조종 핸들(요일 버튼 日月火水木金土 · 발사 버튼), 요일 로켓 카드 7종, Days of the Week 차트, 일상 동작 카드 9종, 우주 물건 카드 9종, 천체 카드 7종, 아폴로 11 카드 3종, 우주복, 깃발과 꽂이, 카드 상자, 닐 암스트롱 카드(인원수), 천체 공 7종, 큰 낙하산, 음원 · 효과음', en:'4 banners (exterior, exhibition hall, 2 moon-surface), NASA HOUSTON logo, 6 character panels (Saturn V, Space Capsule, Space Station, Living Room, Bathroom, Gym), rocket steering wheel (day buttons 日月火水木金土 + launch button), 7 day-rocket cards, Days of the Week chart, 9 daily-action cards, 9 space-object cards, 7 planet cards, 3 Apollo 11 cards, spacesuits, flags & stands, card box, Neil Armstrong cards (one per child), 7 planet balls, big parachute, music & sound effects' },
+    steps: [
+      { t:'Off to Hyoo~ston!', min:3, ko:'볼을 부풀렸다 "휴~" 내쉬며 "휴~스턴!" → 비행기 팔로 도착. 발사음을 들려주고 "What\'s that sound?" 현수막 ①에서 NASA 로고와 우주왕복선을 업은 큰 비행기를 찾는다. (♪ ① 여행 노래 · 🔊 ② 발사음)', en:'Puff cheeks and exhale "Hyoo~ston!" → arrive with airplane arms. Play the launch sound, "What\'s that sound?" and find the NASA logo and the big plane carrying the shuttle on banner ①. (♪ ① travel song · 🔊 ② launch sound)' },
+      { t:'Float! Space Life Training', min:3, ko:'"Gravity pulls us down!" Pull power → 또박또박 걷기, Zero power → 둥둥 슬로모션(Walk! Float! Freeze!). 우주 물건 카드로 "Find the toothpaste!" → 알맞은 방 판넬(Bathroom · Living Room · Gym)로 이동. (♪ ③ 우주 BGM · 🔊 ④ 뽀잉)', en:'"Gravity pulls us down!" Pull power → walk firmly; Zero power → float in slow motion (Walk! Float! Freeze!). With object cards: "Find the toothpaste!" → float to the right room panel (Bathroom, Living Room, Gym). (♪ ③ space BGM · 🔊 ④ boing)' },
+      { t:'An Astronaut\'s Day', min:3, ko:'현수막 ②의 Living in Space를 가리키며 동작 카드를 빠르게 보여주고 "Same as us!" — Clean · Brush your teeth · Comb your hair · Exercise · Read a book을 우주인처럼 둥둥 떠서 따라 한다. (♪ ⑤ 일상 동작 노래)', en:'Point to Living in Space on banner ② and flash action cards: "Same as us!" — float like astronauts doing Clean, Brush your teeth, Comb your hair, Exercise, Read a book. (♪ ⑤ daily-actions song)' },
+      { t:'Day-of-the-Week Rocket Launch!', min:4, ko:'우주복을 입고 "Sit down. Buckle up! Hold your rocket steering wheel!" → "Find Monday. Find 月!" 월 버튼을 누르고 "Monday! Moon!" → "Are you ready?" → 카운트다운 "Five, four, three, two, one! Blast off!" → 핸들을 돌려 Turn left / right → "Slow down… Let\'s land!" → "Houston, we landed!" "Roger!" (🔊 ⑥⑦⑧)', en:'Put on spacesuits: "Sit down. Buckle up! Hold your rocket steering wheel!" → "Find Monday. Find 月!" press the button, "Monday! Moon!" → "Are you ready?" → countdown "Five … one! Blast off!" → steer Turn left / right → "Slow down… Let\'s land!" → "Houston, we landed!" "Roger!" (🔊 ⑥⑦⑧)' },
+      { t:'Moon Exploration', min:4, ko:'Eagle 카드로 "The Eagle has landed!" → 달 바닥 A(크레이터)를 따라 "Follow the footprints!" → 대표 한 명이 깃발 꽂고 카드 한 장 → 달 바닥 B로 돌아오기. 모두 모이면 카드를 동시에 뒤집어 "Neil Armstrong!" (♪ ③ · 🔊 ⑨ 성공음)', en:'Eagle card: "The Eagle has landed!" → follow the footprints on moon surface A (craters) → one child plants the flag and takes a card → return along moon surface B. Flip cards together: "Neil Armstrong!" (♪ ③ · 🔊 ⑨ success sound)' },
+      { t:'Days Chant & Seven Space Friends', min:7, ko:'Days of the Week 차트로 요일 순서를 말하고, 요일 로켓 카드로 "Sunday! The Sun is hot! Sun~ POWER!" 챈트 + 파워 포즈. 천체 공을 큰 낙하산에 담아 "Up! Down! Slowly! Don\'t let them fall!" (♪ ⑩ 챈트 → ⑪ From the Sun to Saturn)', en:'Say the days in order with the Days of the Week chart, then chant with the day-rocket cards: "Sunday! The Sun is hot! Sun~ POWER!" with power poses. Put planet balls in the big parachute: "Up! Down! Slowly! Don\'t let them fall!" (♪ ⑩ chant → ⑪ From the Sun to Saturn)' },
+      { t:'Mission Complete', min:1, ko:'낙하산을 천천히 내려놓고 "Mission complete!" → 우주인 포즈로 "We\'re astronauts!" "Goodbye, Houston!" (🔊 ⑨ 성공음)', en:'Lower the parachute slowly: "Mission complete!" → astronaut pose: "We\'re astronauts!" "Goodbye, Houston!" (🔊 ⑨ success sound)' }
+    ],
+    notes: {
+      ko:['중력: Pull power / Zero power는 놀이 구호예요. "우주에는 중력이 전혀 없다" 대신 "우주정거장에서는 몸과 물건이 함께 둥둥 떠다녀요"라고 말해요.','우주 생활: 우주정거장에서는 타월로 몸을 씻고 영상도 볼 수 있어요. 리모컨의 "띠띠띠!"는 작동이 안 되는 장난으로 연출해요.','요일과 천체: 일=해, 월=달, 화=화성, 수=수성, 목=목성, 금=금성, 토=토성. 영어로는 Sunday · Monday · Saturday가 해 · 달 · 토성에서 온 이름이에요.','조종 핸들: 日月火水木金土는 읽게 하기보다 색으로 찾게 해요(日 주황, 月 흰색, 火 빨강, 水 하늘색, 木 초록, 金 노랑, 土 보라). 버튼마다 "Beep!"을 함께 외쳐요.','천체 호칭: 태양과 달은 행성이 아니므로 "일곱 우주 친구"라고 소개해요.','달 탐험 운영: 한 명이 돌아올 때까지 기다리지 않고 간격을 두고 연속 출발해요. 먼저 돌아온 친구는 카드를 뒤집지 않고 기다렸다가 함께 공개해요.','낙하산은 부드러운 공을 쓰고 얼굴을 숙이지 않도록 해요.'],
+      en:['Gravity: "Pull power / Zero power" are play cues. Instead of "there is no gravity in space," say "on the space station, bodies and objects float together."','Space life: astronauts wash with a towel and can watch videos. Play the remote\'s "beep beep" as a joke that doesn\'t work.','Days & planets: Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn — the Korean day names (日月火水木金土) show the link clearly. In English, Sunday, Monday and Saturday come from the Sun, Moon and Saturn.','Steering wheel: have children find buttons by color, not by reading the characters (日 orange, 月 white, 火 red, 水 sky blue, 木 green, 金 yellow, 土 purple). Say "Beep!" with every press.','Call them "seven space friends" — the Sun and Moon are not planets.','Moon walk: send children out one after another at intervals; early returners wait and flip their cards together.','Use soft balls with the parachute and keep faces up.']
+    },
+    home: {
+      ko:'Days of the Week 차트와 일곱 우주 친구 그림을 가정에 보내요. 집에서 "Same as us!" 놀이로 양치 · 세수 · 운동 · 독서 동작을 영어로 말해 보고, 탐사 인증사진과 함께 "Mission complete! We\'re astronauts!"를 가족 앞에서 말해 보도록 안내해요. 챈트: Sunday! Sunday! The Sun is hot! Sun~ POWER! / Monday! The Moon has craters! / Tuesday! Mars is red! / Wednesday! Mercury is small! / Thursday! Jupiter is big! / Friday! Venus is bright! / Saturday! Saturn has rings!',
+      en:'Send home the Days of the Week chart and the seven space friends. At home, play "Same as us!" saying brushing, washing, exercising and reading in English, and say "Mission complete! We\'re astronauts!" to the family with the mission photo. Chant: Sunday! The Sun is hot! Sun~ POWER! / Monday! The Moon has craters! / Tuesday! Mars is red! / Wednesday! Mercury is small! / Thursday! Jupiter is big! / Friday! Venus is bright! / Saturday! Saturn has rings!'
+    }
   }
 };
 function lessonHTML(l) {
@@ -1342,6 +1370,118 @@ const SETUP = {
    "ko": "백악관, 링컨 기념관, 워싱턴 기념탑, 국회의사당 배경",
    "en": "White House, Lincoln Memorial, Washington Monument and Capitol backdrops"
   }
+ },
+ "houston": {
+  "bannersText": {
+   "ko": "① 외관(Space Center Houston) · ② 전시관 · ③④ 달 바닥 A/B 현수막 4장, NASA HOUSTON 로고, 캐릭터 판넬 6종, 로켓 조종 핸들, Days of the Week 차트",
+   "en": "4 banners (① exterior, ② exhibition hall, ③④ moon surface A/B), NASA HOUSTON logo, 6 character panels, rocket steering wheel, Days of the Week chart"
+  },
+  "banners": [
+   {
+    "f": "b01.jpg",
+    "ko": "① 외관 — Space Center Houston (도입)",
+    "en": "① Exterior — Space Center Houston (intro)"
+   },
+   {
+    "f": "b02.jpg",
+    "ko": "② 전시관 — 우주 생활 · 새턴 V",
+    "en": "② Exhibition hall — space life & Saturn V"
+   },
+   {
+    "f": "b03.jpg",
+    "ko": "③ 달 바닥 A — 가는 길",
+    "en": "③ Moon surface A — going"
+   },
+   {
+    "f": "b04.jpg",
+    "ko": "④ 달 바닥 B — 돌아오는 길",
+    "en": "④ Moon surface B — returning"
+   },
+   {
+    "f": "p20.jpg",
+    "ko": "NASA HOUSTON 로고",
+    "en": "NASA HOUSTON logo"
+   },
+   {
+    "f": "p05.jpg",
+    "ko": "로켓 조종 핸들",
+    "en": "Rocket steering wheel"
+   },
+   {
+    "f": "p06.jpg",
+    "ko": "Days of the Week 차트",
+    "en": "Days of the Week chart"
+   }
+  ],
+  "layout": {
+   "ko": "앞쪽 중앙: 현수막 ① · NASA 로고, 교사 자리 · 스피커 / 한쪽 벽: 현수막 ②와 방 판넬(Bathroom · Living Room · Gym) 나란히 / 가운데: 활동 공간(둥둥 훈련 · 로켓 좌석, 조종 핸들 인원수만큼) / 한쪽 길: 달 바닥 A(가는 길) → 깃발 · 카드 상자 → 달 바닥 B(돌아오는 길) / 뒤편: Days of the Week 차트 · 낙하산 · 천체 공 바구니",
+   "en": "Front center: banner ① & NASA logo, teacher & speaker / One wall: banner ② with room panels (Bathroom, Living Room, Gym) side by side / Middle: activity space (float training & rocket seats, one steering wheel per child) / One lane: moon surface A (going) → flag & card box → moon surface B (returning) / Back: Days of the Week chart, parachute, planet-ball basket"
+  },
+  "steps": [
+   [
+    "b01.jpg",
+    "p20.jpg"
+   ],
+   [
+    "p18.jpg",
+    "p17.jpg",
+    "p19.jpg",
+    "p31.jpg",
+    "p32.jpg",
+    "p33.jpg",
+    "p34.jpg",
+    "p35.jpg",
+    "p36.jpg",
+    "p37.jpg",
+    "p38.jpg",
+    "p39.jpg"
+   ],
+   [
+    "b02.jpg",
+    "p22.jpg",
+    "p23.jpg",
+    "p24.jpg",
+    "p25.jpg",
+    "p26.jpg",
+    "p27.jpg",
+    "p28.jpg",
+    "p29.jpg",
+    "p30.jpg"
+   ],
+   [
+    "p05.jpg",
+    "p08.jpg",
+    "p14.jpg",
+    "p15.jpg",
+    "p16.jpg",
+    "p21.jpg"
+   ],
+   [
+    "b03.jpg",
+    "b04.jpg",
+    "p40.jpg",
+    "p41.jpg",
+    "p42.jpg"
+   ],
+   [
+    "p06.jpg",
+    "p07.jpg",
+    "p08.jpg",
+    "p09.jpg",
+    "p10.jpg",
+    "p11.jpg",
+    "p12.jpg",
+    "p13.jpg",
+    "p43.jpg",
+    "p44.jpg",
+    "p45.jpg",
+    "p46.jpg",
+    "p47.jpg",
+    "p48.jpg",
+    "p49.jpg"
+   ],
+   []
+  ]
  }
 };
 const SETUP_DIR = 'SETUP';
